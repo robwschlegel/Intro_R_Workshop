@@ -217,7 +217,7 @@ There is an avalanche of useful functions to be found within the **`tidyverse`**
 
 ### Rename variables (columns) with `rename()`
 
-We have seen that we select columns in a dataframe with `select()`, but if we want to rename columns we have to use, you guessed it, `rename()`. This functions works by first telling R the new name you would like, and then the existing name of the column to be changed. This is perhaps a bit back to front, but such is life on occassion.
+We have seen that we select columns in a dataframe with `select()`, but if we want to rename columns we have to use, you guessed it, `rename()`. This functions works by first telling R the new name you would like, and then the existing name of the column to be changed. This is perhaps a bit back to front, but such is life on occasion.
 
 ```{r tidiest-rename, eval=FALSE}
 SACTN %>% 
@@ -331,7 +331,7 @@ SACTN %>%
   slice(-(1:1000))
 ```
 
-It is discouraged to use slice to remove or select specific rows of data as this does not discrimante against any possible future changes in ones data. Meaning that if at some point in the future new data are added to a dataset, re-running this code will likely no longer be selecting the correct rows. This is why `filter()` is a main function, and `slice()` is not. This auxiliary function can however still be quite useful when combined with arrange.
+It is discouraged to use slice to remove or select specific rows of data as this does not discriminate against any possible future changes in ones data. Meaning that if at some point in the future new data are added to a dataset, re-running this code will likely no longer be selecting the correct rows. This is why `filter()` is a main function, and `slice()` is not. This auxiliary function can however still be quite useful when combined with arrange.
 
 ```{r tidiest-slice-2}
 # The top 5 variable sites as measured by SD

@@ -32,16 +32,16 @@ RStudio is highly customisable. Under the **Appearance** tab under 'Tools'/'Glob
 
 You cannot rearrange panes (see below) in RStudio by dragging them, but you can alter their position via the **Pane Layout** tab in the 'Tools'/'Global Options' ('RStudio'/'Preferences' – for Mac). You may arrange the panes as you would prefer however we recommend that during the duration of this workshop you leave them in the default layout.
 
-## RProjects
-A very nifty way of managing workflow in RStudio is through the built-in functionality of RProjects. We do not need to install any packages or change any settings to use these. Creating a new project is a very simple task, as well. For this course we will be using the `Intro_R_Workshop.RProj` file you downloaded with the course material so that we are all running identical projects. This will prevent a lot of issues by ensuring we are doing things by the same sandard. Better yet, RProjects integrate seemlessly into version control software (e.g. GitHub) and allow for instant world class collaboration on any research project. To initialise the 'Intro_R_Workshop' project on your machine please find where you saved `Intro_R_Workshop.RProj` file and click on it. We will cover the concepts and benefits of RProjects more as we move through the course.
+## RProject's
+A very nifty way of managing workflow in RStudio is through the built-in functionality of RProject's. We do not need to install any packages or change any settings to use these. Creating a new project is a very simple task, as well. For this course we will be using the `Intro_R_Workshop.RProj` file you downloaded with the course material so that we are all running identical projects. This will prevent a lot of issues by ensuring we are doing things by the same standard. Better yet, RProject's integrate seamlessly into version control software (e.g. GitHub) and allow for instant world class collaboration on any research project. To initialise the 'Intro_R_Workshop' project on your machine please find where you saved `Intro_R_Workshop.RProj` file and click on it. We will cover the concepts and benefits of RProject's more as we move through the course.
 
 ## Installing packages
 
-The most common functions used in R are contained within the **`base`** package; this makes R useful 'out of the box.' However, there is extensive additional functionality that is being expanded all the time through the use of packages. Packages are simply collections of code called functions (we'll be writing our own functions soon!) that automate complex mathematical or statistical tasks. One of the most useful features of R is that users are continuously developing new packages and making them available for free. You can find a comprehensive list of available packages on the [CRAN website](https://cran.r-project.org/web/packages/). There are currently (9 April 2017) 10,413 packages available for R, with more than 200,000 functions in them!
+The most common functions used in R are contained within the **`base`** package; this makes R useful 'out of the box.' However, there is extensive additional functionality that is being expanded all the time through the use of packages. Packages are simply collections of code called functions that automate complex mathematical or statistical tasks. One of the most useful features of R is that users are continuously developing new packages and making them available for free. You can find a comprehensive list of available packages on the [CRAN website](https://cran.r-project.org/web/packages/). There are currently (21 December 2017) 11,992 packages available for R!
 
 If the thought of searching for and finding R packages is daunting, a good place to start is the [R Task View](http://cran.r-project.org/web/views/) page. This page curates collections of packages for general tasks you might encounter, such as Experimental Design, Meta-Analysis, or Multivariate Analysis. Go and have a look for yourself, you might be surprised to find a good explanation of what you need.
 
-After clicking 'Tools'/'Install Packages', type in the package name **`tidyverse`** in the 'Packages' text box (note that it is case sensitive) and select the Install button. The **Console** will run the code needed to install the package, and then provide some commentary of the installation on your hard drive of the package and any of its dependencies (*i.e.*, other R packages needed to run the required package).
+After clicking 'Tools'/'Install Packages', type in the package name **`tidyverse`** in the 'Packages' text box (note that it is case sensitive) and select the Install button. The **Console** will run the code needed to install the package, and then provide some commentary on the installation of the package and any of its dependencies (*i.e.*, other R packages needed to run the required package).
 
 The installation process makes sure that the functions within the packages contained within the **`tidyverse`** are now available on your computer, but to avoid potential conflicts in the names of functions, it will not load these automatically. To make R 'know' about these functions in a particular session, you need either to load the package via ticking the checkbox for that package in the **Packages** tab, or execute:
 
@@ -202,6 +202,8 @@ Methods of getting help from the **Console** include...
 ```{r}
 help(mean)
 ```
+
+We will go into this in more detail in the next session.
 
 To see the plots reproduced in Figures \@ref(fig:base-graphic-1) and \@ref(fig:ggplot2-1), simply type the following into the **Console**:
 

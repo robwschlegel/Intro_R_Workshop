@@ -98,7 +98,8 @@ load("data/africa_coast.Rdata")
 # Create map
 africa <- ggplot(data = africa_coast, aes(x = lon, y = lat)) +
   geom_polygon(aes(group = group), colour = "black", fill = "grey70") +
-  borders(regions = "South Africa", colour = "black", fill = "black") +
+  borders(regions = "South Africa", colour = "black", fill = "black",
+          ylim = c(-34, -28)) +
   annotate("text", x = 15, y = 15, label = "AFRICA", size = 4.5) +
   theme_void() +
   theme(plot.background = element_rect(fill = "white", colour = "black")) +
