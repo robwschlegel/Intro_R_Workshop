@@ -8,11 +8,12 @@ Google forms
 'Publication Quality' Chapter 9
 -Use basic ggpubr themes etc.
 
-'Recap' Cahpter 13
+'Recap' Chapter 13
+-Must make the entire chapter
 
 ANOVA exercise using help files
 -Put at end of 'An R Workflow' Chapter 3
-- Haven't done so yet as this is already a very long chapter...
+--Haven't done so yet as this is already a very long chapter...
 
 
 
@@ -30,10 +31,7 @@ Replace gridExtra with ggpubr
 
 Mapping
 -Make scale_x_continuous for the ribbon figure less complicated
+--Though perhaps it should stay this way
 -Add lon/lat back in
-
-Touch up Rmarkdown BONUS file
-
-Bring all files in BONUS folder up to speed
 
 
