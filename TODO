@@ -1,0 +1,65 @@
+Update:
+
+Installing packages
+
+Expand help section in Chapter 3
+
+Change variable names so they are not the same as the function
+
+Change advanced calculation on first day to a more biologically relevant measurement
+
+Replace write.csv to write_csv also read_csv
+
+Chicken data
+-weight -> mass
+gm -> g
+
+unsquish figures
+
+Replace gridExtra with ggpubr
+-Also in mapping chapter
+
+Unstack histograms
+
+Mapping
+-Make scale_x_continuous less gnarly
+-Add lon/lat back in
+
+Touch up Rmarkdown chapter
+
+Change "Next level mapping" to "Publication quality"
+-Use basic ggpubr themes etc.
+
+Tidyverse
+-Change "temp"
+
+
+
+
+Create:
+Google forms
+-Intake
+-Outtake
+
+Paragraph describing "Exercise: It which shall not be named"
+
+ANOVA exercise using help files
+
+Final day
+-Change to recap
+--A Few sentences about what we intend to do
+-The future
+--Talk about advanced R options
+
+
+
+
+
+Remove:
+Base R vs. ggplot2
+
+Africa shape file data from pub_qual
+
+
+
+
