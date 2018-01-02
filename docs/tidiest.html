@@ -25,7 +25,7 @@
 <meta name="author" content="Robert W Schlegel &amp; AJ Smit">
 
 
-<meta name="date" content="2017-12-21">
+<meta name="date" content="2018-01-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -133,7 +133,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.1.2" data-path="rstudio.html"><a href="rstudio.html#customising-appearance"><i class="fa fa-check"></i><b>2.1.2</b> Customising appearance</a></li>
 <li class="chapter" data-level="2.1.3" data-path="rstudio.html"><a href="rstudio.html#configuring-panes"><i class="fa fa-check"></i><b>2.1.3</b> Configuring panes</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="rstudio.html"><a href="rstudio.html#rprojects"><i class="fa fa-check"></i><b>2.2</b> RProjects</a></li>
+<li class="chapter" data-level="2.2" data-path="rstudio.html"><a href="rstudio.html#rprojects"><i class="fa fa-check"></i><b>2.2</b> RProject’s</a></li>
 <li class="chapter" data-level="2.3" data-path="rstudio.html"><a href="rstudio.html#installing-packages"><i class="fa fa-check"></i><b>2.3</b> Installing packages</a></li>
 <li class="chapter" data-level="2.4" data-path="rstudio.html"><a href="rstudio.html#the-panes-of-rstudio"><i class="fa fa-check"></i><b>2.4</b> The panes of RStudio</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="rstudio.html"><a href="rstudio.html#source-editor"><i class="fa fa-check"></i><b>2.4.1</b> Source Editor</a></li>
@@ -301,19 +301,19 @@ SACTN_depth_mean</code></pre></div>
 <pre><code>R&gt; # A tibble: 13 x 3
 R&gt;    depth mean_temp count
 R&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;int&gt;
-R&gt;  1     0  19.51540 26299
-R&gt;  2     2  12.98038   237
-R&gt;  3     3  17.57381   141
-R&gt;  4     4  16.58307   529
-R&gt;  5     5  14.96329   408
-R&gt;  6     7  17.24750   227
-R&gt;  7     8  17.79480   201
-R&gt;  8     9  13.80576   311
-R&gt;  9    10  19.53497   362
-R&gt; 10    12  24.26947   137
-R&gt; 11    14  22.32259   223
-R&gt; 12    18  24.43936   191
-R&gt; 13    28  14.81983   306</code></pre>
+R&gt;  1  0         19.5 26299
+R&gt;  2  2.00      13.0   237
+R&gt;  3  3.00      17.6   141
+R&gt;  4  4.00      16.6   529
+R&gt;  5  5.00      15.0   408
+R&gt;  6  7.00      17.2   227
+R&gt;  7  8.00      17.8   201
+R&gt;  8  9.00      13.8   311
+R&gt;  9 10.0       19.5   362
+R&gt; 10 12.0       24.3   137
+R&gt; 11 14.0       22.3   223
+R&gt; 12 18.0       24.4   191
+R&gt; 13 28.0       14.8   306</code></pre>
 <p>Let’s visualise our newly created summary dataframe and see what we get.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Why does the relationship between depth and temperature look so odd?</span>
 <span class="kw">ggplot</span>(<span class="dt">data =</span> SACTN_depth_mean, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> depth, <span class="dt">y =</span> mean_temp)) <span class="op">+</span>
@@ -386,11 +386,11 @@ After this I calculated the mean temperature for each depth category, as well as
             <span class="dt">sd_temp =</span> <span class="kw">sd</span>(temp, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</code></pre></div>
 <pre><code>R&gt; # A tibble: 3 x 4
 R&gt; # Groups:   site [?]
-R&gt;          site   src mean_temp   sd_temp
-R&gt;        &lt;fctr&gt; &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-R&gt; 1 Paternoster   DEA  12.83240 0.8788109
-R&gt; 2 Paternoster  SAWS  13.56113 1.4032601
-R&gt; 3   Oudekraal  DAFF  12.30794 1.3629760</code></pre>
+R&gt;   site        src   mean_temp sd_temp
+R&gt;   &lt;fctr&gt;      &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+R&gt; 1 Paternoster DEA        12.8   0.879
+R&gt; 2 Paternoster SAWS       13.6   1.40 
+R&gt; 3 Oudekraal   DAFF       12.3   1.36</code></pre>
 </div>
 <div id="going-deeper" class="section level2">
 <h2><span class="header-section-number">12.4</span> Going deeper</h2>
@@ -413,13 +413,13 @@ SACTN <span class="op">%&gt;%</span><span class="st"> </span>
             <span class="dt">sd_temp =</span> <span class="kw">sd</span>(temp, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</code></pre></div>
 <pre><code>R&gt; # A tibble: 5 x 4
 R&gt; # Groups:   site [?]
-R&gt;          site   src mean_temp   sd_temp
-R&gt;        &lt;fctr&gt; &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-R&gt; 1 Paternoster   DEA  12.83240 0.8788109
-R&gt; 2 Paternoster  SAWS  13.56113 1.4032601
-R&gt; 3   Oudekraal  DAFF  12.30794 1.3629760
-R&gt; 4  Muizenberg  SAWS  15.92887 2.7595635
-R&gt; 5    Humewood  SAWS  17.98986 2.0342271</code></pre>
+R&gt;   site        src   mean_temp sd_temp
+R&gt;   &lt;fctr&gt;      &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+R&gt; 1 Paternoster DEA        12.8   0.879
+R&gt; 2 Paternoster SAWS       13.6   1.40 
+R&gt; 3 Oudekraal   DAFF       12.3   1.36 
+R&gt; 4 Muizenberg  SAWS       15.9   2.76 
+R&gt; 5 Humewood    SAWS       18.0   2.03</code></pre>
 <p>The <code>%in%</code> operator can be a very useful shortcut, but sometime we cannot avoid the comparison and logical operator dance. For example, if one wanted to find temperatures at Port Nolloth that were over 10°C but under 15°C you could use either of the following two filters. Remember that whenever we see a <code>,</code> in the filter function it is the same as the <code>&amp;</code> logical operator. Of the two different techniques shown below, I would be more inclined to use the first one. The fewer symbols we use to write our code the better. Both for readability and error reduction.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SACTN <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">filter</span>(site <span class="op">==</span><span class="st"> &quot;Port Nolloth&quot;</span>, temp <span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span>, temp <span class="op">&lt;</span><span class="st"> </span><span class="dv">15</span>)
@@ -460,7 +460,7 @@ Figure 12.2: Line and ribbon plots for the climatologies of several sites.
 <p>There is an avalanche of useful functions to be found within the <strong><code>tidyverse</code></strong>. In truth, we have only looked at functions from three packages: <strong><code>ggplot2</code></strong>, <strong><code>dplyr</code></strong>, and <strong><code>tidyr</code></strong>. There are far, far too many functions even within these three packages to cover within a week. But that does not mean that the functions in other packages, such as <strong><code>purrr</code></strong> are not also massively useful for our work. More on that tomorrow. For now we will see how the inclusion of a handful of choice extra functions may help to make our workflow even tidier.</p>
 <div id="rename-variables-columns-with-rename" class="section level3">
 <h3><span class="header-section-number">12.6.1</span> Rename variables (columns) with <code>rename()</code></h3>
-<p>We have seen that we select columns in a dataframe with <code>select()</code>, but if we want to rename columns we have to use, you guessed it, <code>rename()</code>. This functions works by first telling R the new name you would like, and then the existing name of the column to be changed. This is perhaps a bit back to front, but such is life on occassion.</p>
+<p>We have seen that we select columns in a dataframe with <code>select()</code>, but if we want to rename columns we have to use, you guessed it, <code>rename()</code>. This functions works by first telling R the new name you would like, and then the existing name of the column to be changed. This is perhaps a bit back to front, but such is life on occasion.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SACTN <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">rename</span>(<span class="dt">source =</span> src)</code></pre></div>
 <pre><code>R&gt;            site source       date     temp depth type
@@ -488,18 +488,18 @@ R&gt;  [8] 284.4421 284.5266 284.1321</code></pre>
 <span class="st">  </span><span class="kw">transmute</span>(<span class="dt">kelvin =</span> temp <span class="op">+</span><span class="st"> </span><span class="fl">273.15</span>)</code></pre></div>
 <pre><code>R&gt; # A tibble: 10 x 3
 R&gt; # Groups:   site, src [1]
-R&gt;            site   src   kelvin
-R&gt;          &lt;fctr&gt; &lt;chr&gt;    &lt;dbl&gt;
-R&gt;  1 Port Nolloth   DEA 284.6203
-R&gt;  2 Port Nolloth   DEA 285.1441
-R&gt;  3 Port Nolloth   DEA 285.1056
-R&gt;  4 Port Nolloth   DEA 285.0118
-R&gt;  5 Port Nolloth   DEA 285.3572
-R&gt;  6 Port Nolloth   DEA 285.6881
-R&gt;  7 Port Nolloth   DEA 284.4020
-R&gt;  8 Port Nolloth   DEA 284.4421
-R&gt;  9 Port Nolloth   DEA 284.5266
-R&gt; 10 Port Nolloth   DEA 284.1321</code></pre>
+R&gt;    site         src   kelvin
+R&gt;    &lt;fctr&gt;       &lt;chr&gt;  &lt;dbl&gt;
+R&gt;  1 Port Nolloth DEA      285
+R&gt;  2 Port Nolloth DEA      285
+R&gt;  3 Port Nolloth DEA      285
+R&gt;  4 Port Nolloth DEA      285
+R&gt;  5 Port Nolloth DEA      285
+R&gt;  6 Port Nolloth DEA      286
+R&gt;  7 Port Nolloth DEA      284
+R&gt;  8 Port Nolloth DEA      284
+R&gt;  9 Port Nolloth DEA      285
+R&gt; 10 Port Nolloth DEA      284</code></pre>
 </div>
 <div id="count-observations-rows-with-n" class="section level3">
 <h3><span class="header-section-number">12.6.3</span> Count observations (rows) with <code>n()</code></h3>
@@ -580,7 +580,7 @@ SACTN <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="co"># Slice all rows except a sequence</span>
 SACTN <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">slice</span>(<span class="op">-</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">1000</span>))</code></pre></div>
-<p>It is discouraged to use slice to remove or select specific rows of data as this does not discrimante against any possible future changes in ones data. Meaning that if at some point in the future new data are added to a dataset, re-running this code will likely no longer be selecting the correct rows. This is why <code>filter()</code> is a main function, and <code>slice()</code> is not. This auxiliary function can however still be quite useful when combined with arrange.</p>
+<p>It is discouraged to use slice to remove or select specific rows of data as this does not discriminate against any possible future changes in ones data. Meaning that if at some point in the future new data are added to a dataset, re-running this code will likely no longer be selecting the correct rows. This is why <code>filter()</code> is a main function, and <code>slice()</code> is not. This auxiliary function can however still be quite useful when combined with arrange.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The top 5 variable sites as measured by SD</span>
 SACTN <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">group_by</span>(site, src) <span class="op">%&gt;%</span><span class="st"> </span>
@@ -589,13 +589,13 @@ SACTN <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(sd_temp)) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)</code></pre></div>
 <pre><code>R&gt; # A tibble: 5 x 3
-R&gt;         site   src  sd_temp
-R&gt;       &lt;fctr&gt; &lt;chr&gt;    &lt;dbl&gt;
-R&gt; 1 Muizenberg  SAWS 2.759563
-R&gt; 2   Stilbaai  SAWS 2.721391
-R&gt; 3 Mossel Bay  SAWS 2.647028
-R&gt; 4    De Hoop  DAFF 2.514565
-R&gt; 5 Mossel Bay   DEA 2.505964</code></pre>
+R&gt;   site       src   sd_temp
+R&gt;   &lt;fctr&gt;     &lt;chr&gt;   &lt;dbl&gt;
+R&gt; 1 Muizenberg SAWS     2.76
+R&gt; 2 Stilbaai   SAWS     2.72
+R&gt; 3 Mossel Bay SAWS     2.65
+R&gt; 4 De Hoop    DAFF     2.51
+R&gt; 5 Mossel Bay DEA      2.51</code></pre>
 </div>
 <div id="summary-functions" class="section level3">
 <h3><span class="header-section-number">12.6.5</span> Summary functions</h3>
@@ -608,15 +608,15 @@ R&gt; 5 Mossel Bay   DEA 2.505964</code></pre>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">prop_15 =</span> count_<span class="dv">15</span><span class="op">/</span>count) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">arrange</span>(prop_<span class="dv">15</span>)</code></pre></div>
 <pre><code>R&gt; # A tibble: 7 x 4
-R&gt;     src count count_15   prop_15
-R&gt;   &lt;chr&gt; &lt;int&gt;    &lt;int&gt;     &lt;dbl&gt;
-R&gt; 1  DAFF   641      246 0.3837754
-R&gt; 2  SAWS  8636     4882 0.5653080
-R&gt; 3   UWC    12        7 0.5833333
-R&gt; 4   DEA  2087     1388 0.6650695
-R&gt; 5 SAEON   596      573 0.9614094
-R&gt; 6 EKZNW   369      369 1.0000000
-R&gt; 7 KZNSB 15313    15313 1.0000000</code></pre>
+R&gt;   src   count count_15 prop_15
+R&gt;   &lt;chr&gt; &lt;int&gt;    &lt;int&gt;   &lt;dbl&gt;
+R&gt; 1 DAFF    641      246   0.384
+R&gt; 2 SAWS   8636     4882   0.565
+R&gt; 3 UWC      12        7   0.583
+R&gt; 4 DEA    2087     1388   0.665
+R&gt; 5 SAEON   596      573   0.961
+R&gt; 6 EKZNW   369      369   1.00 
+R&gt; 7 KZNSB 15313    15313   1.00</code></pre>
 </div>
 </div>
 <div id="the-new-age-redux" class="section level2">

@@ -80,9 +80,10 @@ R has pedantic requirements for naming variables. It is safest to not use spaces
 
 ### Loading a file
 
-To load the `laminaria.csv` file we created, and assign it to an object name in R, enter the following code into the R console:
+To load the `laminaria.csv` file we created, and assign it to an object name in R, we will use the `read_csv()` function from the **`tidyverse`** package, so let's make sure it is activated.
 
 ```{r workflow-load-lam}
+library(tidyverse)
 laminaria <- read_csv("data/laminaria.csv")
 ```
 

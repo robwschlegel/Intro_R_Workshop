@@ -13,8 +13,12 @@ Introductory R course
 
 ### December 21st, 2017
 * Forked from "ajsmit/Intro_R_Workshop"
-* Pushed 2018 content to "schrob040/Intro_R_Workshop"
-* GitBook live at: https://schrob040.github.io/Intro_R_Workshop/
+* Pushed 2018 content to "robwschlegel/Intro_R_Workshop"
+* GitBook live at: https://robwschlegel.github.io/Intro_R_Workshop/
 * Folder structure simplified
 * Many TODO list items crossed off
 * BONUS files converted for new project layout
+
+### January 2nd, 2018
+* Corrected connections for new username
+* Minor edits to Chapter 3 pushed to GitBook

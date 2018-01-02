@@ -77,11 +77,50 @@ R has pedantic requirements for naming variables. It is safest to not use spaces
 
 ### Loading a file
 
-To load the `laminaria.csv` file we created, and assign it to an object name in R, enter the following code into the R console:
+To load the `laminaria.csv` file we created, and assign it to an object name in R, we will use the `read_csv()` function from the **`tidyverse`** package, so let's make sure it is activated.
 
 
 ```r
-laminaria <- read.csv("data/laminaria.csv")
+library(tidyverse)
+```
+
+```
+R> ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
+```
+
+```
+R> ✔ ggplot2 2.2.1.9000     ✔ purrr   0.2.4     
+R> ✔ tibble  1.4.1          ✔ dplyr   0.7.4     
+R> ✔ tidyr   0.7.2          ✔ stringr 1.2.0     
+R> ✔ readr   1.1.1          ✔ forcats 0.2.0
+```
+
+```
+R> ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+R> ✖ dplyr::filter() masks stats::filter()
+R> ✖ dplyr::lag()    masks stats::lag()
+```
+
+```r
+laminaria <- read_csv("data/laminaria.csv")
+```
+
+```
+R> Parsed with column specification:
+R> cols(
+R>   region = col_character(),
+R>   site = col_character(),
+R>   Ind = col_integer(),
+R>   blade_weight = col_double(),
+R>   blade_length = col_integer(),
+R>   blade_thickness = col_double(),
+R>   stipe_mass = col_double(),
+R>   stipe_length = col_integer(),
+R>   stipe_diameter = col_double(),
+R>   digits = col_integer(),
+R>   thallus_mass = col_integer(),
+R>   total_length = col_integer()
+R> )
 ```
 
 If one clicks on the newly created `laminaria` object in the **Environment** pane it will open a new panel that shows the information as a spreadsheet. To go back to your script click the appropriate tab in the **Source Editor** pane. With these data loaded we may now perform analyses on them. 
@@ -106,7 +145,7 @@ This will of course delete our variable, so we will import it in again:
 
 
 ```r
-laminaria <- read.csv("data/laminaria.csv")
+laminaria <- read_csv("data/laminaria.csv")
 ```
 
 > **Managing variables**  
@@ -259,7 +298,7 @@ getwd()
 library(tidyverse)
 
 # Load the data
-laminaria <- read.csv("data/laminaria.csv")
+laminaria <- read_csv("data/laminaria.csv")
 
 # Examine the data
 head(laminaria, 5) # First five lines
@@ -413,7 +452,8 @@ You can also of course assign the results of a call to `table()` to an object. T
 ```r
 site_by_region <- laminaria %>% 
   select(region, site) %>% 
-  table()
+  table() %>% 
+  data.frame()
 ```
 
 For higher-order data summaries, `ftable()` is useful for creating 'flat contingency tables':
@@ -431,7 +471,7 @@ A major advantage of R over many other statistics packages is that you can gener
 
 
 ```r
-write.csv(site_by_region, file = "data/kelp_summary.csv", row.names = TRUE)
+write_csv(site_by_region, path = "data/kelp_summary.csv")
 ```
 
 The first argument is simply the name of an object in R, in this case our table (a data object of class *table*) of counts by region and site (other sorts of data are available, so play around to see what can be done). The second argument is the name of the file you want to write to. This file will always be written to your working directory, unless otherwise specified by including a different path in the file name. Remember that file names need to be within quotation marks. The last argument simply tells R to add a column of values specifying row names (in this case, the names of the regions). Of course, if you don't want row names (which might be the case if you were writing the whole dataframe to a file), simply replace the `TRUE` with `FALSE`. The resultant file can sadly be opened in Excel.
@@ -496,10 +536,11 @@ For every R project, set up a separate directory that includes the scripts, data
 
 ## Help
 
-...need more here...
-
+The help files in R are not readily clear. It requires a bit of work to understand them well. There is method however to what appears to be madness. Figure \@ref(Fig:help-output) below shows the beginning of a  help file for a function in R. Please type `?read.table()` in your console now to bring up this help file in your RStudio GUI.
 
 <div class="figure">
 <img src="figures/help_output.png" alt="A portion of the help page produced by the above command." width="847" />
 <p class="caption">(\#fig:help-output)A portion of the help page produced by the above command.</p>
 </div>
+
+The first thing we see at the top of the help file in small font is the name of the function, and the package it comes from in curly braces. After this, in very large text, is a very short description of what the function is used for. After this is the 'Description' section, which gives a sentence or two more fully explaining the use(s) of the function. The 'Usage' then shows all of the arguments that may be given to the function, and what their default settings are. When we write a function in our script we do *not* need to include all of the possible arguments. The help file shows us all of them so that we know what our options are. In some cases a help file will show the usage of several different functions together. This is done, as is the case here, if these functions forma a sort of 'family' and share many common purposes. The 'Arguments' section gives a long explanation for what each individual argument may do. The Arguments section here is particularly verbose. Up next is the 'Details' section that gives a more in depth description of what the function does. The 'Value' section tells us what sort of output we may expect from the function. Some of the more well documented functions, such as this one, will have additional sections that are not a requirement for function documentation. In this case the 'Memory usage' and 'Note' sections are not things one should always expect to see in help files. Also not always present is a 'References' section. Should there be actual published documentation for the function, or the function has been used in a publication for some other purpose, these references tend to be listed here. There are many functions in the **`vegan`** package that have been used in dozens of publications. If there is additional reading relevant to the function in question, the authors may also have included a 'See also' section, but this is not standard. Lastly, any well documented function should end with an 'Examples' section. The code is this section is designed to be able to be copy-pasted directly from the help file into the users R script or console and run *as is*. It is perhaps a bad habit, but when I am looking up a help file for a function, I tend to look first at the Examples section. And only if I can't solve my problem with the examples do I actually read the documentation.

@@ -25,7 +25,7 @@
 <meta name="author" content="Robert W Schlegel &amp; AJ Smit">
 
 
-<meta name="date" content="2017-12-21">
+<meta name="date" content="2018-01-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -133,7 +133,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.1.2" data-path="rstudio.html"><a href="rstudio.html#customising-appearance"><i class="fa fa-check"></i><b>2.1.2</b> Customising appearance</a></li>
 <li class="chapter" data-level="2.1.3" data-path="rstudio.html"><a href="rstudio.html#configuring-panes"><i class="fa fa-check"></i><b>2.1.3</b> Configuring panes</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="rstudio.html"><a href="rstudio.html#rprojects"><i class="fa fa-check"></i><b>2.2</b> RProjects</a></li>
+<li class="chapter" data-level="2.2" data-path="rstudio.html"><a href="rstudio.html#rprojects"><i class="fa fa-check"></i><b>2.2</b> RProject’s</a></li>
 <li class="chapter" data-level="2.3" data-path="rstudio.html"><a href="rstudio.html#installing-packages"><i class="fa fa-check"></i><b>2.3</b> Installing packages</a></li>
 <li class="chapter" data-level="2.4" data-path="rstudio.html"><a href="rstudio.html#the-panes-of-rstudio"><i class="fa fa-check"></i><b>2.4</b> The panes of RStudio</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="rstudio.html"><a href="rstudio.html#source-editor"><i class="fa fa-check"></i><b>2.4.1</b> Source Editor</a></li>
@@ -289,7 +289,7 @@ urine &lt;-<span class="st"> </span>boot<span class="op">::</span>urine
 <span class="kw">ggplot</span>(<span class="dt">data =</span> urine, <span class="kw">aes</span>(<span class="dt">x =</span> osmo, <span class="dt">y =</span> ph)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">colour =</span> cond))</code></pre></div>
 <p><img src="06-brewing_files/figure-html/brew-1-1.png" width="672" /></p>
-<p>And now we have a scatterplot that is showing the relationship between the osmolarity and ph of urine, with the conductivity of those urine samples shown in shades of blue. What is important to note here is that the colour scale is continuous. How can we now this by looking at the figure? Let’s look at the same figure but use a discrete variable for colouring.</p>
+<p>And now we have a scatterplot that is showing the relationship between the osmolarity and pH of urine, with the conductivity of those urine samples shown in shades of blue. What is important to note here is that the colour scale is continuous. How can we now this by looking at the figure? Let’s look at the same figure but use a discrete variable for colouring.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> urine, <span class="kw">aes</span>(<span class="dt">x =</span> osmo, <span class="dt">y =</span> ph)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">colour =</span> <span class="kw">as.factor</span>(r)))</code></pre></div>
 <p><img src="06-brewing_files/figure-html/brew-2-1.png" width="672" /></p>
@@ -303,7 +303,7 @@ urine &lt;-<span class="st"> </span>boot<span class="op">::</span>urine
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">colour =</span> cond)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">scale_colour_distiller</span>() <span class="co"># Change the continuous variable colour palette</span></code></pre></div>
 <p><img src="06-brewing_files/figure-html/brew-3-1.png" width="672" /></p>
-<p>Does this look different? If so, how? The second page of the colour cheatsheet we included in the course material shows some different colour brewer palettes. Let’s look at how to use those here.</p>
+<p>Does this look different? If so, how? The second page of the colour cheat sheet we included in the course material shows some different colour brewer palettes. Let’s look at how to use those here.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> urine, <span class="kw">aes</span>(<span class="dt">x =</span> osmo, <span class="dt">y =</span> ph)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">colour =</span> cond)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">scale_colour_distiller</span>(<span class="dt">palette =</span> <span class="st">&quot;Spectral&quot;</span>)</code></pre></div>
@@ -314,7 +314,7 @@ urine &lt;-<span class="st"> </span>boot<span class="op">::</span>urine
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">colour =</span> <span class="kw">as.factor</span>(r))) <span class="op">+</span>
 <span class="st">  </span><span class="kw">scale_colour_brewer</span>() <span class="co"># This is the different function</span></code></pre></div>
 <p><img src="06-brewing_files/figure-html/brew-5-1.png" width="672" /></p>
-<p>The default colour scale here is not helpful at all. So let’s pick a better one. If we look at our cheatsheet we will see a list of different continuous and discrete colour scales. All we need to do is copy and paste one of these names into our colour brewer function with inverted commas.</p>
+<p>The default colour scale here is not helpful at all. So let’s pick a better one. If we look at our cheat sheet we will see a list of different continuous and discrete colour scales. All we need to do is copy and paste one of these names into our colour brewer function with inverted commas.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> urine, <span class="kw">aes</span>(<span class="dt">x =</span> osmo, <span class="dt">y =</span> ph)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">colour =</span> <span class="kw">as.factor</span>(r))) <span class="op">+</span>
 <span class="st">  </span><span class="kw">scale_colour_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="co"># Here I used &quot;Set1&quot;, but use what you like</span></code></pre></div>

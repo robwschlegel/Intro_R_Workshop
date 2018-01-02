@@ -10,6 +10,9 @@
 
 
 
+Here recap a bit on what happened...
+
+**Hadley's writing**
 Why ensure that your data are tidy? There are two main advantages:
 
 1.  There's a general advantage to picking one consistent way of storing
@@ -22,10 +25,9 @@ Why ensure that your data are tidy? There are two main advantages:
     tidy data feel particularly natural.
 
 
-A Few sentences about what we intend to do
-
 ## The future
-Talk about advanced R options
+
+Talk about advanced R options...
 
 -R for biologists
 -R for environmental science
@@ -36,4 +38,7 @@ Talk about advanced R options
 -Basic stats
 
 ## Today
-Open the floor
+
+A Few sentences about what we intend to do...
+
+Open the floor...

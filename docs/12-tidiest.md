@@ -54,19 +54,19 @@ SACTN_depth_mean
 R> # A tibble: 13 x 3
 R>    depth mean_temp count
 R>    <dbl>     <dbl> <int>
-R>  1     0  19.51540 26299
-R>  2     2  12.98038   237
-R>  3     3  17.57381   141
-R>  4     4  16.58307   529
-R>  5     5  14.96329   408
-R>  6     7  17.24750   227
-R>  7     8  17.79480   201
-R>  8     9  13.80576   311
-R>  9    10  19.53497   362
-R> 10    12  24.26947   137
-R> 11    14  22.32259   223
-R> 12    18  24.43936   191
-R> 13    28  14.81983   306
+R>  1  0         19.5 26299
+R>  2  2.00      13.0   237
+R>  3  3.00      17.6   141
+R>  4  4.00      16.6   529
+R>  5  5.00      15.0   408
+R>  6  7.00      17.2   227
+R>  7  8.00      17.8   201
+R>  8  9.00      13.8   311
+R>  9 10.0       19.5   362
+R> 10 12.0       24.3   137
+R> 11 14.0       22.3   223
+R> 12 18.0       24.4   191
+R> 13 28.0       14.8   306
 ```
 
 Let's visualise our newly created summary dataframe and see what we get.
@@ -177,11 +177,11 @@ SACTN %>%
 ```
 R> # A tibble: 3 x 4
 R> # Groups:   site [?]
-R>          site   src mean_temp   sd_temp
-R>        <fctr> <chr>     <dbl>     <dbl>
-R> 1 Paternoster   DEA  12.83240 0.8788109
-R> 2 Paternoster  SAWS  13.56113 1.4032601
-R> 3   Oudekraal  DAFF  12.30794 1.3629760
+R>   site        src   mean_temp sd_temp
+R>   <fctr>      <chr>     <dbl>   <dbl>
+R> 1 Paternoster DEA        12.8   0.879
+R> 2 Paternoster SAWS       13.6   1.40 
+R> 3 Oudekraal   DAFF       12.3   1.36
 ```
 
 ## Going deeper
@@ -219,13 +219,13 @@ SACTN %>%
 ```
 R> # A tibble: 5 x 4
 R> # Groups:   site [?]
-R>          site   src mean_temp   sd_temp
-R>        <fctr> <chr>     <dbl>     <dbl>
-R> 1 Paternoster   DEA  12.83240 0.8788109
-R> 2 Paternoster  SAWS  13.56113 1.4032601
-R> 3   Oudekraal  DAFF  12.30794 1.3629760
-R> 4  Muizenberg  SAWS  15.92887 2.7595635
-R> 5    Humewood  SAWS  17.98986 2.0342271
+R>   site        src   mean_temp sd_temp
+R>   <fctr>      <chr>     <dbl>   <dbl>
+R> 1 Paternoster DEA        12.8   0.879
+R> 2 Paternoster SAWS       13.6   1.40 
+R> 3 Oudekraal   DAFF       12.3   1.36 
+R> 4 Muizenberg  SAWS       15.9   2.76 
+R> 5 Humewood    SAWS       18.0   2.03
 ```
 
 The `%in%` operator can be a very useful shortcut, but sometime we cannot avoid the comparison and logical operator dance. For example, if one wanted to find temperatures at Port Nolloth that were over 10°C but under 15°C you could use either of the following two filters. Remember that whenever we see a `,` in the filter function it is the same as the `&` logical operator. Of the two different techniques shown below, I would be more inclined to use the first one. The fewer symbols we use to write our code the better. Both for readability and error reduction.
@@ -279,7 +279,7 @@ There is an avalanche of useful functions to be found within the **`tidyverse`**
 
 ### Rename variables (columns) with `rename()`
 
-We have seen that we select columns in a dataframe with `select()`, but if we want to rename columns we have to use, you guessed it, `rename()`. This functions works by first telling R the new name you would like, and then the existing name of the column to be changed. This is perhaps a bit back to front, but such is life on occassion.
+We have seen that we select columns in a dataframe with `select()`, but if we want to rename columns we have to use, you guessed it, `rename()`. This functions works by first telling R the new name you would like, and then the existing name of the column to be changed. This is perhaps a bit back to front, but such is life on occasion.
 
 
 ```r
@@ -328,18 +328,18 @@ SACTN %>%
 ```
 R> # A tibble: 10 x 3
 R> # Groups:   site, src [1]
-R>            site   src   kelvin
-R>          <fctr> <chr>    <dbl>
-R>  1 Port Nolloth   DEA 284.6203
-R>  2 Port Nolloth   DEA 285.1441
-R>  3 Port Nolloth   DEA 285.1056
-R>  4 Port Nolloth   DEA 285.0118
-R>  5 Port Nolloth   DEA 285.3572
-R>  6 Port Nolloth   DEA 285.6881
-R>  7 Port Nolloth   DEA 284.4020
-R>  8 Port Nolloth   DEA 284.4421
-R>  9 Port Nolloth   DEA 284.5266
-R> 10 Port Nolloth   DEA 284.1321
+R>    site         src   kelvin
+R>    <fctr>       <chr>  <dbl>
+R>  1 Port Nolloth DEA      285
+R>  2 Port Nolloth DEA      285
+R>  3 Port Nolloth DEA      285
+R>  4 Port Nolloth DEA      285
+R>  5 Port Nolloth DEA      285
+R>  6 Port Nolloth DEA      286
+R>  7 Port Nolloth DEA      284
+R>  8 Port Nolloth DEA      284
+R>  9 Port Nolloth DEA      285
+R> 10 Port Nolloth DEA      284
 ```
 
 ### Count observations (rows) with `n()`
@@ -439,7 +439,7 @@ SACTN %>%
   slice(-(1:1000))
 ```
 
-It is discouraged to use slice to remove or select specific rows of data as this does not discrimante against any possible future changes in ones data. Meaning that if at some point in the future new data are added to a dataset, re-running this code will likely no longer be selecting the correct rows. This is why `filter()` is a main function, and `slice()` is not. This auxiliary function can however still be quite useful when combined with arrange.
+It is discouraged to use slice to remove or select specific rows of data as this does not discriminate against any possible future changes in ones data. Meaning that if at some point in the future new data are added to a dataset, re-running this code will likely no longer be selecting the correct rows. This is why `filter()` is a main function, and `slice()` is not. This auxiliary function can however still be quite useful when combined with arrange.
 
 
 ```r
@@ -454,13 +454,13 @@ SACTN %>%
 
 ```
 R> # A tibble: 5 x 3
-R>         site   src  sd_temp
-R>       <fctr> <chr>    <dbl>
-R> 1 Muizenberg  SAWS 2.759563
-R> 2   Stilbaai  SAWS 2.721391
-R> 3 Mossel Bay  SAWS 2.647028
-R> 4    De Hoop  DAFF 2.514565
-R> 5 Mossel Bay   DEA 2.505964
+R>   site       src   sd_temp
+R>   <fctr>     <chr>   <dbl>
+R> 1 Muizenberg SAWS     2.76
+R> 2 Stilbaai   SAWS     2.72
+R> 3 Mossel Bay SAWS     2.65
+R> 4 De Hoop    DAFF     2.51
+R> 5 Mossel Bay DEA      2.51
 ```
 
 ### Summary functions
@@ -480,15 +480,15 @@ SACTN %>%
 
 ```
 R> # A tibble: 7 x 4
-R>     src count count_15   prop_15
-R>   <chr> <int>    <int>     <dbl>
-R> 1  DAFF   641      246 0.3837754
-R> 2  SAWS  8636     4882 0.5653080
-R> 3   UWC    12        7 0.5833333
-R> 4   DEA  2087     1388 0.6650695
-R> 5 SAEON   596      573 0.9614094
-R> 6 EKZNW   369      369 1.0000000
-R> 7 KZNSB 15313    15313 1.0000000
+R>   src   count count_15 prop_15
+R>   <chr> <int>    <int>   <dbl>
+R> 1 DAFF    641      246   0.384
+R> 2 SAWS   8636     4882   0.565
+R> 3 UWC      12        7   0.583
+R> 4 DEA    2087     1388   0.665
+R> 5 SAEON   596      573   0.961
+R> 6 EKZNW   369      369   1.00 
+R> 7 KZNSB 15313    15313   1.00
 ```
 
 ## The new age *redux*

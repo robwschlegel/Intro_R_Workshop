@@ -44,7 +44,7 @@ ggplot(data = urine, aes(x = osmo, y = ph)) +
 
 <img src="06-brewing_files/figure-html/brew-1-1.png" width="672" />
 
-And now we have a scatterplot that is showing the relationship between the osmolarity and ph of urine, with the conductivity of those urine samples shown in shades of blue. What is important to note here is that the colour scale is continuous. How can we now this by looking at the figure? Let's look at the same figure but use a discrete variable for colouring.
+And now we have a scatterplot that is showing the relationship between the osmolarity and pH of urine, with the conductivity of those urine samples shown in shades of blue. What is important to note here is that the colour scale is continuous. How can we now this by looking at the figure? Let's look at the same figure but use a discrete variable for colouring.
 
 
 ```r
@@ -70,7 +70,7 @@ ggplot(data = urine, aes(x = osmo, y = ph)) +
 
 <img src="06-brewing_files/figure-html/brew-3-1.png" width="672" />
 
-Does this look different? If so, how? The second page of the colour cheatsheet we included in the course material shows some different colour brewer palettes. Let's look at how to use those here.
+Does this look different? If so, how? The second page of the colour cheat sheet we included in the course material shows some different colour brewer palettes. Let's look at how to use those here.
 
 
 ```r
@@ -94,7 +94,7 @@ ggplot(data = urine, aes(x = osmo, y = ph)) +
 
 <img src="06-brewing_files/figure-html/brew-5-1.png" width="672" />
 
-The default colour scale here is not helpful at all. So let's pick a better one. If we look at our cheatsheet we will see a list of different continuous and discrete colour scales. All we need to do is copy and paste one of these names into our colour brewer function with inverted commas.
+The default colour scale here is not helpful at all. So let's pick a better one. If we look at our cheat sheet we will see a list of different continuous and discrete colour scales. All we need to do is copy and paste one of these names into our colour brewer function with inverted commas.
 
 
 ```r

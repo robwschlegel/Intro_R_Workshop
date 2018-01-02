@@ -49,7 +49,7 @@ How to create a histogram:
 
 ```r
 histogram_1 <- ggplot(data = ChickWeight, aes(x = weight)) +
-  geom_histogram(aes(fill = Diet)) +
+  geom_histogram(aes(fill = Diet), position = "dodge") +
   ggtitle("B.") # Add a title
 histogram_1
 ```

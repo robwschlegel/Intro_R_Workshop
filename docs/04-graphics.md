@@ -161,4 +161,4 @@ ggplot(data = ChickWeight, aes(x = Time, y = weight, colour = Diet)) +
 
 <img src="04-graphics_files/figure-html/basic-8-1.png" width="672" />
 
-Notice that we have set the size of the points and the lines, but one is within `aes()` and the other not. Because the size of our points equals the weight of the chickens, the points become larger the heavier (jucier) the chickens become. But because we set the size of the lines to one static value, all of the lines are the same size and don't change because of any other variables.
+Notice that we have set the size of the points and the lines, but one is within `aes()` and the other not. Because the size of our points equals the weight of the chickens, the points become larger the heavier (juicier) the chickens become. But because we set the size of the lines to one static value, all of the lines are the same size and don't change because of any other variables.

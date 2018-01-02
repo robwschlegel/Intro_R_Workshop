@@ -25,7 +25,7 @@
 <meta name="author" content="Robert W Schlegel &amp; AJ Smit">
 
 
-<meta name="date" content="2017-12-21">
+<meta name="date" content="2018-01-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -133,7 +133,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.1.2" data-path="rstudio.html"><a href="rstudio.html#customising-appearance"><i class="fa fa-check"></i><b>2.1.2</b> Customising appearance</a></li>
 <li class="chapter" data-level="2.1.3" data-path="rstudio.html"><a href="rstudio.html#configuring-panes"><i class="fa fa-check"></i><b>2.1.3</b> Configuring panes</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="rstudio.html"><a href="rstudio.html#rprojects"><i class="fa fa-check"></i><b>2.2</b> RProjects</a></li>
+<li class="chapter" data-level="2.2" data-path="rstudio.html"><a href="rstudio.html#rprojects"><i class="fa fa-check"></i><b>2.2</b> RProject’s</a></li>
 <li class="chapter" data-level="2.3" data-path="rstudio.html"><a href="rstudio.html#installing-packages"><i class="fa fa-check"></i><b>2.3</b> Installing packages</a></li>
 <li class="chapter" data-level="2.4" data-path="rstudio.html"><a href="rstudio.html#the-panes-of-rstudio"><i class="fa fa-check"></i><b>2.4</b> The panes of RStudio</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="rstudio.html"><a href="rstudio.html#source-editor"><i class="fa fa-check"></i><b>2.4.1</b> Source Editor</a></li>
@@ -324,8 +324,32 @@ R has pedantic requirements for naming variables. It is safest to not use spaces
 </div>
 <div id="loading-a-file" class="section level3">
 <h3><span class="header-section-number">3.2.4</span> Loading a file</h3>
-<p>To load the <code>laminaria.csv</code> file we created, and assign it to an object name in R, enter the following code into the R console:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">laminaria &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/laminaria.csv&quot;</span>)</code></pre></div>
+<p>To load the <code>laminaria.csv</code> file we created, and assign it to an object name in R, we will use the <code>read_csv()</code> function from the <strong><code>tidyverse</code></strong> package, so let’s make sure it is activated.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
+<pre><code>R&gt; ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>R&gt; ✔ ggplot2 2.2.1.9000     ✔ purrr   0.2.4     
+R&gt; ✔ tibble  1.4.1          ✔ dplyr   0.7.4     
+R&gt; ✔ tidyr   0.7.2          ✔ stringr 1.2.0     
+R&gt; ✔ readr   1.1.1          ✔ forcats 0.2.0</code></pre>
+<pre><code>R&gt; ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+R&gt; ✖ dplyr::filter() masks stats::filter()
+R&gt; ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">laminaria &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/laminaria.csv&quot;</span>)</code></pre></div>
+<pre><code>R&gt; Parsed with column specification:
+R&gt; cols(
+R&gt;   region = col_character(),
+R&gt;   site = col_character(),
+R&gt;   Ind = col_integer(),
+R&gt;   blade_weight = col_double(),
+R&gt;   blade_length = col_integer(),
+R&gt;   blade_thickness = col_double(),
+R&gt;   stipe_mass = col_double(),
+R&gt;   stipe_length = col_integer(),
+R&gt;   stipe_diameter = col_double(),
+R&gt;   digits = col_integer(),
+R&gt;   thallus_mass = col_integer(),
+R&gt;   total_length = col_integer()
+R&gt; )</code></pre>
 <p>If one clicks on the newly created <code>laminaria</code> object in the <strong>Environment</strong> pane it will open a new panel that shows the information as a spreadsheet. To go back to your script click the appropriate tab in the <strong>Source Editor</strong> pane. With these data loaded we may now perform analyses on them.</p>
 <p>At any point when working in R, you can see exactly what objects are in memory in several ways. First, you can look at the <strong>Environment</strong> tab in RStudio, then <strong>Workspace Browser</strong>. Alternatively you can type either of the following:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ls</span>()
@@ -334,7 +358,7 @@ R has pedantic requirements for naming variables. It is safest to not use spaces
 <p>You can delete an object from memory by specifying the <code>rm()</code> function with the name of the object:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(laminaria)</code></pre></div>
 <p>This will of course delete our variable, so we will import it in again:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">laminaria &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/laminaria.csv&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">laminaria &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/laminaria.csv&quot;</span>)</code></pre></div>
 <blockquote>
 <p><strong>Managing variables</strong><br />
 It is good practice to remove variables from memory that you are not using, especially if they are large.</p>
@@ -429,7 +453,7 @@ The <code>.csv</code> file format is usually the most robust for reading data in
 <span class="kw">library</span>(tidyverse)
 
 <span class="co"># Load the data</span>
-laminaria &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/laminaria.csv&quot;</span>)
+laminaria &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/laminaria.csv&quot;</span>)
 
 <span class="co"># Examine the data</span>
 <span class="kw">head</span>(laminaria, <span class="dv">5</span>) <span class="co"># First five lines</span>
@@ -524,7 +548,8 @@ Friends don’t let friends use Excel.</p>
 <p>You can also of course assign the results of a call to <code>table()</code> to an object. Try:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">site_by_region &lt;-<span class="st"> </span>laminaria <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">select</span>(region, site) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">table</span>()</code></pre></div>
+<span class="st">  </span><span class="kw">table</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">data.frame</span>()</code></pre></div>
 <p>For higher-order data summaries, <code>ftable()</code> is useful for creating ‘flat contingency tables’:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">laminaria <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">select</span>(region, site) <span class="op">%&gt;%</span><span class="st"> </span>
@@ -534,7 +559,7 @@ Friends don’t let friends use Excel.</p>
 <div id="saving-data" class="section level2">
 <h2><span class="header-section-number">3.4</span> Saving data</h2>
 <p>A major advantage of R over many other statistics packages is that you can generate exactly the same answers time and time again by simply re-running saved code. However, there are times when you will want to output data to a file that can be read by a spreadsheet program such as Excel (but try not to… please). The simplest general format is .csv (comma-separated values). This format is easily read by Excel, and also by many other software programs. To output a .csv type:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write.csv</span>(site_by_region, <span class="dt">file =</span> <span class="st">&quot;data/kelp_summary.csv&quot;</span>, <span class="dt">row.names =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write_csv</span>(site_by_region, <span class="dt">path =</span> <span class="st">&quot;data/kelp_summary.csv&quot;</span>)</code></pre></div>
 <p>The first argument is simply the name of an object in R, in this case our table (a data object of class <em>table</em>) of counts by region and site (other sorts of data are available, so play around to see what can be done). The second argument is the name of the file you want to write to. This file will always be written to your working directory, unless otherwise specified by including a different path in the file name. Remember that file names need to be within quotation marks. The last argument simply tells R to add a column of values specifying row names (in this case, the names of the regions). Of course, if you don’t want row names (which might be the case if you were writing the whole dataframe to a file), simply replace the <code>TRUE</code> with <code>FALSE</code>. The resultant file can sadly be opened in Excel.</p>
 </div>
 <div id="visualisations" class="section level2">
@@ -576,13 +601,14 @@ For every R project, set up a separate directory that includes the scripts, data
 </div>
 <div id="help" class="section level2">
 <h2><span class="header-section-number">3.8</span> Help</h2>
-<p>…need more here…</p>
+<p>The help files in R are not readily clear. It requires a bit of work to understand them well. There is method however to what appears to be madness. Figure <a href="#Fig:help-output"><strong>??</strong></a> below shows the beginning of a help file for a function in R. Please type <code>?read.table()</code> in your console now to bring up this help file in your RStudio GUI.</p>
 <div class="figure"><span id="fig:help-output"></span>
 <img src="figures/help_output.png" alt="A portion of the help page produced by the above command." width="847" />
 <p class="caption">
 Figure 3.1: A portion of the help page produced by the above command.
 </p>
 </div>
+<p>The first thing we see at the top of the help file in small font is the name of the function, and the package it comes from in curly braces. After this, in very large text, is a very short description of what the function is used for. After this is the ‘Description’ section, which gives a sentence or two more fully explaining the use(s) of the function. The ‘Usage’ then shows all of the arguments that may be given to the function, and what their default settings are. When we write a function in our script we do <em>not</em> need to include all of the possible arguments. The help file shows us all of them so that we know what our options are. In some cases a help file will show the usage of several different functions together. This is done, as is the case here, if these functions forma a sort of ‘family’ and share many common purposes. The ‘Arguments’ section gives a long explanation for what each individual argument may do. The Arguments section here is particularly verbose. Up next is the ‘Details’ section that gives a more in depth description of what the function does. The ‘Value’ section tells us what sort of output we may expect from the function. Some of the more well documented functions, such as this one, will have additional sections that are not a requirement for function documentation. In this case the ‘Memory usage’ and ‘Note’ sections are not things one should always expect to see in help files. Also not always present is a ‘References’ section. Should there be actual published documentation for the function, or the function has been used in a publication for some other purpose, these references tend to be listed here. There are many functions in the <strong><code>vegan</code></strong> package that have been used in dozens of publications. If there is additional reading relevant to the function in question, the authors may also have included a ‘See also’ section, but this is not standard. Lastly, any well documented function should end with an ‘Examples’ section. The code is this section is designed to be able to be copy-pasted directly from the help file into the users R script or console and run <em>as is</em>. It is perhaps a bad habit, but when I am looking up a help file for a function, I tend to look first at the Examples section. And only if I can’t solve my problem with the examples do I actually read the documentation.</p>
 
 </div>
 </div>

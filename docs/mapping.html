@@ -25,7 +25,7 @@
 <meta name="author" content="Robert W Schlegel &amp; AJ Smit">
 
 
-<meta name="date" content="2017-12-21">
+<meta name="date" content="2018-01-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -133,7 +133,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.1.2" data-path="rstudio.html"><a href="rstudio.html#customising-appearance"><i class="fa fa-check"></i><b>2.1.2</b> Customising appearance</a></li>
 <li class="chapter" data-level="2.1.3" data-path="rstudio.html"><a href="rstudio.html#configuring-panes"><i class="fa fa-check"></i><b>2.1.3</b> Configuring panes</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="rstudio.html"><a href="rstudio.html#rprojects"><i class="fa fa-check"></i><b>2.2</b> RProjects</a></li>
+<li class="chapter" data-level="2.2" data-path="rstudio.html"><a href="rstudio.html#rprojects"><i class="fa fa-check"></i><b>2.2</b> RProject’s</a></li>
 <li class="chapter" data-level="2.3" data-path="rstudio.html"><a href="rstudio.html#installing-packages"><i class="fa fa-check"></i><b>2.3</b> Installing packages</a></li>
 <li class="chapter" data-level="2.4" data-path="rstudio.html"><a href="rstudio.html#the-panes-of-rstudio"><i class="fa fa-check"></i><b>2.4</b> The panes of RStudio</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="rstudio.html"><a href="rstudio.html#source-editor"><i class="fa fa-check"></i><b>2.4.1</b> Source Editor</a></li>
@@ -333,7 +333,7 @@ Figure 7.1: The goal for today.
 <span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="st">&quot;Temp. (°C)&quot;</span>, <span class="dt">values =</span> cols11) <span class="op">+</span><span class="st"> </span><span class="co"># Set the colour palette</span>
 <span class="st">  </span><span class="kw">coord_equal</span>()</code></pre></div>
 <p><img src="07-mapping_files/figure-html/map-colour-1.png" width="672" /></p>
-<p>Now there is a colour palette that would make even Jacques Cousteau swoon. When we set the colour palette for a figure in ggplot we must use that colour palette for all other instances of those types of values, too. What this means is that any other discrete values that will be filled in, like the ocean colour above, must use the same colour palette (there are some technical exceptions to this rule that we will not cover in this course). We normally want ggplot to use consistent colour palettes anyway, but it is important to note that this constraint exists. Let’s see what we mean. Next we will add the coastal pixels to our figure with one more line of code. We won’t change anything else. Note how ggplot changes the colour of the coastal pixels to match the ocean colour automatically. Let’s also add somepoints to highlight major cities while we are at it.</p>
+<p>Now there is a colour palette that would make even Jacques Cousteau swoon. When we set the colour palette for a figure in ggplot we must use that colour palette for all other instances of those types of values, too. What this means is that any other discrete values that will be filled in, like the ocean colour above, must use the same colour palette (there are some technical exceptions to this rule that we will not cover in this course). We normally want ggplot to use consistent colour palettes anyway, but it is important to note that this constraint exists. Let’s see what we mean. Next we will add the coastal pixels to our figure with one more line of code. We won’t change anything else. Note how ggplot changes the colour of the coastal pixels to match the ocean colour automatically. Let’s also add some points to highlight major cities while we are at it.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> south_africa_coast, <span class="kw">aes</span>(<span class="dt">x =</span> lon, <span class="dt">y =</span> lat)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_raster</span>(<span class="dt">data =</span> MUR, <span class="kw">aes</span>(<span class="dt">fill =</span> bins)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_polygon</span>(<span class="kw">aes</span>(<span class="dt">group =</span> group), <span class="dt">fill =</span> <span class="st">&quot;grey70&quot;</span>) <span class="op">+</span>

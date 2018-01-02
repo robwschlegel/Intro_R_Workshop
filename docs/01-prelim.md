@@ -202,8 +202,8 @@ rnorm(n = 10, mean = 0, sd = 13)
 ```
 
 ```
-R>  [1]   7.2854585 -11.0044132   5.2616890   4.1404998   9.5293550
-R>  [6]   2.0753990  12.3199658   0.5963639  14.5897950  15.0390279
+R>  [1]  18.563659   3.016287  -3.806154   6.537536 -11.529330  11.810223
+R>  [7]  25.743050  39.987659  13.095340 -10.036810
 ```
 
 Consult these resources for more about R code style :
@@ -212,11 +212,11 @@ Consult these resources for more about R code style :
   * [The tidyverse style guide](http://style.tidyverse.org)
   * [Hadley Wickham's advanced R style guide](http://adv-r.had.co.nz/Style.html)
 
-We can also insert math expressions, like this $f(k) = {n \choose k} p^{k} (1-p)^{n-k}$ or this: $$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$$
+We can also insert maths expressions, like this $f(k) = {n \choose k} p^{k} (1-p)^{n-k}$ or this: $$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$$
 
 ## About this document
 
-This document was written in **`bookdown`** and transformed into the "gitbook" you see here by **`knitr`**, **pandoc** and \LaTeX\ (Figure \@ref(fig:rmarkdown)). All the source code and associated data are available at AJ Smit's [GitHub page](https://github.com/ajsmit/Intro_R_Workshop). You can download the source code and compile this document on your own computer. If you can compile the document yourself you are officially a geek -- welcome to the club! Note that you will need to complete the exercises in the chapter, An R workflow, before this will be possible.
+This document was written in **`bookdown`** and transformed into the 'GitBook' you see here by **`knitr`**, **pandoc** and \LaTeX\ (Figure \@ref(fig:rmarkdown)). All the source code and associated data are available at AJ Smit's [GitHub page](https://github.com/ajsmit/Intro_R_Workshop). You can download the source code and compile this document on your own computer. If you can compile the document yourself you are officially a geek -- welcome to the club! Note that you will need to complete the exercises in the chapter, An R workflow, before this will be possible.
 
 <div class="figure">
 <img src="figures/RMarkdownFlow.png" alt="The Rmarkdown workflow." width="354" />
@@ -255,11 +255,11 @@ R> loaded via a namespace (and not attached):
 R>  [1] compiler_3.4.3  backports_1.1.0 bookdown_0.5    magrittr_1.5   
 R>  [5] rprojroot_1.2   tools_3.4.3     htmltools_0.3.6 yaml_2.1.14    
 R>  [9] Rcpp_0.12.14    stringi_1.1.5   rmarkdown_1.6   highr_0.6      
-R> [13] knitr_1.17      methods_3.4.3   stringr_1.2.0   digest_0.6.12  
+R> [13] knitr_1.17      methods_3.4.3   stringr_1.2.0   digest_0.6.13  
 R> [17] png_0.1-7       evaluate_0.10.1
 ```
 
 ## Exercise: It which shall not be named
-Now that you have heard (and perhaps read) our argument about the merits of using R, let's double down and spend the next hour seeing firsthand why we think this. Please open the file 'data/SACTN_data.csv' in excel. Gasp! Yes I know. After all of that and now we are using excel? But trust us, there is method to this madness. Your mission, should you choose to accept it, is to spend the next hour creating monthly climatologies and plotting them as a line graph. The SACTN data are three monthly temperature time series, each about 30 years long. To complete this objective you will need to first split up the three different time series, and then figure out how to create a monthly climatology for each. A monthly climatology is the average temperature for a given month at a given place. So in this instance, because we have three time series, we will want 36 total values. January - December monthly means for each site. Once those values have been calculated, it should be a relatively eay task to plot them as a dot and line graph. Please keep an eye on the time, if you are not done within an hour please stop anyway. Less than a quarter of workshop attendees have comleted this task in the past.
+Now that you have heard (and perhaps read) our argument about the merits of using R, let's double down and spend the next hour seeing first-hand why we think this. Please open the file 'data/SACTN_data.csv' in excel. Gasp! Yes I know. After all of that and now we are using excel? But trust us, there is method to this madness. Your mission, should you choose to accept it, is to spend the next hour creating monthly climatologies and plotting them as a line graph. The SACTN data are three monthly temperature time series, each about 30 years long. To complete this objective you will need to first split up the three different time series, and then figure out how to create a monthly climatology for each. A monthly climatology is the average temperature for a given month at a given place. So in this instance, because we have three time series, we will want 36 total values. January - December monthly means for each site. Once those values have been calculated, it should be a relatively easy task to plot them as a dot and line graph. Please keep an eye on the time, if you are not done within an hour please stop anyway. Less than a quarter of workshop attendees have completed this task in the past.
 
 After an hour has passed we will take a break. When we return we will see how to complete this task via R as part of 'The New Age' demonstration.
