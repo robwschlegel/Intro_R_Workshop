@@ -25,7 +25,7 @@
 <meta name="author" content="Robert W Schlegel &amp; AJ Smit">
 
 
-<meta name="date" content="2018-01-02">
+<meta name="date" content="2018-01-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -325,31 +325,8 @@ R has pedantic requirements for naming variables. It is safest to not use spaces
 <div id="loading-a-file" class="section level3">
 <h3><span class="header-section-number">3.2.4</span> Loading a file</h3>
 <p>To load the <code>laminaria.csv</code> file we created, and assign it to an object name in R, we will use the <code>read_csv()</code> function from the <strong><code>tidyverse</code></strong> package, so let’s make sure it is activated.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
-<pre><code>R&gt; ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
-<pre><code>R&gt; ✔ ggplot2 2.2.1.9000     ✔ purrr   0.2.4     
-R&gt; ✔ tibble  1.4.1          ✔ dplyr   0.7.4     
-R&gt; ✔ tidyr   0.7.2          ✔ stringr 1.2.0     
-R&gt; ✔ readr   1.1.1          ✔ forcats 0.2.0</code></pre>
-<pre><code>R&gt; ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
-R&gt; ✖ dplyr::filter() masks stats::filter()
-R&gt; ✖ dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">laminaria &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/laminaria.csv&quot;</span>)</code></pre></div>
-<pre><code>R&gt; Parsed with column specification:
-R&gt; cols(
-R&gt;   region = col_character(),
-R&gt;   site = col_character(),
-R&gt;   Ind = col_integer(),
-R&gt;   blade_weight = col_double(),
-R&gt;   blade_length = col_integer(),
-R&gt;   blade_thickness = col_double(),
-R&gt;   stipe_mass = col_double(),
-R&gt;   stipe_length = col_integer(),
-R&gt;   stipe_diameter = col_double(),
-R&gt;   digits = col_integer(),
-R&gt;   thallus_mass = col_integer(),
-R&gt;   total_length = col_integer()
-R&gt; )</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+laminaria &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/laminaria.csv&quot;</span>)</code></pre></div>
 <p>If one clicks on the newly created <code>laminaria</code> object in the <strong>Environment</strong> pane it will open a new panel that shows the information as a spreadsheet. To go back to your script click the appropriate tab in the <strong>Source Editor</strong> pane. With these data loaded we may now perform analyses on them.</p>
 <p>At any point when working in R, you can see exactly what objects are in memory in several ways. First, you can look at the <strong>Environment</strong> tab in RStudio, then <strong>Workspace Browser</strong>. Alternatively you can type either of the following:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ls</span>()
@@ -601,7 +578,7 @@ For every R project, set up a separate directory that includes the scripts, data
 </div>
 <div id="help" class="section level2">
 <h2><span class="header-section-number">3.8</span> Help</h2>
-<p>The help files in R are not readily clear. It requires a bit of work to understand them well. There is method however to what appears to be madness. Figure <a href="#Fig:help-output"><strong>??</strong></a> below shows the beginning of a help file for a function in R. Please type <code>?read.table()</code> in your console now to bring up this help file in your RStudio GUI.</p>
+<p>The help files in R are not readily clear. It requires a bit of work to understand them well. There is method however to what appears to be madness. The figure below shows the beginning of a help file for a function in R. Please type <code>?read.table()</code> in your console now to bring up this help file in your RStudio GUI.</p>
 <div class="figure"><span id="fig:help-output"></span>
 <img src="figures/help_output.png" alt="A portion of the help page produced by the above command." width="847" />
 <p class="caption">

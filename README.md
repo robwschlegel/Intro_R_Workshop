@@ -22,3 +22,7 @@ Introductory R course
 ### January 2nd, 2018
 * Corrected connections for new username
 * Minor edits to Chapter 3 pushed to GitBook
+
+### January 4th, 2018
+* Fixed minor issues
+* Draft of Chapter 13

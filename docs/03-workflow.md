@@ -82,45 +82,7 @@ To load the `laminaria.csv` file we created, and assign it to an object name in 
 
 ```r
 library(tidyverse)
-```
-
-```
-R> ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──
-```
-
-```
-R> ✔ ggplot2 2.2.1.9000     ✔ purrr   0.2.4     
-R> ✔ tibble  1.4.1          ✔ dplyr   0.7.4     
-R> ✔ tidyr   0.7.2          ✔ stringr 1.2.0     
-R> ✔ readr   1.1.1          ✔ forcats 0.2.0
-```
-
-```
-R> ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
-R> ✖ dplyr::filter() masks stats::filter()
-R> ✖ dplyr::lag()    masks stats::lag()
-```
-
-```r
 laminaria <- read_csv("data/laminaria.csv")
-```
-
-```
-R> Parsed with column specification:
-R> cols(
-R>   region = col_character(),
-R>   site = col_character(),
-R>   Ind = col_integer(),
-R>   blade_weight = col_double(),
-R>   blade_length = col_integer(),
-R>   blade_thickness = col_double(),
-R>   stipe_mass = col_double(),
-R>   stipe_length = col_integer(),
-R>   stipe_diameter = col_double(),
-R>   digits = col_integer(),
-R>   thallus_mass = col_integer(),
-R>   total_length = col_integer()
-R> )
 ```
 
 If one clicks on the newly created `laminaria` object in the **Environment** pane it will open a new panel that shows the information as a spreadsheet. To go back to your script click the appropriate tab in the **Source Editor** pane. With these data loaded we may now perform analyses on them. 
@@ -536,7 +498,7 @@ For every R project, set up a separate directory that includes the scripts, data
 
 ## Help
 
-The help files in R are not readily clear. It requires a bit of work to understand them well. There is method however to what appears to be madness. Figure \@ref(Fig:help-output) below shows the beginning of a  help file for a function in R. Please type `?read.table()` in your console now to bring up this help file in your RStudio GUI.
+The help files in R are not readily clear. It requires a bit of work to understand them well. There is method however to what appears to be madness. The figure below shows the beginning of a  help file for a function in R. Please type `?read.table()` in your console now to bring up this help file in your RStudio GUI.
 
 <div class="figure">
 <img src="figures/help_output.png" alt="A portion of the help page produced by the above command." width="847" />
