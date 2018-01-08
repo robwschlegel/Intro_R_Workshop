@@ -14,16 +14,29 @@ Now that we have seen the basics of **`ggplot2`**, let's take a moment to delve 
 
 ## R Data
 
-Before we get going on our figures, we first need to learn more about the built in data that R has. The base R program that we all have loaded on our computers already comes with heaps of example dataframes that we may use for practice. We don't need to load our own data. Additionally, whenever we install a new package (and by now we've already installed dozens) it usually comes with a new dataframe or twenty. To look at the data that we have available across all of our packages we use the following code:
+Before we get going on our figures, we first need to learn more about the built in data that R has. The base R program that we all have loaded on our computers already comes with heaps of example dataframes that we may use for practice. We don't need to load our own data. Additionally, whenever we install a new package (and by now we've already installed dozens) it usually comes with several new dataframes. There are many ways to look at the data that we have available from our packages. Below we show two of the many options.
 
 
 ```r
+# To create a list of ALL available data
+  # Not really recommended as the output is overwhelming
 data(package = .packages(all.available = TRUE))
+
+# To look for datasets within a single known package
+  # type the name of the package followed by '::'
+  # This tells R you want to look in the specified package
+  # When the autocomplete bubble comes up you may scroll
+  # through it with the up and down arrows
+  # Look for objects that have a mini spreadsheet icon
+  # These are the datasets
+
+# Try typing the following code and see what happens...
+datasets::
 ```
 
-We have an amazing amount of data available to us. So the challenge is not to find a dataframe that works for us, but to just decide on one. My preferred method is to read the short descriptions of the dataframes and pick the one that sounds the funniest. But please use whatever method makes the most sense to you. Let's take several minutes to look through all of the data available on our computers and pick out three that we like. One note of caution, in R there are two different forms of data. Wide and long. We will see in depth what this means on Day 4, and what to do about it. For now we just need to know that **`ggplot2`** works much better with long data. To look at a dataframe of interest we use the same method we would use to look up a help file for a function.
+We have an amazing amount of data available to us. So the challenge is not to find a dataframe that works for us, but to just decide on one. My preferred method is to read the short descriptions of the dataframes and pick the one that sounds the funniest. But please use whatever method makes the most sense to you. One note of caution, in R there are generally two different forms of data: wide OR long. We will see in detail what this means on Day 4, and what to do about it. For now we just need to know that **`ggplot2`** works much better with long data. To look at a dataframe of interest we use the same method we would use to look up a help file for a function.
 
-Over the years I've installed so many packages on my computer that it is difficult to chose a dataframe. The package **`boot`** has some particularly interesting dataframes with a biological focus. I recommend installing it if you would like access to these data. I have decided to load the `urine` dataframe here. Note that `library(boot)` will not work on your computer if you have not installed the package yet. With these data we will now make a scatterplot with two of the variables, while changing the colour of the dots with a third variable.
+Over the years I've installed so many packages on my computer that it is difficult to chose a dataframe. The package **`boot`** has some particularly interesting dataframes with a biological focus. Please install this now to access to these data. I have decided to load the `urine` dataframe here. Note that `library(boot)` will not work on your computer if you have not installed the package yet. With these data we will now make a scatterplot with two of the variables, while changing the colour of the dots with a third variable.
 
 
 ```r

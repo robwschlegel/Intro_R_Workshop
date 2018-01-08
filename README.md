@@ -3,10 +3,10 @@ Introductory R course
 
 ## File description
 * "Intro_R_2018/" contains the files necessary to create the GitBook for this workshop
-* "docs/" contains the files that GitHub uses to create the GitBook used for this course
+* "docs/" contains the files that GitHub uses to create the GitBook
 * "data/" contains the files we will use in the demonstrations and tutorials
 * "functions/" contains some scripts that create functions used within this workshop
-* "cheatsheets/" contains a series of informative visual help files on a number of key concepts
+* "cheatsheets/" contains a series of informative visual help files and manuals on a number of key concepts
 * "BONUS/" contains extra scripts included with the workshop for additional personal fulfilment
 
 ## Changelog
@@ -26,3 +26,9 @@ Introductory R course
 ### January 4th, 2018
 * Fixed minor issues
 * Draft of Chapter 13
+
+### January 8th, 2018
+* Updated Chapter 5
+* Created new Chapter 7 (old 9)
+* Updated Chapter 8 (old 7) and 9 (old 8)
+* Addressed all necessary TODO issues

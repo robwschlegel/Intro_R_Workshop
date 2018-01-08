@@ -108,13 +108,13 @@ How is a linear model calculated? What patterns do we see in the data now? If yo
 
 ## Changing labels
 
-When we use **`ggplot2`** we have control over every minute aspect of our figures if we so wish. What we want to do next is put the legend on the bottom of our figure with a horizontal orientation and change the axis labels so that they show the units of measurement. To change the labels we will need the `lab()` function. To change the position of the legend we need the `theme()` function as it is within this function that all of the little tweaks are performed. This is best placed at the end of your block of **`ggplot2`** code.
+When we use **`ggplot2`** we have control over every minute aspect of our figures if we so wish. What we want to do next is put the legend on the bottom of our figure with a horizontal orientation and change the axis labels so that they show the units of measurement. To change the labels we will need the `labs()` function. To change the position of the legend we need the `theme()` function as it is within this function that all of the little tweaks are performed. This is best placed at the end of your block of **`ggplot2`** code.
 
 ```{r basic-4}
 ggplot(data = ChickWeight, aes(x = Time, y = weight, colour = Diet)) +
   geom_point() +
   geom_smooth(method = "lm") +
-  labs(x = "days", y = "mass (g)", colour = "diet type") + # Change the labels
+  labs(x = "Days", y = "Mass (g)", colour = "diet type") + # Change the labels
   theme(legend.position = "bottom") # Change the legend position
 ```
 

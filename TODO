@@ -1,20 +1,7 @@
 -----------------------------------------------------
 Create:
 
-Google forms
--Intake
--Outtake
-
-'Publication Quality' Chapter 9
--Use basic ggpubr themes etc.
-
-'Recap' Chapter 13
--Must make the entire chapter
-
-ANOVA exercise using help files
--Put at end of 'An R Workflow' Chapter 3
---Haven't done so yet as this is already a very long chapter...
-
+Add a tutorial for how to add GIFs in the BONUS section
 
 
 
@@ -24,14 +11,5 @@ ANOVA exercise using help files
 -----------------------------------------------------
 Update:
 
-Change advanced calculation on first day to a more biologically relevant measurement
-
-Replace gridExtra with ggpubr
--Also in mapping chapter
-
-Mapping
--Make scale_x_continuous for the ribbon figure less complicated
---Though perhaps it should stay this way
--Add lon/lat back in
-
-
+Chapter 13
+-Should make this chapter more substantial

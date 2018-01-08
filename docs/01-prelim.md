@@ -27,9 +27,7 @@ This workshop will take place in the week of **15 January -- 19 January 2018**, 
 *	Interactive Session: An R workflow
 *	-- break --
 *	Interactive Session: An R workflow
-*	-- end --
-* Optional Exercise: A primer on R
-
+  
 ### Day 2 -- Show and tell {-}
 
 * Interactive Session: The basics of **`ggplot2`**
@@ -37,9 +35,9 @@ This workshop will take place in the week of **15 January -- 19 January 2018**, 
 * Interactive Session: Faceting figures in **`ggplot2`**
 * Interactive Session: Brewing colours in **`ggplot2`**
 * -- lunch --
-* Assignment: DIY figures
+* Interactive Session: Plotting statistics
 * -- break --
-* Student presentations
+* Assignment: DIY figures
 *	-- end --
 
 ### Day 3 -- Going deeper {-}
@@ -50,7 +48,7 @@ This workshop will take place in the week of **15 January -- 19 January 2018**, 
 * -- lunch --
 * Interactive Session: Mapping in Google
 * -- break --
-* Interactive Session: Publication quality
+* Assignment: DIY maps
 *	-- end --
 
 
@@ -69,6 +67,7 @@ This workshop will take place in the week of **15 January -- 19 January 2018**, 
 * -- break --
 * Interactive Session: Open Floor
 * -- lunch --
+* Optional Session: More Open Floor
 *	-- end --
 
 ## About this Workshop
@@ -202,8 +201,8 @@ rnorm(n = 10, mean = 0, sd = 13)
 ```
 
 ```
-R>  [1]   8.601253 -25.779409  -9.462386 -12.611585  -5.389243   4.586519
-R>  [7]  20.132711 -12.383337 -24.287181  -3.093535
+R>  [1]  18.640576  27.219149   5.544448 -14.689425 -13.526534 -12.600913
+R>  [7]   2.919940 -28.972877 -15.022462   4.866968
 ```
 
 Consult these resources for more about R code style :

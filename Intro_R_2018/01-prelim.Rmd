@@ -33,9 +33,7 @@ This workshop will take place in the week of **15 January -- 19 January 2018**, 
 *	Interactive Session: An R workflow
 *	-- break --
 *	Interactive Session: An R workflow
-*	-- end --
-* Optional Exercise: A primer on R
-
+  
 ### Day 2 -- Show and tell {-}
 
 * Interactive Session: The basics of **`ggplot2`**
@@ -43,9 +41,9 @@ This workshop will take place in the week of **15 January -- 19 January 2018**, 
 * Interactive Session: Faceting figures in **`ggplot2`**
 * Interactive Session: Brewing colours in **`ggplot2`**
 * -- lunch --
-* Assignment: DIY figures
+* Interactive Session: Plotting statistics
 * -- break --
-* Student presentations
+* Assignment: DIY figures
 *	-- end --
 
 ### Day 3 -- Going deeper {-}
@@ -56,7 +54,7 @@ This workshop will take place in the week of **15 January -- 19 January 2018**, 
 * -- lunch --
 * Interactive Session: Mapping in Google
 * -- break --
-* Interactive Session: Publication quality
+* Assignment: DIY maps
 *	-- end --
 
 
@@ -75,6 +73,7 @@ This workshop will take place in the week of **15 January -- 19 January 2018**, 
 * -- break --
 * Interactive Session: Open Floor
 * -- lunch --
+* Optional Session: More Open Floor
 *	-- end --
 
 ## About this Workshop
