@@ -201,8 +201,8 @@ rnorm(n = 10, mean = 0, sd = 13)
 ```
 
 ```
-R>  [1]  18.640576  27.219149   5.544448 -14.689425 -13.526534 -12.600913
-R>  [7]   2.919940 -28.972877 -15.022462   4.866968
+R>  [1] -13.01078890  -7.38516387  -2.49012752  11.27674126 -10.25356340
+R>  [6] -13.17986934  -9.27995232   0.03027219  32.61205528  -5.29471157
 ```
 
 Consult these resources for more about R code style :
@@ -232,33 +232,28 @@ sessionInfo()
 
 ```
 R> R version 3.4.3 (2017-11-30)
-R> Platform: x86_64-pc-linux-gnu (64-bit)
-R> Running under: Ubuntu 16.04.3 LTS
+R> Platform: x86_64-apple-darwin15.6.0 (64-bit)
+R> Running under: macOS Sierra 10.12.6
 R> 
 R> Matrix products: default
-R> BLAS: /usr/lib/libblas/libblas.so.3.6.0
-R> LAPACK: /usr/lib/lapack/liblapack.so.3.6.0
+R> BLAS: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRblas.0.dylib
+R> LAPACK: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRlapack.dylib
 R> 
 R> locale:
-R>  [1] LC_CTYPE=en_ZA.UTF-8       LC_NUMERIC=C              
-R>  [3] LC_TIME=en_ZA.UTF-8        LC_COLLATE=en_ZA.UTF-8    
-R>  [5] LC_MONETARY=en_ZA.UTF-8    LC_MESSAGES=en_ZA.UTF-8   
-R>  [7] LC_PAPER=en_ZA.UTF-8       LC_NAME=C                 
-R>  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-R> [11] LC_MEASUREMENT=en_ZA.UTF-8 LC_IDENTIFICATION=C       
+R> [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
 R> 
 R> attached base packages:
 R> [1] stats     graphics  grDevices utils     datasets  base     
 R> 
 R> loaded via a namespace (and not attached):
-R>  [1] compiler_3.4.3  backports_1.1.0 bookdown_0.5    magrittr_1.5   
-R>  [5] rprojroot_1.2   tools_3.4.3     htmltools_0.3.6 yaml_2.1.14    
-R>  [9] Rcpp_0.12.14    stringi_1.1.5   rmarkdown_1.6   highr_0.6      
-R> [13] knitr_1.17      methods_3.4.3   stringr_1.2.0   digest_0.6.13  
+R>  [1] compiler_3.4.3  backports_1.1.2 bookdown_0.5    magrittr_1.5   
+R>  [5] rprojroot_1.3-2 tools_3.4.3     htmltools_0.3.6 yaml_2.1.16    
+R>  [9] Rcpp_0.12.14    stringi_1.1.6   rmarkdown_1.8   highr_0.6      
+R> [13] knitr_1.18      methods_3.4.3   stringr_1.2.0   digest_0.6.13  
 R> [17] png_0.1-7       evaluate_0.10.1
 ```
 
 ## Exercise: It which shall not be named
-Now that you have heard (and perhaps read) our argument about the merits of using R, let's double down and spend the next hour seeing first-hand why we think this. Please open the file 'data/SACTN_data.csv' in excel. Gasp! Yes I know. After all of that and now we are using excel? But trust us, there is method to this madness. Your mission, should you choose to accept it, is to spend the next hour creating monthly climatologies and plotting them as a line graph. The SACTN data are three monthly temperature time series, each about 30 years long. To complete this objective you will need to first split up the three different time series, and then figure out how to create a monthly climatology for each. A monthly climatology is the average temperature for a given month at a given place. So in this instance, because we have three time series, we will want 36 total values. January - December monthly means for each site. Once those values have been calculated, it should be a relatively easy task to plot them as a dot and line graph. Please keep an eye on the time, if you are not done within an hour please stop anyway. Less than a quarter of workshop attendees have completed this task in the past.
+Now that you have heard (and perhaps read) our argument about the merits of using R, let's double down and spend the next hour seeing first-hand why we think this. Please open the file 'data/SACTN_data.csv' in MS Excel. Gasp! Yes I know. After all of that and now we are using MS Excel? But trust us, there is method to this madness. Your mission, should you choose to accept it, is to spend the next hour creating monthly climatologies and plotting them as a line graph. The South African Coastal Temperature Network (SACTN, which will be used several times during this workshop) data are three monthly temperature time series, each about 30 years long. To complete this objective you will need to first split up the three different time series, and then figure out how to create a monthly climatology for each. A monthly climatology is the average temperature for a given month at a given place. So in this instance, because we have three time series, we will want 36 total values comprised of January - December monthly means for each site (if a time series is 30 years long, then a climatological December will be the mean temperature of all of the data within the 30 Decembers for which data are available). Once those values have been calculated, it should be a relatively easy task to plot them as a dot and line graph. Please keep an eye on the time, if you are not done within an hour please stop anyway. Less than a quarter of workshop attendees have completed this task in the past.
 
 After an hour has passed we will take a break. When we return we will see how to complete this task via R as part of 'The New Age' demonstration.

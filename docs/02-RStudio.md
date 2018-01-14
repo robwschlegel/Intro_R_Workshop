@@ -14,27 +14,29 @@
 
 ### General settings
 
-Before we start using RStudio (R) let's first set it up properly. Find the 'Tools' ('Preferences') menu item, navigate to 'Global Options' ('Code Editing') and select the tick boxes as shown in Figure \@ref(fig:RStudio-prefs).
+Before we start using RStudio (which is a code editor and environment that runs R) let's first set it up properly. Find the 'Tools' ('Preferences') menu item, navigate to 'Global Options' ('Code Editing') and select the tick boxes as shown in Figure \@ref(fig:RStudio-prefs).
 
 <div class="figure">
-<img src="figures/RStudio_preferences.png" alt="The RStudio Preferences menu." width="576" />
+<img src="figures/RStudio_preferences.png" alt="The RStudio Preferences menu." width="592" />
 <p class="caption">(\#fig:RStudio-prefs)The RStudio Preferences menu.</p>
 </div>
 
 ### Customising appearance
 
-RStudio is highly customisable. Under the **Appearance** tab under 'Tools'/'Global Options' you can see all of the different themes that come with RStudio. We recommend choosing a theme with a black background (e.g. Chaos) as this will be easier on your eyes and your computer. It is also good to choose a theme with a sufficient amount of contrast between the different colours used to denote different types of objects/ values in your code. 
+RStudio is highly customisable. Under the **Appearance** tab under 'Tools'/'Global Options' you can see all of the different themes that come with RStudio. We recommend choosing a theme with a black background (e.g. Chaos) as this will be easier on your eyes and your computer. It is also good to choose a theme with a sufficient amount of contrast between the different colours used to denote different types of objects/values in your code. 
 
 ### Configuring panes
 
 You cannot rearrange panes (see below) in RStudio by dragging them, but you can alter their position via the **Pane Layout** tab in the 'Tools'/'Global Options' ('RStudio'/'Preferences' – for Mac). You may arrange the panes as you would prefer however we recommend that during the duration of this workshop you leave them in the default layout.
 
-## RProject's
-A very nifty way of managing workflow in RStudio is through the built-in functionality of RProject's. We do not need to install any packages or change any settings to use these. Creating a new project is a very simple task, as well. For this course we will be using the `Intro_R_Workshop.RProj` file you downloaded with the course material so that we are all running identical projects. This will prevent a lot of issues by ensuring we are doing things by the same standard. Better yet, RProject's integrate seamlessly into version control software (e.g. GitHub) and allow for instant world class collaboration on any research project. To initialise the 'Intro_R_Workshop' project on your machine please find where you saved `Intro_R_Workshop.RProj` file and click on it. We will cover the concepts and benefits of RProject's more as we move through the course.
+## The RProject
+A very nifty way of managing workflow in RStudio is through the built-in functionality of the RProject. We do not need to install any packages or change any settings to use these. Creating a new project is a very simple task, as well. For this course we will be using the `Intro_R_Workshop.RProj` file you downloaded with the course material so that we are all running identical projects. This will prevent a lot of issues by ensuring we are doing things by the same standard. Better yet, an RProject integrates seamlessly into version control software (e.g. GitHub) and allows for instant world class collaboration on any research project. To initialise the 'Intro_R_Workshop' project on your machine please find where you saved `Intro_R_Workshop.RProj` file and click on it. We will cover the concepts and benefits of an RProject more as we move through the course.
 
 ## Installing packages
 
-The most common functions used in R are contained within the **`base`** package; this makes R useful 'out of the box.' However, there is extensive additional functionality that is being expanded all the time through the use of packages. Packages are simply collections of code called functions that automate complex mathematical or statistical tasks. One of the most useful features of R is that users are continuously developing new packages and making them available for free. You can find a comprehensive list of available packages on the [CRAN website](https://cran.r-project.org/web/packages/). There are currently (21 December 2017) 11,992 packages available for R!
+
+
+The most common functions used in R are contained within the **`base`** package; this makes R useful 'out of the box.' However, there is extensive additional functionality that is being expanded all the time through the use of packages. Packages are simply collections of code called functions that automate complex mathematical or statistical tasks. One of the most useful features of R is that users are continuously developing new packages and making them available for free. You can find a comprehensive list of available packages on the [CRAN website](https://cran.r-project.org/web/packages/). There are currently (``2018-01-14``) ``12069`` packages available for R!
 
 If the thought of searching for and finding R packages is daunting, a good place to start is the [R Task View](http://cran.r-project.org/web/views/) page. This page curates collections of packages for general tasks you might encounter, such as Experimental Design, Meta-Analysis, or Multivariate Analysis. Go and have a look for yourself, you might be surprised to find a good explanation of what you need.
 
@@ -237,7 +239,8 @@ ls()
 ```
 
 ```
-R> [1] "a"      "apples" "b"      "d"
+R> [1] "a"         "apples"    "arrange"   "b"         "d"         "pkgs_lst" 
+R> [7] "url"       "vp.layout"
 ```
 
 What do we have loaded into our environment? Did all of these objects come from one script, or more than one? How can we tell where an object was generated?

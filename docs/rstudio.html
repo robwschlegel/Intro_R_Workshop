@@ -133,7 +133,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.1.2" data-path="rstudio.html"><a href="rstudio.html#customising-appearance"><i class="fa fa-check"></i><b>2.1.2</b> Customising appearance</a></li>
 <li class="chapter" data-level="2.1.3" data-path="rstudio.html"><a href="rstudio.html#configuring-panes"><i class="fa fa-check"></i><b>2.1.3</b> Configuring panes</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="rstudio.html"><a href="rstudio.html#rprojects"><i class="fa fa-check"></i><b>2.2</b> RProject’s</a></li>
+<li class="chapter" data-level="2.2" data-path="rstudio.html"><a href="rstudio.html#the-rproject"><i class="fa fa-check"></i><b>2.2</b> The RProject</a></li>
 <li class="chapter" data-level="2.3" data-path="rstudio.html"><a href="rstudio.html#installing-packages"><i class="fa fa-check"></i><b>2.3</b> Installing packages</a></li>
 <li class="chapter" data-level="2.4" data-path="rstudio.html"><a href="rstudio.html#the-panes-of-rstudio"><i class="fa fa-check"></i><b>2.4</b> The panes of RStudio</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="rstudio.html"><a href="rstudio.html#source-editor"><i class="fa fa-check"></i><b>2.4.1</b> Source Editor</a></li>
@@ -287,9 +287,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">2.1</span> Setting up the workspace</h2>
 <div id="general-settings" class="section level3">
 <h3><span class="header-section-number">2.1.1</span> General settings</h3>
-<p>Before we start using RStudio (R) let’s first set it up properly. Find the ‘Tools’ (‘Preferences’) menu item, navigate to ‘Global Options’ (‘Code Editing’) and select the tick boxes as shown in Figure <a href="rstudio.html#fig:RStudio-prefs">2.1</a>.</p>
+<p>Before we start using RStudio (which is a code editor and environment that runs R) let’s first set it up properly. Find the ‘Tools’ (‘Preferences’) menu item, navigate to ‘Global Options’ (‘Code Editing’) and select the tick boxes as shown in Figure <a href="rstudio.html#fig:RStudio-prefs">2.1</a>.</p>
 <div class="figure"><span id="fig:RStudio-prefs"></span>
-<img src="figures/RStudio_preferences.png" alt="The RStudio Preferences menu." width="576" />
+<img src="figures/RStudio_preferences.png" alt="The RStudio Preferences menu." width="592" />
 <p class="caption">
 Figure 2.1: The RStudio Preferences menu.
 </p>
@@ -297,20 +297,20 @@ Figure 2.1: The RStudio Preferences menu.
 </div>
 <div id="customising-appearance" class="section level3">
 <h3><span class="header-section-number">2.1.2</span> Customising appearance</h3>
-<p>RStudio is highly customisable. Under the <strong>Appearance</strong> tab under ‘Tools’/‘Global Options’ you can see all of the different themes that come with RStudio. We recommend choosing a theme with a black background (e.g. Chaos) as this will be easier on your eyes and your computer. It is also good to choose a theme with a sufficient amount of contrast between the different colours used to denote different types of objects/ values in your code.</p>
+<p>RStudio is highly customisable. Under the <strong>Appearance</strong> tab under ‘Tools’/‘Global Options’ you can see all of the different themes that come with RStudio. We recommend choosing a theme with a black background (e.g. Chaos) as this will be easier on your eyes and your computer. It is also good to choose a theme with a sufficient amount of contrast between the different colours used to denote different types of objects/values in your code.</p>
 </div>
 <div id="configuring-panes" class="section level3">
 <h3><span class="header-section-number">2.1.3</span> Configuring panes</h3>
 <p>You cannot rearrange panes (see below) in RStudio by dragging them, but you can alter their position via the <strong>Pane Layout</strong> tab in the ‘Tools’/‘Global Options’ (‘RStudio’/‘Preferences’ – for Mac). You may arrange the panes as you would prefer however we recommend that during the duration of this workshop you leave them in the default layout.</p>
 </div>
 </div>
-<div id="rprojects" class="section level2">
-<h2><span class="header-section-number">2.2</span> RProject’s</h2>
-<p>A very nifty way of managing workflow in RStudio is through the built-in functionality of RProject’s. We do not need to install any packages or change any settings to use these. Creating a new project is a very simple task, as well. For this course we will be using the <code>Intro_R_Workshop.RProj</code> file you downloaded with the course material so that we are all running identical projects. This will prevent a lot of issues by ensuring we are doing things by the same standard. Better yet, RProject’s integrate seamlessly into version control software (e.g. GitHub) and allow for instant world class collaboration on any research project. To initialise the ‘Intro_R_Workshop’ project on your machine please find where you saved <code>Intro_R_Workshop.RProj</code> file and click on it. We will cover the concepts and benefits of RProject’s more as we move through the course.</p>
+<div id="the-rproject" class="section level2">
+<h2><span class="header-section-number">2.2</span> The RProject</h2>
+<p>A very nifty way of managing workflow in RStudio is through the built-in functionality of the RProject. We do not need to install any packages or change any settings to use these. Creating a new project is a very simple task, as well. For this course we will be using the <code>Intro_R_Workshop.RProj</code> file you downloaded with the course material so that we are all running identical projects. This will prevent a lot of issues by ensuring we are doing things by the same standard. Better yet, an RProject integrates seamlessly into version control software (e.g. GitHub) and allows for instant world class collaboration on any research project. To initialise the ‘Intro_R_Workshop’ project on your machine please find where you saved <code>Intro_R_Workshop.RProj</code> file and click on it. We will cover the concepts and benefits of an RProject more as we move through the course.</p>
 </div>
 <div id="installing-packages" class="section level2">
 <h2><span class="header-section-number">2.3</span> Installing packages</h2>
-<p>The most common functions used in R are contained within the <strong><code>base</code></strong> package; this makes R useful ‘out of the box.’ However, there is extensive additional functionality that is being expanded all the time through the use of packages. Packages are simply collections of code called functions that automate complex mathematical or statistical tasks. One of the most useful features of R is that users are continuously developing new packages and making them available for free. You can find a comprehensive list of available packages on the <a href="https://cran.r-project.org/web/packages/">CRAN website</a>. There are currently (21 December 2017) 11,992 packages available for R!</p>
+<p>The most common functions used in R are contained within the <strong><code>base</code></strong> package; this makes R useful ‘out of the box.’ However, there is extensive additional functionality that is being expanded all the time through the use of packages. Packages are simply collections of code called functions that automate complex mathematical or statistical tasks. One of the most useful features of R is that users are continuously developing new packages and making them available for free. You can find a comprehensive list of available packages on the <a href="https://cran.r-project.org/web/packages/">CRAN website</a>. There are currently (<code>2018-01-14</code>) <code>12069</code> packages available for R!</p>
 <p>If the thought of searching for and finding R packages is daunting, a good place to start is the <a href="http://cran.r-project.org/web/views/">R Task View</a> page. This page curates collections of packages for general tasks you might encounter, such as Experimental Design, Meta-Analysis, or Multivariate Analysis. Go and have a look for yourself, you might be surprised to find a good explanation of what you need.</p>
 <p>After clicking ‘Tools’/‘Install Packages’, type in the package name <strong><code>tidyverse</code></strong> in the ‘Packages’ text box (note that it is case sensitive) and select the Install button. The <strong>Console</strong> will run the code needed to install the package, and then provide some commentary on the installation of the package and any of its dependencies (<em>i.e.</em>, other R packages needed to run the required package).</p>
 <p>The installation process makes sure that the functions within the packages contained within the <strong><code>tidyverse</code></strong> are now available on your computer, but to avoid potential conflicts in the names of functions, it will not load these automatically. To make R ‘know’ about these functions in a particular session, you need either to load the package via ticking the checkbox for that package in the <strong>Packages</strong> tab, or execute:</p>
@@ -414,7 +414,8 @@ What did we do above? What can you conclude from those functions?</p>
 <p>You can then go back to your program in the <strong>Source Editor</strong> by clicking its tab or closing the tab for the object you opened. Also in the <strong>Environment</strong> is the History tab, where you can see all of the code executed for the session. If you double-click a line or highlight a block of lines and then double-click those, you can send it to the <strong>Console</strong> (<em>i.e.</em>, run them).</p>
 <p>Typing the following into the <strong>Console</strong> will list everything you’ve loaded into the Environment:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ls</span>()</code></pre></div>
-<pre><code>R&gt; [1] &quot;a&quot;      &quot;apples&quot; &quot;b&quot;      &quot;d&quot;</code></pre>
+<pre><code>R&gt; [1] &quot;a&quot;         &quot;apples&quot;    &quot;arrange&quot;   &quot;b&quot;         &quot;d&quot;         &quot;pkgs_lst&quot; 
+R&gt; [7] &quot;url&quot;       &quot;vp.layout&quot;</code></pre>
 <p>What do we have loaded into our environment? Did all of these objects come from one script, or more than one? How can we tell where an object was generated?</p>
 </div>
 <div id="files-plots-packages-help-and-viewer-panes" class="section level3">
@@ -494,17 +495,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
