@@ -350,8 +350,7 @@ We have already seen this function sneak it's way into a few of the code chunks 
 ```r
  SACTN_n <- SACTN %>% 
   group_by(site, src) %>% 
-  summarise(mean_temp = round(mean(temp, na.rm = T))
-            ) %>% 
+  summarise(mean_temp = round(mean(temp, na.rm = T))) %>% 
   arrange(mean_temp) %>% 
   ungroup() %>% 
   select(mean_temp) %>% 

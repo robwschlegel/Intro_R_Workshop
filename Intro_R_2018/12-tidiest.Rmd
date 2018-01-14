@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 
 In the previous session we covered the five main transformation functions one would use in a typical tidy workflow. But to really unlock their power we need to learn how to use them with `group_by()`. This is how we may calculate statistics based on the different grouping variables within our data, such as sites or species or soil types, for example. Let's begin by loading the **`tidyverse`** package and the SACTN data if we haven't already.
 
-```{r tidiest-load, message=FALSE}
+```{r tidiest-load}
 # Load libraries
 library(tidyverse)
 library(lubridate)
@@ -260,8 +260,7 @@ We have already seen this function sneak it's way into a few of the code chunks 
 ```{r tidiest-n-1, fig.cap="Dot plot showing range of mean temperatures for the time series in the SACTN dataset."}
  SACTN_n <- SACTN %>% 
   group_by(site, src) %>% 
-  summarise(mean_temp = round(mean(temp, na.rm = T))
-            ) %>% 
+  summarise(mean_temp = round(mean(temp, na.rm = T))) %>% 
   arrange(mean_temp) %>% 
   ungroup() %>% 
   select(mean_temp) %>% 

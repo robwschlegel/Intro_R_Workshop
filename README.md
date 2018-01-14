@@ -32,3 +32,6 @@ Introductory R course
 * Created new Chapter 7 (old 9)
 * Updated Chapter 8 (old 7) and 9 (old 8)
 * Addressed all necessary TODO issues
+
+### January 15th, 2018
+* Minor corrections
