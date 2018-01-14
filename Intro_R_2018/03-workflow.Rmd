@@ -86,7 +86,7 @@ To load the `laminaria.csv` file we created, and assign it to an object name in 
 
 ```{r workflow-load-lam}
 library(tidyverse)
-laminaria <- read_csv("data/laminaria.csv")
+laminaria <- read_csv2("../data/laminaria.csv")
 ```
 
 If one clicks on the newly created `laminaria` object in the **Environment** pane it will open a new panel that shows the information as a spreadsheet. To go back to your script click the appropriate tab in the **Source Editor** pane. With these data loaded we may now perform analyses on them. 
@@ -108,7 +108,7 @@ rm(laminaria)
 This will of course delete our variable, so we will import it in again:
 
 ```{r, eval=FALSE}
-laminaria <- read_csv("data/laminaria.csv")
+laminaria <- read_csv2("../data/laminaria.csv")
 ```
 
 > **Managing variables**  
@@ -154,7 +154,7 @@ Before we begin to manipulate our data further we need to briefly introduce ours
 library(tidyverse)
 ```
 
-We must then introduce the *pipe* command, `%>%`. We may type this by pushing the following keys together: **ctrl shift m**. The pipe (`%>%`) allows us to perform calculations sequentially, which helps us to avoid making errors.
+We must then introduce the *pipe* command, `%>%`. We may type this by pushing the following keys together: **ctrl-shift-m**. The pipe (`%>%`) allows us to perform calculations sequentially, which helps us to avoid making errors.
 
 The pipe works best in tandem with the following five common functions:
   
@@ -296,29 +296,29 @@ This is all very convenient, but we may want to ask R specifically for just the 
 
 ```{r, eval=FALSE}
 laminaria %>% # Chose the dataframe
-  summarise(mean = mean(blade_length)) # Calculate mean blade length
+  summarise(avg_bld_wdt = mean(blade_length)) # Calculate mean blade length
 ```
 
 Or, if we wanted to know the mean and standard deviation for the total lengths of all the plants across all sites, do:
 
 ```{r, eval=FALSE}
 laminaria %>% # Tell R that we want to use the 'laminaria' dataframe
-  summarise(mean = mean(total_length), # Create a summary of the mean of the total lengths
-            sd = sd(total_length)) # Create a summary of the sd of the total lengths
+  summarise(avg_stp_ln = mean(total_length), # Create a summary of the mean of the total lengths
+            sd_stp_ln = sd(total_length)) # Create a summary of the sd of the total lengths
 ```
 
 Of course, the mean and standard deviation are not the only summary statistic that R can calculate. Try `max()`, `min()`, `median()`, `range()`, `sd()` and `var()`. Do they return the values you expected? Now try:
 
 ```{r, eval=FALSE}
 laminaria %>% 
-  summarise(mean = mean(stipe_mass))
+  summarise(avg_stp_ms = mean(stipe_mass))
 ```
 
 The answer probably isn't what you would expect. Why not? Sometimes, you need to tell R how you want it to deal with missing data. In this case, you have NAs in the named variable, and R takes the cautious approach of giving you the answer of `NA`, meaning that there are missing values here. This may not seem useful, but as the programmer, you can tell R to respond differently, and it will. Simply append an argument to your function call, and you will get a different response. Type:
 
 ```{r, eval=FALSE}
 laminaria %>% 
-  summarise(mean = mean(stipe_mass, na.rm = T))
+  summarise(avg_stp_ms = mean(stipe_mass, na.rm = T))
 ```
 
 The `na.rm` argument tells R to remove (or more correctly 'strip') NAs from the data string before calculating the mean. It now returns the correct answer. Although needing to deal explicitly with missing values in this way can be a bit painful, it does make you more aware of missing data, what the analyses in R are doing, and makes you decide explicitly how you will treat missing data.
@@ -338,7 +338,7 @@ laminaria %>% # Select 'laminaria'
   group_by(site) %>% # Group the dataframe by site
   summarise(var_bl = var(blade_length), # Calculate variance
             n_bl = n()) %>%  # Count number of values
-  mutate(se_bl = sqrt(var_bl/n_bl)) # Calculate se
+  mutate(se_bl = sqrt(var_bl / n_bl)) # Calculate se
 ```
 
 When calculating the mean, we specified that R should strip the NAs, using the argument `na.rm = TRUE`. In the example above, we didn't have NAs in the variable of interest. What happens if we *do*?

@@ -10,11 +10,11 @@
 
 
 
-Though it may have started as statistical software, R has moved far beyond it's mundane origins. The language is now capable of a wide range of applications. Some of which you have already seen, and some others you will see over the rest of this course. For the first half of Day 2 we are going to jump straight into data visualisation.
+Though it may have started as statistical software, R has moved far beyond it's mundane origins. The language is now capable of a wide range of applications, some of which you have already seen, and some others you will see over the rest of this course. For the first half of Day 2 we are going to jump straight into data visualisation.
 
 ## Example figures
 
-Just to whet the appetite, below is provided a small selection of the figures that R and **`ggplot2`** are capable of producing. These are things that AJ and/ or myself have produced for publication or in some cases just for personal interest. Remember, just because we are learning this for work, doesn't mean we can't use it for fun, too. The idea of using R for fun may seem bizarre, but perhaps by the end of Day 5 we will have been able to convince you otherwise!
+Just to whet the appetite, below is provided a small selection of the figures that R and **`ggplot2`** are capable of producing. These are things that AJ and/or myself have produced for publication or in some cases just for personal interest. Remember, just because we are learning this for work, doesn't mean we can't use it for fun, too. The idea of using R for fun may seem bizarre, but perhaps by the end of Day 5 we will have been able to convince you otherwise!
 
 <div class="figure">
 <img src="figures/all_plt0_no_interp_natural.png" alt="The effect of variance (SD) within a temperature time series on the accurate modelling of decadal trends." width="700" />

@@ -133,7 +133,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.1.2" data-path="rstudio.html"><a href="rstudio.html#customising-appearance"><i class="fa fa-check"></i><b>2.1.2</b> Customising appearance</a></li>
 <li class="chapter" data-level="2.1.3" data-path="rstudio.html"><a href="rstudio.html#configuring-panes"><i class="fa fa-check"></i><b>2.1.3</b> Configuring panes</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="rstudio.html"><a href="rstudio.html#rprojects"><i class="fa fa-check"></i><b>2.2</b> RProject’s</a></li>
+<li class="chapter" data-level="2.2" data-path="rstudio.html"><a href="rstudio.html#the-rproject"><i class="fa fa-check"></i><b>2.2</b> The RProject</a></li>
 <li class="chapter" data-level="2.3" data-path="rstudio.html"><a href="rstudio.html#installing-packages"><i class="fa fa-check"></i><b>2.3</b> Installing packages</a></li>
 <li class="chapter" data-level="2.4" data-path="rstudio.html"><a href="rstudio.html#the-panes-of-rstudio"><i class="fa fa-check"></i><b>2.4</b> The panes of RStudio</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="rstudio.html"><a href="rstudio.html#source-editor"><i class="fa fa-check"></i><b>2.4.1</b> Source Editor</a></li>
@@ -341,7 +341,7 @@ R has pedantic requirements for naming variables. It is safest to not use spaces
 <h3><span class="header-section-number">3.2.4</span> Loading a file</h3>
 <p>To load the <code>laminaria.csv</code> file we created, and assign it to an object name in R, we will use the <code>read_csv()</code> function from the <strong><code>tidyverse</code></strong> package, so let’s make sure it is activated.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-laminaria &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/laminaria.csv&quot;</span>)</code></pre></div>
+laminaria &lt;-<span class="st"> </span><span class="kw">read_csv2</span>(<span class="st">&quot;../data/laminaria.csv&quot;</span>)</code></pre></div>
 <p>If one clicks on the newly created <code>laminaria</code> object in the <strong>Environment</strong> pane it will open a new panel that shows the information as a spreadsheet. To go back to your script click the appropriate tab in the <strong>Source Editor</strong> pane. With these data loaded we may now perform analyses on them.</p>
 <p>At any point when working in R, you can see exactly what objects are in memory in several ways. First, you can look at the <strong>Environment</strong> tab in RStudio, then <strong>Workspace Browser</strong>. Alternatively you can type either of the following:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ls</span>()
@@ -350,7 +350,7 @@ laminaria &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span c
 <p>You can delete an object from memory by specifying the <code>rm()</code> function with the name of the object:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(laminaria)</code></pre></div>
 <p>This will of course delete our variable, so we will import it in again:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">laminaria &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/laminaria.csv&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">laminaria &lt;-<span class="st"> </span><span class="kw">read_csv2</span>(<span class="st">&quot;../data/laminaria.csv&quot;</span>)</code></pre></div>
 <blockquote>
 <p><strong>Managing variables</strong><br />
 It is good practice to remove variables from memory that you are not using, especially if they are large.</p>
@@ -377,7 +377,7 @@ It is good practice to remove variables from memory that you are not using, espe
 <p>Before we begin to manipulate our data further we need to briefly introduce ourselves to the <strong><code>tidyverse</code></strong>. In order to do so we must first install and activate this package with the following code if we have not already done so for Chapter 2:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages(&quot;tidyverse&quot;)</span>
 <span class="kw">library</span>(tidyverse)</code></pre></div>
-<p>We must then introduce the <em>pipe</em> command, <code>%&gt;%</code>. We may type this by pushing the following keys together: <strong>ctrl shift m</strong>. The pipe (<code>%&gt;%</code>) allows us to perform calculations sequentially, which helps us to avoid making errors.</p>
+<p>We must then introduce the <em>pipe</em> command, <code>%&gt;%</code>. We may type this by pushing the following keys together: <strong>ctrl-shift-m</strong>. The pipe (<code>%&gt;%</code>) allows us to perform calculations sequentially, which helps us to avoid making errors.</p>
 <p>The pipe works best in tandem with the following five common functions:</p>
 <ul>
 <li>Pick observations (rows) by their values (<code>filter()</code>).</li>
@@ -486,17 +486,17 @@ Friends don’t let friends use Excel.</p>
 <h3><span class="header-section-number">3.3.6</span> Summary statistics by variable</h3>
 <p>This is all very convenient, but we may want to ask R specifically for just the mean of a particular variable. In this case, we simply need to tell R which summary statistic we are interested in, and to specify the variable to apply it to using <code>summarise()</code>. Try typing:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">laminaria <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># Chose the dataframe</span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(blade_length)) <span class="co"># Calculate mean blade length</span></code></pre></div>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">avg_bld_wdt =</span> <span class="kw">mean</span>(blade_length)) <span class="co"># Calculate mean blade length</span></code></pre></div>
 <p>Or, if we wanted to know the mean and standard deviation for the total lengths of all the plants across all sites, do:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">laminaria <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># Tell R that we want to use the &#39;laminaria&#39; dataframe</span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(total_length), <span class="co"># Create a summary of the mean of the total lengths</span>
-            <span class="dt">sd =</span> <span class="kw">sd</span>(total_length)) <span class="co"># Create a summary of the sd of the total lengths</span></code></pre></div>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">avg_stp_ln =</span> <span class="kw">mean</span>(total_length), <span class="co"># Create a summary of the mean of the total lengths</span>
+            <span class="dt">sd_stp_ln =</span> <span class="kw">sd</span>(total_length)) <span class="co"># Create a summary of the sd of the total lengths</span></code></pre></div>
 <p>Of course, the mean and standard deviation are not the only summary statistic that R can calculate. Try <code>max()</code>, <code>min()</code>, <code>median()</code>, <code>range()</code>, <code>sd()</code> and <code>var()</code>. Do they return the values you expected? Now try:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">laminaria <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(stipe_mass))</code></pre></div>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">avg_stp_ms =</span> <span class="kw">mean</span>(stipe_mass))</code></pre></div>
 <p>The answer probably isn’t what you would expect. Why not? Sometimes, you need to tell R how you want it to deal with missing data. In this case, you have NAs in the named variable, and R takes the cautious approach of giving you the answer of <code>NA</code>, meaning that there are missing values here. This may not seem useful, but as the programmer, you can tell R to respond differently, and it will. Simply append an argument to your function call, and you will get a different response. Type:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">laminaria <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(stipe_mass, <span class="dt">na.rm =</span> T))</code></pre></div>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">avg_stp_ms =</span> <span class="kw">mean</span>(stipe_mass, <span class="dt">na.rm =</span> T))</code></pre></div>
 <p>The <code>na.rm</code> argument tells R to remove (or more correctly ‘strip’) NAs from the data string before calculating the mean. It now returns the correct answer. Although needing to deal explicitly with missing values in this way can be a bit painful, it does make you more aware of missing data, what the analyses in R are doing, and makes you decide explicitly how you will treat missing data.</p>
 </div>
 <div id="more-complex-calculations" class="section level3">
@@ -509,7 +509,7 @@ Friends don’t let friends use Excel.</p>
 <span class="st">  </span><span class="kw">group_by</span>(site) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># Group the dataframe by site</span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">var_bl =</span> <span class="kw">var</span>(blade_length), <span class="co"># Calculate variance</span>
             <span class="dt">n_bl =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># Count number of values</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">se_bl =</span> <span class="kw">sqrt</span>(var_bl<span class="op">/</span>n_bl)) <span class="co"># Calculate se</span></code></pre></div>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">se_bl =</span> <span class="kw">sqrt</span>(var_bl <span class="op">/</span><span class="st"> </span>n_bl)) <span class="co"># Calculate se</span></code></pre></div>
 <p>When calculating the mean, we specified that R should strip the NAs, using the argument <code>na.rm = TRUE</code>. In the example above, we didn’t have NAs in the variable of interest. What happens if we <em>do</em>?</p>
 <p>Unfortunately, the call to the function <code>nrow()</code> has no arguments telling R how to treat NAs; instead, they are simply treated as elements of the variable and are therefore counted. The easiest way to resolve this problem is to strip out NAs in advance of any calculations. Try typing:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">laminaria <span class="op">%&gt;%</span><span class="st"> </span>
