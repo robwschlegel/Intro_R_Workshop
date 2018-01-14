@@ -25,14 +25,14 @@ Above all, remember the tidy principles you have leaned here and endeavour to ap
 
 The content we have covered in this workshop is only the beginning. We have looked down upon the tidyverse, it's multitudinous spiralling arms stretching out away from us in all directions. The next step is to begin to investigate the specific branches of the R tree of knowledge that interest us most. Or are most relevant to our work. The following list contains some further suggestions for workshops that are available:
 
--R for biologists
--R for environmental science
--R for oceanographers
--Advanced visualisations
--Multivariate analysis
--Species distribution modelling
--Reproducible research
--Basic stats
+* R for biologists
+* R for environmental science
+* R for oceanographers
+* Advanced visualisations
+* Multivariate analysis
+* Species distribution modelling
+* Reproducible research
+* Basic stats
 
 ## Today
 
