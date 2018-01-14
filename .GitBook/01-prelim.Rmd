@@ -33,6 +33,7 @@ This workshop will take place in the week of **15 January -- 19 January 2018**, 
 *	Interactive Session: An R workflow
 *	-- break --
 *	Interactive Session: An R workflow
+*	-- end --
   
 ### Day 2 -- Show and tell {-}
 

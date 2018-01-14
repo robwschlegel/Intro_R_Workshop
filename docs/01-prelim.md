@@ -27,6 +27,7 @@ This workshop will take place in the week of **15 January -- 19 January 2018**, 
 *	Interactive Session: An R workflow
 *	-- break --
 *	Interactive Session: An R workflow
+*	-- end --
   
 ### Day 2 -- Show and tell {-}
 
@@ -201,8 +202,8 @@ rnorm(n = 10, mean = 0, sd = 13)
 ```
 
 ```
-R>  [1]  24.883957   9.374404   8.424816  -1.813322   9.387218   2.987048
-R>  [7]  20.191229 -14.369642 -11.739144   1.674705
+R>  [1]   3.882480 -16.295305   7.022936  11.678296 -12.253491  -8.716691
+R>  [7] -23.373608  14.513547 -12.109371  12.747783
 ```
 
 Consult these resources for more about R code style :
