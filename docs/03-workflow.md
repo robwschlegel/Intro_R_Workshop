@@ -82,7 +82,7 @@ To load the `laminaria.csv` file we created, and assign it to an object name in 
 
 ```r
 library(tidyverse)
-laminaria <- read_csv2("../data/laminaria.csv")
+laminaria <- read_csv("data/laminaria.csv")
 ```
 
 If one clicks on the newly created `laminaria` object in the **Environment** pane it will open a new panel that shows the information as a spreadsheet. To go back to your script click the appropriate tab in the **Source Editor** pane. With these data loaded we may now perform analyses on them. 
@@ -107,7 +107,7 @@ This will of course delete our variable, so we will import it in again:
 
 
 ```r
-laminaria <- read_csv2("../data/laminaria.csv")
+laminaria <- read_csv2("data/laminaria.csv")
 ```
 
 > **Managing variables**  

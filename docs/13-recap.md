@@ -28,6 +28,8 @@ The content we have covered in this workshop is only the beginning. We have look
 * Reproducible research
 * Basic stats
 
+For further information or inquiries about additional training please contact Robert Schlegel: robwschlegel@gmail.com .
+
 ## Today
 
 For the rest of today we will now open the floor to questions and suggestions that we may work through as a group.

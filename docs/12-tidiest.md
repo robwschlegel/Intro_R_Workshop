@@ -447,7 +447,7 @@ SACTN %>%
   group_by(site, src) %>% 
   summarise(sd_temp = sd(temp, na.rm = T)) %>% 
   ungroup() %>% 
-  arrange(desc(sd_temp)) %>% 
+  dplyr::arrange(desc(sd_temp)) %>% 
   slice(1:5)
 ```
 
@@ -474,7 +474,7 @@ SACTN %>%
   summarise(count = n(), 
             count_15 = sum(temp > 15)) %>% 
   mutate(prop_15 = count_15/count) %>% 
-  arrange(prop_15)
+  dplyr::arrange(prop_15)
 ```
 
 ```

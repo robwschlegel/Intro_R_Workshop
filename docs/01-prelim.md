@@ -201,8 +201,8 @@ rnorm(n = 10, mean = 0, sd = 13)
 ```
 
 ```
-R>  [1] -13.01078890  -7.38516387  -2.49012752  11.27674126 -10.25356340
-R>  [6] -13.17986934  -9.27995232   0.03027219  32.61205528  -5.29471157
+R>  [1]  24.883957   9.374404   8.424816  -1.813322   9.387218   2.987048
+R>  [7]  20.191229 -14.369642 -11.739144   1.674705
 ```
 
 Consult these resources for more about R code style :
@@ -232,24 +232,29 @@ sessionInfo()
 
 ```
 R> R version 3.4.3 (2017-11-30)
-R> Platform: x86_64-apple-darwin15.6.0 (64-bit)
-R> Running under: macOS Sierra 10.12.6
+R> Platform: x86_64-pc-linux-gnu (64-bit)
+R> Running under: Ubuntu 16.04.3 LTS
 R> 
 R> Matrix products: default
-R> BLAS: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRblas.0.dylib
-R> LAPACK: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRlapack.dylib
+R> BLAS: /usr/lib/libblas/libblas.so.3.6.0
+R> LAPACK: /usr/lib/lapack/liblapack.so.3.6.0
 R> 
 R> locale:
-R> [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+R>  [1] LC_CTYPE=en_ZA.UTF-8       LC_NUMERIC=C              
+R>  [3] LC_TIME=en_ZA.UTF-8        LC_COLLATE=en_ZA.UTF-8    
+R>  [5] LC_MONETARY=en_ZA.UTF-8    LC_MESSAGES=en_ZA.UTF-8   
+R>  [7] LC_PAPER=en_ZA.UTF-8       LC_NAME=C                 
+R>  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+R> [11] LC_MEASUREMENT=en_ZA.UTF-8 LC_IDENTIFICATION=C       
 R> 
 R> attached base packages:
 R> [1] stats     graphics  grDevices utils     datasets  base     
 R> 
 R> loaded via a namespace (and not attached):
-R>  [1] compiler_3.4.3  backports_1.1.2 bookdown_0.5    magrittr_1.5   
-R>  [5] rprojroot_1.3-2 tools_3.4.3     htmltools_0.3.6 yaml_2.1.16    
-R>  [9] Rcpp_0.12.14    stringi_1.1.6   rmarkdown_1.8   highr_0.6      
-R> [13] knitr_1.18      methods_3.4.3   stringr_1.2.0   digest_0.6.13  
+R>  [1] compiler_3.4.3  backports_1.1.0 bookdown_0.5    magrittr_1.5   
+R>  [5] rprojroot_1.2   tools_3.4.3     htmltools_0.3.6 yaml_2.1.14    
+R>  [9] Rcpp_0.12.14    stringi_1.1.5   rmarkdown_1.6   highr_0.6      
+R> [13] knitr_1.17      methods_3.4.3   stringr_1.2.0   digest_0.6.13  
 R> [17] png_0.1-7       evaluate_0.10.1
 ```
 

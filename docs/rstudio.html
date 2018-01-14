@@ -25,7 +25,7 @@
 <meta name="author" content="Robert W Schlegel &amp; AJ Smit">
 
 
-<meta name="date" content="2018-01-08">
+<meta name="date" content="2018-01-14">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -414,8 +414,7 @@ What did we do above? What can you conclude from those functions?</p>
 <p>You can then go back to your program in the <strong>Source Editor</strong> by clicking its tab or closing the tab for the object you opened. Also in the <strong>Environment</strong> is the History tab, where you can see all of the code executed for the session. If you double-click a line or highlight a block of lines and then double-click those, you can send it to the <strong>Console</strong> (<em>i.e.</em>, run them).</p>
 <p>Typing the following into the <strong>Console</strong> will list everything you’ve loaded into the Environment:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ls</span>()</code></pre></div>
-<pre><code>R&gt; [1] &quot;a&quot;         &quot;apples&quot;    &quot;arrange&quot;   &quot;b&quot;         &quot;d&quot;         &quot;pkgs_lst&quot; 
-R&gt; [7] &quot;url&quot;       &quot;vp.layout&quot;</code></pre>
+<pre><code>R&gt; [1] &quot;a&quot;        &quot;apples&quot;   &quot;b&quot;        &quot;d&quot;        &quot;pkgs_lst&quot; &quot;url&quot;</code></pre>
 <p>What do we have loaded into our environment? Did all of these objects come from one script, or more than one? How can we tell where an object was generated?</p>
 </div>
 <div id="files-plots-packages-help-and-viewer-panes" class="section level3">
@@ -495,6 +494,17 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

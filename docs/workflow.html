@@ -25,7 +25,7 @@
 <meta name="author" content="Robert W Schlegel &amp; AJ Smit">
 
 
-<meta name="date" content="2018-01-08">
+<meta name="date" content="2018-01-14">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -341,7 +341,7 @@ R has pedantic requirements for naming variables. It is safest to not use spaces
 <h3><span class="header-section-number">3.2.4</span> Loading a file</h3>
 <p>To load the <code>laminaria.csv</code> file we created, and assign it to an object name in R, we will use the <code>read_csv()</code> function from the <strong><code>tidyverse</code></strong> package, so let’s make sure it is activated.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-laminaria &lt;-<span class="st"> </span><span class="kw">read_csv2</span>(<span class="st">&quot;../data/laminaria.csv&quot;</span>)</code></pre></div>
+laminaria &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/laminaria.csv&quot;</span>)</code></pre></div>
 <p>If one clicks on the newly created <code>laminaria</code> object in the <strong>Environment</strong> pane it will open a new panel that shows the information as a spreadsheet. To go back to your script click the appropriate tab in the <strong>Source Editor</strong> pane. With these data loaded we may now perform analyses on them.</p>
 <p>At any point when working in R, you can see exactly what objects are in memory in several ways. First, you can look at the <strong>Environment</strong> tab in RStudio, then <strong>Workspace Browser</strong>. Alternatively you can type either of the following:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ls</span>()
@@ -350,7 +350,7 @@ laminaria &lt;-<span class="st"> </span><span class="kw">read_csv2</span>(<span 
 <p>You can delete an object from memory by specifying the <code>rm()</code> function with the name of the object:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(laminaria)</code></pre></div>
 <p>This will of course delete our variable, so we will import it in again:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">laminaria &lt;-<span class="st"> </span><span class="kw">read_csv2</span>(<span class="st">&quot;../data/laminaria.csv&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">laminaria &lt;-<span class="st"> </span><span class="kw">read_csv2</span>(<span class="st">&quot;data/laminaria.csv&quot;</span>)</code></pre></div>
 <blockquote>
 <p><strong>Managing variables</strong><br />
 It is good practice to remove variables from memory that you are not using, especially if they are large.</p>

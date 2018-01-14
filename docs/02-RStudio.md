@@ -239,8 +239,7 @@ ls()
 ```
 
 ```
-R> [1] "a"         "apples"    "arrange"   "b"         "d"         "pkgs_lst" 
-R> [7] "url"       "vp.layout"
+R> [1] "a"        "apples"   "b"        "d"        "pkgs_lst" "url"
 ```
 
 What do we have loaded into our environment? Did all of these objects come from one script, or more than one? How can we tell where an object was generated?

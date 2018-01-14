@@ -25,7 +25,7 @@
 <meta name="author" content="Robert W Schlegel &amp; AJ Smit">
 
 
-<meta name="date" content="2018-01-08">
+<meta name="date" content="2018-01-14">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -600,7 +600,7 @@ SACTN <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">group_by</span>(site, src) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">sd_temp =</span> <span class="kw">sd</span>(temp, <span class="dt">na.rm =</span> T)) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(sd_temp)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">arrange</span>(<span class="kw">desc</span>(sd_temp)) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)</code></pre></div>
 <pre><code>R&gt; # A tibble: 5 x 3
 R&gt;   site       src   sd_temp
@@ -620,7 +620,7 @@ R&gt; 5 Mossel Bay DEA      2.51</code></pre>
 <span class="st">  </span><span class="kw">summarise</span>(<span class="dt">count =</span> <span class="kw">n</span>(), 
             <span class="dt">count_15 =</span> <span class="kw">sum</span>(temp <span class="op">&gt;</span><span class="st"> </span><span class="dv">15</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">prop_15 =</span> count_<span class="dv">15</span><span class="op">/</span>count) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">arrange</span>(prop_<span class="dv">15</span>)</code></pre></div>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">arrange</span>(prop_<span class="dv">15</span>)</code></pre></div>
 <pre><code>R&gt; # A tibble: 7 x 4
 R&gt;   src   count count_15 prop_15
 R&gt;   &lt;chr&gt; &lt;int&gt;    &lt;int&gt;   &lt;dbl&gt;
@@ -697,6 +697,17 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
