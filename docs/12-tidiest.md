@@ -176,7 +176,7 @@ SACTN %>%
 
 ```
 R> # A tibble: 3 x 4
-R> # Groups:   site [?]
+R> # Groups: site [?]
 R>   site        src   mean_temp sd_temp
 R>   <fctr>      <chr>     <dbl>   <dbl>
 R> 1 Paternoster DEA        12.8   0.879
@@ -218,7 +218,7 @@ SACTN %>%
 
 ```
 R> # A tibble: 5 x 4
-R> # Groups:   site [?]
+R> # Groups: site [?]
 R>   site        src   mean_temp sd_temp
 R>   <fctr>      <chr>     <dbl>   <dbl>
 R> 1 Paternoster DEA        12.8   0.879
@@ -327,7 +327,7 @@ SACTN %>%
 
 ```
 R> # A tibble: 10 x 3
-R> # Groups:   site, src [1]
+R> # Groups: site, src [1]
 R>    site         src   kelvin
 R>    <fctr>       <chr>  <dbl>
 R>  1 Port Nolloth DEA      285
@@ -352,7 +352,7 @@ We have already seen this function sneak it's way into a few of the code chunks 
   group_by(site, src) %>% 
   summarise(mean_temp = round(mean(temp, na.rm = T))
             ) %>% 
-  arrange(mean_temp) %>% 
+  dplyr::arrange(mean_temp) %>% 
   ungroup() %>% 
   select(mean_temp) %>% 
   unique()
@@ -448,7 +448,7 @@ SACTN %>%
   group_by(site, src) %>% 
   summarise(sd_temp = sd(temp, na.rm = T)) %>% 
   ungroup() %>% 
-  arrange(desc(sd_temp)) %>% 
+  dplyr::arrange(desc(sd_temp)) %>% 
   slice(1:5)
 ```
 
@@ -475,7 +475,7 @@ SACTN %>%
   summarise(count = n(), 
             count_15 = sum(temp > 15)) %>% 
   mutate(prop_15 = count_15/count) %>% 
-  arrange(prop_15)
+  dplyr::arrange(prop_15)
 ```
 
 ```
