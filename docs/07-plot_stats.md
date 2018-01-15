@@ -43,7 +43,12 @@ How snazzy is that?! And this works just as well for two mean (t-test) compariso
 
 
 ```r
-compare_means(temp~site, data = filter(SACTN, site %in% c("Port Nolloth", "Muizenberg")), method = "t.test")
+# Subset two sites
+two_sites <- SACTN %>% 
+  filter(site %in% c("Port Nolloth", "Muizenberg"))
+
+# Perform t-test
+compare_means(temp~site, data = two_sites, method = "t.test")
 ```
 
 ```

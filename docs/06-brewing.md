@@ -41,7 +41,7 @@ Over the years I've installed so many packages on my computer that it is difficu
 
 ```r
 # Load libraries
-library(ggplot2)
+library(tidyverse)
 library(boot)
 
 # Load data

@@ -39,7 +39,12 @@ compare_means(temp~site, data = SACTN, method = "anova")
 How snazzy is that?! And this works just as well for two mean (t-test) comparisons. It also has built into it the necessary tests for non-parametric comparisons as well as paired tests but we won't show that explicitly here.
 
 ```{r plot-stats-t-test}
-compare_means(temp~site, data = filter(SACTN, site %in% c("Port Nolloth", "Muizenberg")), method = "t.test")
+# Subset two sites
+two_sites <- SACTN %>% 
+  filter(site %in% c("Port Nolloth", "Muizenberg"))
+
+# Perform t-test
+compare_means(temp~site, data = two_sites, method = "t.test")
 ```
 
 This is great, but it is not new functionality, just drastically improved functionality. The second function introduced in this package is what is really going to make our lives easier. The first two lines in the following code chunk should look very familiar. We are creating a basic boxplot but with a twist. The third line of code, `stat_compare_means()`, will run an ANOVA for us "*in situ*" and automatically add the *p*-value to our boxplot.

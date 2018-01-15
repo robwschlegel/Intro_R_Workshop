@@ -105,7 +105,8 @@ The above figure looks great, so let's save a copy of it as a PDF to our compute
 
 ```{r facet-save, eval=FALSE}
 # First we must assign the code to an object name
-grid_1 <- ggarrange(lm_1, histogram_1, density_1, violin_1, ncol = 2, nrow = 2, 
+grid_1 <- ggarrange(lm_1, histogram_1, density_1, violin_1, 
+                    ncol = 2, nrow = 2, 
                     labels = c("A", "B", "C", "D"),
                     common.legend = TRUE)
 

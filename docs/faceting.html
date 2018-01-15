@@ -158,7 +158,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.3.5" data-path="workflow.html"><a href="workflow.html#summary-of-all-variables-in-a-dataframe"><i class="fa fa-check"></i><b>3.3.5</b> Summary of all variables in a dataframe</a></li>
 <li class="chapter" data-level="3.3.6" data-path="workflow.html"><a href="workflow.html#summary-statistics-by-variable"><i class="fa fa-check"></i><b>3.3.6</b> Summary statistics by variable</a></li>
 <li class="chapter" data-level="3.3.7" data-path="workflow.html"><a href="workflow.html#more-complex-calculations"><i class="fa fa-check"></i><b>3.3.7</b> More complex calculations</a></li>
-<li class="chapter" data-level="3.3.8" data-path="workflow.html"><a href="workflow.html#factor-summaries"><i class="fa fa-check"></i><b>3.3.8</b> Factor summaries</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="workflow.html"><a href="workflow.html#saving-data"><i class="fa fa-check"></i><b>3.4</b> Saving data</a></li>
 <li class="chapter" data-level="3.5" data-path="workflow.html"><a href="workflow.html#visualisations"><i class="fa fa-check"></i><b>3.5</b> Visualisations</a></li>
@@ -383,7 +382,8 @@ Figure 5.6: All four of our figures gridded together with an automagically creat
 </div>
 <p>The above figure looks great, so let’s save a copy of it as a PDF to our computer. In order to do so we will need to use the <code>ggsave()</code> function.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># First we must assign the code to an object name</span>
-grid_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">ggarrange</span>(lm_<span class="dv">1</span>, histogram_<span class="dv">1</span>, density_<span class="dv">1</span>, violin_<span class="dv">1</span>, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, 
+grid_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">ggarrange</span>(lm_<span class="dv">1</span>, histogram_<span class="dv">1</span>, density_<span class="dv">1</span>, violin_<span class="dv">1</span>, 
+                    <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, 
                     <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>),
                     <span class="dt">common.legend =</span> <span class="ot">TRUE</span>)
 
@@ -438,17 +438,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

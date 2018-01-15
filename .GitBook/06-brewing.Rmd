@@ -45,7 +45,7 @@ Over the years I've installed so many packages on my computer that it is difficu
 
 ```{r brew-1, warning=FALSE, message=FALSE}
 # Load libraries
-library(ggplot2)
+library(tidyverse)
 library(boot)
 
 # Load data

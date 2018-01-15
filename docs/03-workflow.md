@@ -57,17 +57,9 @@ The easiest way to import data into R is by changing your working directory to b
 
 The concept of file paths is either one that you are familiar with, or you've never heard of before. There tends to be little middle ground. Happily, RStudio allows us to circumvent this issue. We do this by using the `Intro_R_Workshop.Rproj` that you may find in the files downloaded for this workshop. If you have not already switched to the `Intro_R_Workshop.Rproj` as outlined in Chapter 2, click on the project button in the top right corner your RStudio window. Then navigate to where you saved `Intro_R_Workshop.Rproj` and select it. Notice that your RStudio has changed a bit and all of the objects you may have previously created in your environment have been removed and any tabs in the source editor pane have been closed. That is fine for now, but it may mean you need to re-open the `Day_1.R` script you just created.
 
-Once we have the working directory set, either by doing it manually with `setwd()` or by loading a project, R will now know where to look for the files we want to read. The function `read_csv()` is the most convenient way to read in statistical data. There are several other ways to read in data, but for the purposes of this Course, we'll stick to this one, for now. To find out what it does, we will go to its help entry in the usual way (*i.e.* `?read_csv`).
+Once we have the working directory set, either by doing it manually with `setwd()` or by loading a project, R will now know where to look for the files we want to read. The function `read_csv()` is the most convenient way to read in raw data. There are several other ways to read in data, but for the purposes of this workshop we'll stick to this one, for now. To find out what it does, we will go to its help entry in the usual way (*i.e.* `?read_csv`).
 
 All R Help items are in the same format. A short *Description* (of what it does), *Usage*, *Arguments* (the different inputs it requires), *Details* (of what it does), *Value* (what it returns) and *Examples*. Arguments (the parameters that are passed to the function) are the lifeblood of any function, as this is how you provide information to R. You do not need to specify all arguments, as most have appropriate default values for your requirements, and others might not be needed for your particular case.
-
-There are many arguments that you can use to customise reading of your data, but most important are:
-
-1. `file`: the name of the data file to be read (this needs to include its path if it is not in your specified working directory); note that file names must be placed within quotation marks
-
-2. `header`: is a logical argument (`TRUE`/`FALSE`) that specifies whether R reads the first line of your file as the names of the variables it contains
-
-3. `quote`: By default, character strings can be quoted by either single ('...') or double ("...") quotes and usually do not need to be changed when exporting data as .csv from Excel.
 
 > **Data formats**  
 R has pedantic requirements for naming variables. It is safest to not use spaces, special characters (*e.g.*, commas, semicolons, any of the shift characters above the numbers), or function names (*e.g.*, mean). One can use 'camelCase', such as `myFirstVariable`, or simply separate the 'parts' of the variable name using an underscore such as in `my_first_variable`. Always make sure to use meaningful names; eventually you will learn to find a balance between meaningfulness and something short that's easy enough to retype repeatedly (although R's ability to use tab completion helps with not having to type long names to often).
@@ -82,8 +74,18 @@ To load the `laminaria.csv` file we created, and assign it to an object name in 
 
 ```r
 library(tidyverse)
+```
+
+Depending on the version of Excel you are using, or perhaps the settings within  it, the 'laminaria.csv' file you created may be corrupted in different ways. Generally Excel likes to replace the `,` between columns in our .csv files with `;`. This may seem like a triviality but sadly it is not. Lucky for use, the **`tidyverse`** knows about this problem and they have made a plan. Please open your 'laminaria.csv' file and look at which character is being used to separate columns. If it is `,` then we will load the data with `read_csv()`. If the columns are separated with `;` we will use `read_csv2()`.
+
+
+```r
+# Run this if 'laminaria.csv` has columns separated by ','
+laminaria <- read_csv("data/laminaria.csv")
+# Run this if 'laminaria.csv` has columns separated by ';'
 laminaria <- read_csv("data/laminaria.csv")
 ```
+
 
 If one clicks on the newly created `laminaria` object in the **Environment** pane it will open a new panel that shows the information as a spreadsheet. To go back to your script click the appropriate tab in the **Source Editor** pane. With these data loaded we may now perform analyses on them. 
 
@@ -103,10 +105,12 @@ You can delete an object from memory by specifying the `rm()` function with the 
 rm(laminaria)
 ```
 
-This will of course delete our variable, so we will import it in again:
+This will of course delete our variable, so we will import it in again using whichever of the following two lines of code matched our Excel situation.
 
 
 ```r
+laminaria <- read_csv("data/laminaria.csv")
+# OR
 laminaria <- read_csv2("data/laminaria.csv")
 ```
 
@@ -150,15 +154,7 @@ names(laminaria)
 
 ### Tidyverse sneak peek
 
-Before we begin to manipulate our data further we need to briefly introduce ourselves to the **`tidyverse`**. In order to do so we must first install and activate this package with the following code if we have not already done so for Chapter 2:
-
-
-```r
-# install.packages("tidyverse")
-library(tidyverse)
-```
-
-We must then introduce the *pipe* command, `%>%`. We may type this by pushing the following keys together: **ctrl-shift-m**. The pipe (`%>%`) allows us to perform calculations sequentially, which helps us to avoid making errors.
+Before we begin to manipulate our data further we need to briefly introduce ourselves to the **`tidyverse`**. And no introduction can be complete within learning about the *pipe* command, `%>%`. We may type this by pushing the following keys together: **ctrl-shift-m**. The pipe (`%>%`) allows us to perform calculations sequentially, which helps us to avoid making errors.
 
 The pipe works best in tandem with the following five common functions:
   
@@ -384,49 +380,6 @@ You will notice that the function `na.omit()` removes NAs from the variable that
 > **DIY: Using `na.omit()`**
 Using this new information, *calculate* the mean stipe mass and the corresponding standard error.
 
-### Factor summaries
-
-These sorts of summary statistics are fine for continuous variables, but we might want something a little different for factors (*i.e.*, categorical variables with different levels). Try typing:
-
-
-```r
-laminaria %>% 
-  select(site) %>% 
-  table()
-```
-
-This returns a table with a column corresponding to each unique level of the categorical variable `site`. In the first line is the value of the level (in this case, the names of the places where the kelps were collected); in the second line is the frequency of occurrence of that level in the variable (the number of kelps measured at each site).
-
-Of course, this is easily extended to two-way tables. Try typing:
-
-
-```r
-laminaria %>% 
-  select(region, site) %>% 
-  table()
-```
-
-This lists the number of observations at each `site` and at each `region`, with `sites` as columns, and `regions` as rows. 
-
-You can also of course assign the results of a call to `table()` to an object. Try:
-
-
-```r
-site_by_region <- laminaria %>% 
-  select(region, site) %>% 
-  table() %>% 
-  data.frame()
-```
-
-For higher-order data summaries, `ftable()` is useful for creating 'flat contingency tables':
-
-
-```r
-laminaria %>% 
-  select(region, site) %>% 
-  ftable()
-```
-
 ## Saving data
 
 A major advantage of R over many other statistics packages is that you can generate exactly the same answers time and time again by simply re-running saved code. However, there are times when you will want to output data to a file that can be read by a spreadsheet program such as Excel (but try not to... please). The simplest general format is .csv (comma-separated values). This format is easily read by Excel, and also by many other software programs. To output a .csv type:
@@ -436,7 +389,7 @@ A major advantage of R over many other statistics packages is that you can gener
 write_csv(site_by_region, path = "data/kelp_summary.csv")
 ```
 
-The first argument is simply the name of an object in R, in this case our table (a data object of class *table*) of counts by region and site (other sorts of data are available, so play around to see what can be done). The second argument is the name of the file you want to write to. This file will always be written to your working directory, unless otherwise specified by including a different path in the file name. Remember that file names need to be within quotation marks. The last argument simply tells R to add a column of values specifying row names (in this case, the names of the regions). Of course, if you don't want row names (which might be the case if you were writing the whole dataframe to a file), simply replace the `TRUE` with `FALSE`. The resultant file can sadly be opened in Excel.
+The first argument is simply the name of an object in R, in this case our table (a data object of class *table*) of counts by region and site (other sorts of data are available, so play around to see what can be done). The second argument is the name of the file you want to write to. This file will always be written to your working directory, unless otherwise specified by including a different path in the file name. Remember that file names need to be within quotation marks. The resultant file can sadly be opened in Excel.
 
 ## Visualisations
 
@@ -445,7 +398,7 @@ R has powerful and flexible graphics capabilities. In this Workshop we will not 
 
 ```r
 ggplot(data = laminaria, aes(x = stipe_mass, y = stipe_length)) +
-  geom_point(shape = 21, col = "salmon", fill = "white") +
+  geom_point(shape = 21, colour = "salmon", fill = "white") +
   labs(x = "Stipe mass (kg)", y = "Stipe length (cm)")
 ```
 
@@ -453,20 +406,13 @@ ggplot(data = laminaria, aes(x = stipe_mass, y = stipe_length)) +
 
 ## Clearing the memory
 
-You will be left with many objects after working through these examples. Note that in RStudio when you quit it can save the Environment if you choose, and so it can retain the objects in memory when you start RStudio again. The choice to save the objects resulting from an R Session until next time can be selected in the Global Options menu ('Tools' > 'Global Options' > 'General' > 'Save workspace to .RData on exit'). Personally, we never save objects as it is preferable to start on a clean slate when one opens RStudio. Either way, to avoid long load times and clogged memory, it is good practice to clear the objects in memory every now and then unless you can think of a compelling reason not to.
+You will be left with many objects after working through these examples. Note that in RStudio when you quit it can save the Environment if you choose, and so it can retain the objects in memory when you start RStudio again. The choice to save the objects resulting from an R Session until next time can be selected in the Global Options menu ('Tools' > 'Global Options' > 'General' > 'Save workspace to .RData on exit'). Personally, we never save objects as it is preferable to start on a clean slate when one opens RStudio. Either way, to avoid long load times and clogged memory, it is good practice to clear the objects in memory every now and then unless you can think of a compelling reason not to. This may be done by clicking on the broom icon at the top of the **Environment** pane.
 
-We already know how to list and delete objects, but often you will want to dump all objects from memory; this is particularly useful to have at the start and end of a script. This can be done by typing:
-
-
-```r
-rm(list = ls())
-```
-
-The parameter `list` provides a list of objects to be deleted (you could combine all existing object names together in quotes using `c()`, but more easily the function `ls()` gives all the object names in memory). Of course, you could remove an individual object by placing only its name within the brackets of `rm()`. Do not use this line of code carelessly in the middle of your script; doing so will mean that you have to go back and regenerate the objects you accidentally removed -- this is more of a nuisance than a train smash, especially for long, complicated scripts, as you will have (I hope!) saved the R script from which the objects in memory can be regenerated at any time.
+Of course, you could remove an individual object by placing only its name within the brackets of `rm()`. Do not use this line of code carelessly in the middle of your script; doing so will mean that you have to go back and regenerate the objects you accidentally removed -- this is more of a nuisance than a train smash, especially for long, complicated scripts, as you will have (I hope!) saved the R script from which the objects in memory can be regenerated at any time.
 
 ## Working directories
 
-At the beginning of this session we glossed over this topic by setting the working directory via RStudios project functionality. This concept is however critically important to understand so we must now cover it in more detail. The current working directory, where R will read and write files, is displayed by RStudio within the title region of the Console. There are a number of ways to change the current working directory:
+At the beginning of this session we glossed over this topic by setting the working directory via RStudio's project functionality. This concept is however critically important to understand so we must now cover it in more detail. The current working directory, where R will read and write files, is displayed by RStudio within the title region of the Console. There are a number of ways to change the current working directory:
 
   1. Select 'Session'/'Set Working Directory' and then choose from the four options for how to set your working directory depending on your preference
 
@@ -474,14 +420,14 @@ At the beginning of this session we glossed over this topic by setting the worki
 
   3. Use `setwd()`, providing the name of your desired working directory as a character string
 
-In the **Files** tab, use the directory structure to navigate to the Intro R Workshop directory... this will differ from person to person. Then under 'More', select the small upside down (drill-down) triangle and select 'Set As Working Directory'. This means that whenever you read or write a file it will always be working in that directory. This gives us the code for setting the directory (below is the code that I would enter in the **Console** on my laptop):
+In the **Files** tab, use the directory structure to navigate to the Intro R Workshop directory... this will differ from person to person. Then under 'More', select the small upside down (drill-down) triangle and select 'Set As Working Directory'. This means that whenever you read or write a file it will always be working in that directory. This gives us the code for setting the directory (below is the code that I would enter in the **Console** on my computer):
 
 
 ```r
 setwd("~/Intro_R_Workshop")
 ```
 
-It will be different for you, but copy it into your script for future reference.
+It will be different for you, but copy it into your script and make a note for future reference.
 
 > **Working directories**  
 For Windows users, if you copy from a file path the slashes will be the wrong way around and must be changed!
