@@ -15,7 +15,7 @@ Yesterday we learned how to create **`ggplot2`** figures, change their aesthetic
 Most of the work that we perform as environmental/biological scientists involves going out to a location and sampling information there. Sometimes only once, and sometimes over a period of time. All of these different sampling methods lend themselves to different types of figures. One of those, collection of data at different points, is best shown with maps. As we will see over the course of Day 3, creating maps in **`ggplot2`** is very straight forward and is extensively supported. For that reason we are going to have plenty of time to also learn how to do some more advanced things. Our goal in this chapter is to produce the figure below.
 
 <div class="figure">
-<img src="figures/map_complete.png" alt="The goal for today." width="1050" />
+<img src="figures/map_complete.png" alt="The goal for today." width="1350" />
 <p class="caption">(\#fig:map-goal)The goal for today.</p>
 </div>
 
@@ -76,7 +76,7 @@ ggplot(data = south_africa_coast, aes(x = lon, y = lat)) +
 
 Does that look familiar? Notice how the x and y axis tick labels look the same as any map you would see in an atlas. This is because they are. But this isn't a great way to create a map. Rather it is better to represent the land mass with a polygon. With **`ggplot2`** this is a simple task.
 
-## Creating a map
+## Land mask
 
 Now that we have seen that a map is nothing more than a bunch of dots and shapes on specific points along the x and y axes we are going to look at the steps we would take to build a more complex map. Don't worry if this seems daunting at first. We are going to take this step by step and ensure that each step is made clear along the way. The first step is to create a polygon.
 
@@ -91,7 +91,9 @@ ggplot(data = south_africa_coast, aes(x = lon, y = lat, group = group)) +
 <p class="caption">(\#fig:map-polygon)The map of South Africa. Now with province borders!</p>
 </div>
 
-The first thing we will add is the province borders as seen in Figure \@ref(fig:map-goal). Notice how we only add one more line of code to do this. The one hiccup here is that because the built in map has different names for the x and y axes than our data, we need to specifiy the `aes()` values for each new geom we add.
+## Borders
+
+The first thing we will add is the province borders as seen in Figure \@ref(fig:map-goal). Notice how we only add one more line of code to do this.
 
 
 ```r
@@ -105,6 +107,9 @@ ggplot(data = south_africa_coast, aes(x = lon, y = lat, group = group)) +
 <p class="caption">(\#fig:map-province)The map of South Africa. Now with province borders!</p>
 </div>
 
+## Force lon/lat extent
+
+Unfortunately when we added our borders it increased the plotting area of our map past what we would like. To correct that we will need to explicitly state the borders we want.
 
 
 ```r
@@ -118,6 +123,8 @@ ggplot(data = south_africa_coast, aes(x = lon, y = lat)) +
 <img src="07-mapping_files/figure-html/map-expand-1.png" alt="The map, but with the extra bits snipped off." width="672" />
 <p class="caption">(\#fig:map-expand)The map, but with the extra bits snipped off.</p>
 </div>
+
+## Ocean temperature
 
 This is starting to look pretty fancy, but it would be nicer if there was some colour involved. So let's add the ocean temperature. Again, this will only require one more line of code. Starting to see a pattern? But what is different this time and why?
 
@@ -171,6 +178,8 @@ ggplot(data = south_africa_coast, aes(x = lon, y = lat)) +
 <p class="caption">(\#fig:map-raster)Map of SOuth Africa showing *in situ* temeperatures (°C) as pixels along the coast.</p>
 </div>
 
+## Final touches
+
 We used `geom_tile()` instead of `geom_rast()` to add the coastal pixels above so that we could add those little white boxes around them. This figure is looking pretty great now. And it only took a few rows of code to put it all together! The last step is to add several more lines of code that will control for all of the little things we want to change about the appearance of the figure. Each little thing that is changed below is annotated for your convenience.
 
 
@@ -204,5 +213,5 @@ That is a very clean looking map so let's go ahead and save it on our computers
 
 
 ```r
-ggsave(plot = final_map, "figures/map_complete.pdf")
+ggsave(plot = final_map, "figures/map_complete.pdf", height = 6, width = 9)
 ```

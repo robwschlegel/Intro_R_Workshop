@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 
 Now that we've seen how to produce complex maps with **`ggplot2`** we are going to learn how to bring Google maps into the mix. Some kind hearted person has made a package for R that allows us to do this relatively easily. But that means we will need to install another new package.
 
-After we learn how to use Google maps we will tak some time to learn additional mapping techniques that we may want for creating publication quality figures.
+After we learn how to use Google maps we will take some time to learn additional mapping techniques that we may want for creating publication quality figures.
 
 ## **`ggmap`**
 
@@ -63,7 +63,7 @@ Pretty cool huh?! You may do this for anywhere in the world just as easy as this
 
 ## Site labels
 
-The previous figure shows our sites along Cape Point, which is great, but which site is which?! We need site labels. This is a relatively straightforward processs, so we've given a complicated example of how to do so here.
+The previous figure shows our sites along Cape Point, which is great, but which site is which?! We need site labels. This is a relatively straightforward process, so we've given a complicated example of how to do so here.
 
 ```{r ggmap-2, fig.cap="Google map of Cape Point with site labels"}
 cp_2 <- cp_1 +
@@ -80,4 +80,4 @@ cp_2
 
 ## DIY maps
 
-Now that we have learned how to make conventional maps, as well as fancy Google maps, it is time for us to branch out once again at let our creative juices flow. Please group up as you see fit and create your own beautiful map of whever you like. Bonus points for faceting in additional figures showing supplementary information. Feel free to use either conventional maps or the Google alternative. Same as yesterday, we will be walking the room to help with any issues that may arise.
+Now that we have learned how to make conventional maps, as well as fancy Google maps, it is time for us to branch out once again at let our creative juices flow. Please group up as you see fit and create your own beautiful map of wherever you like. Bonus points for faceting in additional figures showing supplementary information. Feel free to use either conventional maps or the Google alternative. Same as yesterday, we will be walking the room to help with any issues that may arise.

@@ -68,7 +68,7 @@ ggplot(data = south_africa_coast, aes(x = lon, y = lat)) +
 
 Does that look familiar? Notice how the x and y axis tick labels look the same as any map you would see in an atlas. This is because they are. But this isn't a great way to create a map. Rather it is better to represent the land mass with a polygon. With **`ggplot2`** this is a simple task.
 
-## Creating a map
+## Land mask
 
 Now that we have seen that a map is nothing more than a bunch of dots and shapes on specific points along the x and y axes we are going to look at the steps we would take to build a more complex map. Don't worry if this seems daunting at first. We are going to take this step by step and ensure that each step is made clear along the way. The first step is to create a polygon.
 
@@ -77,7 +77,9 @@ ggplot(data = south_africa_coast, aes(x = lon, y = lat, group = group)) +
   geom_polygon(colour = "black", fill = "grey70") # The land mask
 ```
 
-The first thing we will add is the province borders as seen in Figure \@ref(fig:map-goal). Notice how we only add one more line of code to do this. The one hiccup here is that because the built in map has different names for the x and y axes than our data, we need to specifiy the `aes()` values for each new geom we add.
+## Borders
+
+The first thing we will add is the province borders as seen in Figure \@ref(fig:map-goal). Notice how we only add one more line of code to do this.
 
 ```{r map-province, fig.cap="The map of South Africa. Now with province borders!"}
 ggplot(data = south_africa_coast, aes(x = lon, y = lat, group = group)) +
@@ -85,6 +87,9 @@ ggplot(data = south_africa_coast, aes(x = lon, y = lat, group = group)) +
   geom_path(data = sa_provinces) # The province borders
 ```
 
+## Force lon/lat extent
+
+Unfortunately when we added our borders it increased the plotting area of our map past what we would like. To correct that we will need to explicitly state the borders we want.
 
 ```{r map-expand, fig.cap="The map, but with the extra bits snipped off."}
 ggplot(data = south_africa_coast, aes(x = lon, y = lat)) +
@@ -92,6 +97,8 @@ ggplot(data = south_africa_coast, aes(x = lon, y = lat)) +
   geom_path(data = sa_provinces, aes( group = group)) + 
   coord_equal(xlim = c(15, 34), ylim = c(-36, -26), expand = 0) # Force lon/lat extent
 ```
+
+## Ocean temperature
 
 This is starting to look pretty fancy, but it would be nicer if there was some colour involved. So let's add the ocean temperature. Again, this will only require one more line of code. Starting to see a pattern? But what is different this time and why?
 
@@ -127,6 +134,8 @@ ggplot(data = south_africa_coast, aes(x = lon, y = lat)) +
   coord_equal(xlim = c(15, 34), ylim = c(-36, -26), expand = 0)
 ```
 
+## Final touches
+
 We used `geom_tile()` instead of `geom_rast()` to add the coastal pixels above so that we could add those little white boxes around them. This figure is looking pretty great now. And it only took a few rows of code to put it all together! The last step is to add several more lines of code that will control for all of the little things we want to change about the appearance of the figure. Each little thing that is changed below is annotated for your convenience.
 
 ```{r map-final, fig.cap="The cleaned up map of South Africa. Resplendent with coastal and ocean temperatures (°C)."}
@@ -153,5 +162,5 @@ final_map
 That is a very clean looking map so let's go ahead and save it on our computers
 
 ```{r map-save, eval=FALSE}
-ggsave(plot = final_map, "figures/map_complete.pdf")
+ggsave(plot = final_map, "figures/map_complete.pdf", height = 6, width = 9)
 ```

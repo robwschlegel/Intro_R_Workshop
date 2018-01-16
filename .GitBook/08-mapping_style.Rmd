@@ -64,7 +64,7 @@ That is a very tidy looking map of South(ern) Africa without needing to load any
 
 ## Specific labels
 
-A map is almost always going to need some labels and other visual cues. We saw in the previous section how to add site labels. The following code chunk shows how this differs if we want to add just one label at a time. This can be useful if ecah label needs to be different from all other labels for whatever reason. We may also see that the text labels we are creating have `\n` in them. When R sees these two characters together like this it reads this as an instruction to returndown a line. Let's run the code to make sure we see what this means.
+A map is almost always going to need some labels and other visual cues. We saw in the previous section how to add site labels. The following code chunk shows how this differs if we want to add just one label at a time. This can be useful if each label needs to be different from all other labels for whatever reason. We may also see that the text labels we are creating have `\n` in them. When R sees these two characters together like this it reads this as an instruction to return down a line. Let's run the code to make sure we see what this means.
 
 ```{r maps-labels, fig.cap="Map of southern Africa with specific labels."}
 sa_2 <- sa_1 +
@@ -117,7 +117,7 @@ sa_4
 
 ## Rounding it out
 
-There are a lot of exciting things going on in our figure now. To round out our adventures in mapping let's tweak the lon/alt labels to a more prestigious convention. There are two ways to do this. One of which requires us to install the **`scales`** package. Don't worry, its's a small one!
+There are a lot of exciting things going on in our figure now. To round out our adventures in mapping let's tweak the lon/lat labels to a more prestigious convention. There are two ways to do this. One of which requires us to install the **`scales`** package. Don't worry, it's a small one!
 
 ```{r maps-final, fig.cap="The final map with all of the bells and whistles."}
 sa_final <- sa_4 +
