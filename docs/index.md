@@ -2,7 +2,7 @@
 title: "Intro R Workshop: Data Manipulation, Analysis and Graphing"
 subtitle: 'Grahamstown 2018'
 author: "Robert W Schlegel & AJ Smit"
-date: "2018-01-14"
+date: "2018-01-16"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]

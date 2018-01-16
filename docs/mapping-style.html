@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="prelim.html">
-<link rel="next" href="workflow.html">
+<link rel="prev" href="mapping.html">
+<link rel="next" href="mapping-google.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -268,179 +268,149 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="rstudio" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> RStudio</h1>
+<div id="mapping_style" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> Mapping with style</h1>
 <blockquote>
-<p>“Strange events permit themselves the luxury of occurring.”</p>
-<p>— Charlie Chan</p>
+<p>“How beautiful the world was when one looked at it without searching, just looked, simply and innocently.”</p>
+<p>— Hermann Hesse, Siddartha</p>
 </blockquote>
 <blockquote>
-<p>“Without data you’re just another person with an opinion.”</p>
-<p>— W. Edwards Deming</p>
+<p>“You can’t judge a book by it’s cover but you can sure sell a bunch of books if you have a good one.”</p>
+<p>— Jayce O’Neal</p>
 </blockquote>
-<div id="setting-up-the-workspace" class="section level2">
-<h2><span class="header-section-number">2.1</span> Setting up the workspace</h2>
-<div id="general-settings" class="section level3">
-<h3><span class="header-section-number">2.1.1</span> General settings</h3>
-<p>Before we start using RStudio (which is a code editor and environment that runs R) let’s first set it up properly. Find the ‘Tools’ (‘Preferences’) menu item, navigate to ‘Global Options’ (‘Code Editing’) and select the tick boxes as shown in Figure <a href="rstudio.html#fig:RStudio-prefs">2.1</a>.</p>
-<div class="figure"><span id="fig:RStudio-prefs"></span>
-<img src="figures/RStudio_preferences.png" alt="The RStudio Preferences menu." width="592" />
-<p class="caption">
-Figure 2.1: The RStudio Preferences menu.
-</p>
-</div>
-</div>
-<div id="customising-appearance" class="section level3">
-<h3><span class="header-section-number">2.1.2</span> Customising appearance</h3>
-<p>RStudio is highly customisable. Under the <strong>Appearance</strong> tab under ‘Tools’/‘Global Options’ you can see all of the different themes that come with RStudio. We recommend choosing a theme with a black background (e.g. Chaos) as this will be easier on your eyes and your computer. It is also good to choose a theme with a sufficient amount of contrast between the different colours used to denote different types of objects/values in your code.</p>
-</div>
-<div id="configuring-panes" class="section level3">
-<h3><span class="header-section-number">2.1.3</span> Configuring panes</h3>
-<p>You cannot rearrange panes (see below) in RStudio by dragging them, but you can alter their position via the <strong>Pane Layout</strong> tab in the ‘Tools’/‘Global Options’ (‘RStudio’/‘Preferences’ – for Mac). You may arrange the panes as you would prefer however we recommend that during the duration of this workshop you leave them in the default layout.</p>
-</div>
-</div>
-<div id="the-rproject" class="section level2">
-<h2><span class="header-section-number">2.2</span> The RProject</h2>
-<p>A very nifty way of managing workflow in RStudio is through the built-in functionality of the RProject. We do not need to install any packages or change any settings to use these. Creating a new project is a very simple task, as well. For this course we will be using the <code>Intro_R_Workshop.RProj</code> file you downloaded with the course material so that we are all running identical projects. This will prevent a lot of issues by ensuring we are doing things by the same standard. Better yet, an RProject integrates seamlessly into version control software (e.g. GitHub) and allows for instant world class collaboration on any research project. To initialise the ‘Intro_R_Workshop’ project on your machine please find where you saved <code>Intro_R_Workshop.RProj</code> file and click on it. We will cover the concepts and benefits of an RProject more as we move through the course.</p>
-</div>
-<div id="installing-packages" class="section level2">
-<h2><span class="header-section-number">2.3</span> Installing packages</h2>
-<p>The most common functions used in R are contained within the <strong><code>base</code></strong> package; this makes R useful ‘out of the box.’ However, there is extensive additional functionality that is being expanded all the time through the use of packages. Packages are simply collections of code called functions that automate complex mathematical or statistical tasks. One of the most useful features of R is that users are continuously developing new packages and making them available for free. You can find a comprehensive list of available packages on the <a href="https://cran.r-project.org/web/packages/">CRAN website</a>. There are currently (<code>2018-01-16</code>) <code>12094</code> packages available for R!</p>
-<p>If the thought of searching for and finding R packages is daunting, a good place to start is the <a href="http://cran.r-project.org/web/views/">R Task View</a> page. This page curates collections of packages for general tasks you might encounter, such as Experimental Design, Meta-Analysis, or Multivariate Analysis. Go and have a look for yourself, you might be surprised to find a good explanation of what you need.</p>
-<p>After clicking ‘Tools’/‘Install Packages’, type in the package name <strong><code>tidyverse</code></strong> in the ‘Packages’ text box (note that it is case sensitive) and select the Install button. The <strong>Console</strong> will run the code needed to install the package, and then provide some commentary on the installation of the package and any of its dependencies (<em>i.e.</em>, other R packages needed to run the required package).</p>
-<p>The installation process makes sure that the functions within the packages contained within the <strong><code>tidyverse</code></strong> are now available on your computer, but to avoid potential conflicts in the names of functions, it will not load these automatically. To make R ‘know’ about these functions in a particular session, you need either to load the package via ticking the checkbox for that package in the <strong>Packages</strong> tab, or execute:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
-<p>Since we will develop the habit of doing all of our analyses from R scripts, it is best practice to simply list all of the libraries to be loaded right at the start of your script. Comments may be used to remind your future-self (to quote Hadley Wickham) what those packages are for.</p>
-<blockquote>
-<p><strong>Copying code from RStudio</strong><br />
-Here you saw RStudio execute the R code needed to install (using <code>install.packages()</code>) and load (using <code>library()</code>) the package, so if you want to include these in one of your programs, just copy the text it executes. Note that you need only install the current version of a package once, but it needs to be loaded at the beginning of each R session.</p>
-</blockquote>
-<blockquote>
-<p><strong>Question</strong> Why is it best practice to include packages you use in your R program explicitly?</p>
-</blockquote>
-</div>
-<div id="the-panes-of-rstudio" class="section level2">
-<h2><span class="header-section-number">2.4</span> The panes of RStudio</h2>
-<p>RStudio has four main panes each in a quadrant of your screen: <strong>Source Editor</strong>, <strong>Console</strong>, <strong>Workspace Browser</strong> (and <strong>History</strong>), and <strong>Plots</strong> (and <strong>Files</strong>, <strong>Packages</strong>, <strong>Help</strong>). These can also be adjusted under the ‘Preferences’ menu. Note that there might be subtle differences between RStudio installations on different operating systems. We will discuss each of the panes in turn.</p>
-<div id="source-editor" class="section level3">
-<h3><span class="header-section-number">2.4.1</span> Source Editor</h3>
-<p>Generally we will want to write programs longer than a few lines. The <strong>Source Editor</strong> can help you open, edit and execute these programs. Let us open a simple program:</p>
-<ol style="list-style-type: decimal">
-<li><p>Use Windows Explorer (Finder on Mac) and navigate to the file <code>BONUS/the_new_age.R</code>.</p></li>
-<li><p>Now make RStudio the default application to open <code>.R</code> files (right click on the file Name and set RStudio to open it as the default if it isn’t already)</p></li>
-<li><p>Now double click on the file – this will open it in RStudio in the <strong>Source Editor</strong> in the top left pane.</p></li>
-</ol>
-<p>Note <code>.R</code> files are simply standard text files and can be created in any text editor and saved with a <code>.R</code> (or <code>.r</code>) extension, but the Source editor in RStudio has the advantage of providing syntax highlighting, code completion, and smart indentation. You can see the different colours for numbers and there is also highlighting to help you count brackets (click your cursor next to a bracket and push the right arrow and you will see its partner bracket highlighted). We can execute R code directly from the Source Editor. Try the following (for Windows machines; for Macs replace <strong>Ctrl</strong> with <strong>Cmd</strong>):</p>
-<ul>
-<li>Execute a single line (Run icon or <strong>Ctrl+Enter</strong>). Note that the cursor can be anywhere on the line and one does not need to highlight anything — do this for the code on line 2</li>
-<li>Execute multiple lines (Highlight lines with the cursor, then Run icon or <strong>Ctrl+Enter</strong>) — do this for line 3 to 6</li>
-<li>Execute the whole script (Source icon or <strong>Ctrl+Shift+Enter</strong>)</li>
-</ul>
-<p>Now, try changing the x an/or y axis labels on line 18 and re-run the script.</p>
-<p>Now let us save the program in the <strong>Source Editor</strong> by clicking on the file symbol (note that the file symbol is greyed out when the file has not been changed since it was last saved).</p>
-<p>At this point, it might be worth thinking a bit about what the program is doing. R requires one to think about what you are doing, not simply clicking buttons like in some other software systems which shall remain nameless for now… Scripts execute sequentially from top to bottom. Try and work out what each line of the program is doing and discuss it with your neighbour. Note, if you get stuck, try using R’s help system; accessing the help system is especially easy within RStudio — see if you can figure out how to use that too.</p>
-<blockquote>
-<p><strong>Comments</strong><br />
-The hash (<code>#</code>) tells R not to run any of the text on that line to the right of the symbol. This is the standard way of commenting R code; it is VERY good practice to comment in detail so that you can understand later what you have done.</p>
-</blockquote>
-</div>
-<div id="console" class="section level3">
-<h3><span class="header-section-number">2.4.2</span> Console</h3>
-<p>This is where you can type code that executes immediately. This is also known as the command line. Throughout the notes, we will represent code for you to execute in R as a different font.</p>
-<blockquote>
-<p><strong>Type it in!</strong> Although it may appear that one could copy code from this PDF into the <strong>Console</strong>, you really shouldn’t. The first reason is that you might unwittingly copy invisible PDF formatting errors into R, which will make the code fail. But more importantly, typing code into the <strong>Console</strong> yourself gives you the practice you need, and allows you to make (and correct) your own errors. This is an invaluable way of learning and taking shortcuts now will only hurt you in the long run.</p>
-</blockquote>
-<p>Entering code in the command line is intuitive and easy. For example, we can use R as a calculator by typing into the Console (and pressing <strong>Enter</strong> after each line):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">6</span> <span class="op">*</span><span class="st"> </span><span class="dv">3</span></code></pre></div>
-<pre><code>R&gt; [1] 18</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">5</span> <span class="op">+</span><span class="st"> </span><span class="dv">4</span></code></pre></div>
-<pre><code>R&gt; [1] 9</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span> <span class="op">^</span><span class="st"> </span><span class="dv">3</span></code></pre></div>
-<pre><code>R&gt; [1] 8</code></pre>
-<p>Note that spaces are optional around simple calculations.</p>
-<p>We can also use the assignment operator <code>&lt;-</code> to assign any calculation to a variable so we can access it later (the <code>=</code> sign would work, too, but it’s bad practice to use it… and we’ll talk about this as we go):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="dv">2</span>
-b &lt;-<span class="st"> </span><span class="dv">7</span>
-a <span class="op">+</span><span class="st"> </span>b</code></pre></div>
-<pre><code>R&gt; [1] 9</code></pre>
-<p>To type the assignment operator (<code>&lt;-</code>) push the following two keys together: <strong>alt -</strong>. There are many keyboard shortcuts in R and we will introduce them as we go along.</p>
-<p>Spaces are also optional around assignment operators. It is good practice to use single spaces in your R scripts, and the <strong>alt -</strong> shortcut will do this for you automagically. Spaces are not only there to make the code more readable to the human eye, but also to the machine. Try this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d&lt;-<span class="dv">2</span>
-d <span class="op">&lt;</span><span class="st"> </span><span class="op">-</span><span class="dv">2</span></code></pre></div>
-<pre><code>R&gt; [1] FALSE</code></pre>
-<p>Note that the first line of code assigns <code>d</code> a value of <code>2</code>, whereas the second statement asks R whether this variable has a value less than 2. When asked, it responds with FALSE. If we hadn’t used spaces, how would R have known what we meant?</p>
-<p>Another important question here is, is R case sensitive? Is <code>A</code> the same as <code>a</code>? Figure out a way to check for yourself.</p>
-<p>We can create a vector in R by using the combine <code>c()</code> function:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">apples &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">5.3</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>)</code></pre></div>
-<p>A vector is a one-dimensional array (<em>i.e.</em>, a list of numbers), and this is the simplest form of data used in R (you can think of a single value in R as just a very short vector). We’ll talk about more complex (and therefore more powerful) types of data structures as we go along.</p>
-<p>If you want to display the value of apples type:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">apples</code></pre></div>
-<pre><code>R&gt; [1] 5.3 3.8 4.5</code></pre>
-<p>Finally, there are default functions in R for nearly all basic statistical analyses, including <code>mean()</code> and <code>sd()</code> (standard deviation):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(apples)</code></pre></div>
-<pre><code>R&gt; [1] 4.533333</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(apples)</code></pre></div>
-<pre><code>R&gt; [1] 0.7505553</code></pre>
-<blockquote>
-<p><strong>Variable names</strong><br />
-It is best not to use <code>c</code> as the name of a value or array. Why? What other words might not be good to use?</p>
-</blockquote>
-<p>Or try this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">sd</span>(apples), <span class="dv">2</span>)</code></pre></div>
-<pre><code>R&gt; [1] 0.75</code></pre>
-<blockquote>
-<p><strong>Question</strong><br />
-What did we do above? What can you conclude from those functions?</p>
-</blockquote>
-<p>RStudio supports the automatic completion of code using the <strong>Tab</strong> key. For example, type the three letters <code>app</code> and then the <strong>Tab</strong> key. What happens?</p>
-<p>The code completion feature also provides brief inline help for functions whenever possible. For example, type <code>mean()</code> and press the <strong>Tab</strong> key.</p>
-<p>The RStudio <strong>Console</strong> automagically maintains a ‘history’ so that you can retrieve previous commands, a bit like your Internet browser or Google (<em>see the code in: BONUS/mapping_yourself.Rmd</em>). On a blank line in the <strong>Console</strong>, press the up arrow, and see what happens.</p>
-<p>If you wish to review a list of your recent commands and then select a command from this list you can use <strong>Ctrl+Up</strong> to review the list (<strong>Cmd+Up</strong> on the Mac). If you prefer a ‘bird’s eye’ overview of the R command history, you may also use the RStudio History pane (see below).</p>
-<p>The <strong>Console</strong> title bar has a few useful features:</p>
-<ol style="list-style-type: decimal">
-<li><p>It displays the current R working directory (more on this later)</p></li>
-<li><p>It provides the ability to interrupt R during a long computation (a stop sign will appear whilst code is running)</p></li>
-<li><p>It allows you to minimise and maximise the <strong>Console</strong> in relation to the <strong>Source pane</strong> using the buttons at the top-right or by double-clicking the title bar)</p></li>
-</ol>
-</div>
-<div id="environment-and-history-panes" class="section level3">
-<h3><span class="header-section-number">2.4.3</span> Environment and History panes</h3>
-<p>The <strong>Environment</strong> pane is very useful as it shows you what objects (<em>i.e.</em>, dataframes, arrays, values and functions) you have in your environment (workspace). You can see the values for objects with a single value and for those that are longer R will tell you their class. When you have data in your environment that have two dimensions (rows and columns) you may click on them and they will appear in the <strong>Source Editor</strong> pane like a spreadsheet.</p>
-<p>You can then go back to your program in the <strong>Source Editor</strong> by clicking its tab or closing the tab for the object you opened. Also in the <strong>Environment</strong> is the History tab, where you can see all of the code executed for the session. If you double-click a line or highlight a block of lines and then double-click those, you can send it to the <strong>Console</strong> (<em>i.e.</em>, run them).</p>
-<p>Typing the following into the <strong>Console</strong> will list everything you’ve loaded into the Environment:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ls</span>()</code></pre></div>
-<pre><code>R&gt; [1] &quot;a&quot;        &quot;apples&quot;   &quot;b&quot;        &quot;d&quot;        &quot;pkgs_lst&quot; &quot;url&quot;</code></pre>
-<p>What do we have loaded into our environment? Did all of these objects come from one script, or more than one? How can we tell where an object was generated?</p>
-</div>
-<div id="files-plots-packages-help-and-viewer-panes" class="section level3">
-<h3><span class="header-section-number">2.4.4</span> Files, Plots, Packages, Help and Viewer panes</h3>
-<p>The last pane has a number of different tabs. The Files tab has a navigable file manager, just like the file system on your operating system. The <strong>Plot</strong> tab is where graphics you create will appear. The <strong>Packages</strong> tab shows you the packages that are installed and those that can be installed (more on this just now). The <strong>Help</strong> tab allows you to search the R documentation for help and is where the help appears when you ask for it from the <strong>Console</strong>.</p>
-<p>Methods of getting help from the <strong>Console</strong> include…</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?mean</code></pre></div>
-<p>…or:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">help</span>(mean)</code></pre></div>
-<p>We will go into this in more detail in the next session.</p>
-<p>To see the plots reproduced in Figures <a href="rstudio.html#fig:base-graphic-1">2.2</a> and <a href="rstudio.html#fig:ggplot2-1">2.3</a>, simply type the following into the <strong>Console</strong>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dt">by =</span> <span class="fl">0.01</span>)
-y &lt;-<span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="kw">sin</span>(<span class="dv">2</span> <span class="op">*</span><span class="st"> </span>pi <span class="op">*</span><span class="st"> </span>(x <span class="op">-</span><span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="dv">4</span>))
-<span class="kw">plot</span>(x, y, <span class="dt">col =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">cex =</span> <span class="fl">0.4</span>)</code></pre></div>
-<div class="figure"><span id="fig:base-graphic-1"></span>
-<img src="02-RStudio_files/figure-html/base-graphic-1-1.png" alt="An example R plot done in base graphics." width="672" />
-<p class="caption">
-Figure 2.2: An example R plot done in base graphics.
-</p>
-</div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># library(ggplot2)</span>
-<span class="kw">ggplot</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y), <span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">col =</span> <span class="st">&quot;salmon&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>)</code></pre></div>
-<div class="figure"><span id="fig:ggplot2-1"></span>
-<img src="02-RStudio_files/figure-html/ggplot2-1-1.png" alt="The same plot as above, but assembled with __ggplot2__." width="672" />
-<p class="caption">
-Figure 2.3: The same plot as above, but assembled with <strong>ggplot2</strong>.
-</p>
-</div>
+<p>Now that we have learned the basics of creating a beautiful map in <strong><code>ggplot2</code></strong> it is time to look at some of the more particular things we will need to make our maps extra stylish. There are also a few more things we need to learn how to do before our maps can be truly publication quality.</p>
+<p>If we have not yet loaded the <strong><code>tidyverse</code></strong> let’s do so.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load libraries</span>
+<span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(scales)
 
+<span class="co"># Load the function for creating scale bars</span>
+<span class="kw">source</span>(<span class="st">&quot;functions/scale.bar.func.R&quot;</span>)
+
+<span class="co"># Load Africa shape</span>
+<span class="kw">load</span>(<span class="st">&quot;data/africa_coast.RData&quot;</span>)</code></pre></div>
+<div id="default-maps" class="section level2">
+<h2><span class="header-section-number">8.1</span> Default maps</h2>
+<p>In order to access the default maps included with the <strong><code>tidyverse</code></strong> we will use the function <code>borders()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">borders</span>() <span class="op">+</span><span class="st"> </span><span class="co"># The global shape file</span>
+<span class="st">  </span><span class="kw">coord_equal</span>() <span class="co"># Equal sizing for lon/lat </span></code></pre></div>
+<div class="figure"><span id="fig:maps-world"></span>
+<img src="08-mapping_style_files/figure-html/maps-world-1.png" alt="The built in global shape file." width="672" />
+<p class="caption">
+Figure 8.1: The built in global shape file.
+</p>
 </div>
+<p>Jikes! It’s as simple as that to load a map of the whole planet. Usually we are not going to want to make a map of the entire planet, so let’s see how to focus on just South Africa.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">borders</span>(<span class="dt">regions =</span> <span class="st">&quot;South Africa&quot;</span>, 
+          <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;grey70&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Set colour and fill</span>
+<span class="st">  </span><span class="kw">coord_equal</span>()</code></pre></div>
+<div class="figure"><span id="fig:maps-SA-1"></span>
+<img src="08-mapping_style_files/figure-html/maps-SA-1-1.png" alt="Built in map of South Africa." width="672" />
+<p class="caption">
+Figure 8.2: Built in map of South Africa.
+</p>
+</div>
+<p>We see in the above map that the exclusion of the southern African countries bordering on South Africa give it the appearance of an island. Marion Island is also giving us issues. This isn’t great, so let’s consider a different option for selecting the area around South Africa.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sa_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">borders</span>(<span class="dt">fill =</span> <span class="st">&quot;grey70&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_equal</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">12</span>, <span class="dv">36</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">38</span>, <span class="op">-</span><span class="dv">22</span>), <span class="dt">expand =</span> <span class="dv">0</span>) <span class="co"># Force lon/lat extent</span>
+sa_<span class="dv">1</span></code></pre></div>
+<div class="figure"><span id="fig:maps-SA-2"></span>
+<img src="08-mapping_style_files/figure-html/maps-SA-2-1.png" alt="A better way to get the map of South Africa." width="672" />
+<p class="caption">
+Figure 8.3: A better way to get the map of South Africa.
+</p>
+</div>
+<p>That is a very tidy looking map of South(ern) Africa without needing to load any files.</p>
+</div>
+<div id="specific-labels" class="section level2">
+<h2><span class="header-section-number">8.2</span> Specific labels</h2>
+<p>A map is almost always going to need some labels and other visual cues. We saw in the previous section how to add site labels. The following code chunk shows how this differs if we want to add just one label at a time. This can be useful if ecah label needs to be different from all other labels for whatever reason. We may also see that the text labels we are creating have <code>\n</code> in them. When R sees these two characters together like this it reads this as an instruction to returndown a line. Let’s run the code to make sure we see what this means.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sa_<span class="dv">2</span> &lt;-<span class="st"> </span>sa_<span class="dv">1</span> <span class="op">+</span>
+<span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">label =</span> <span class="st">&quot;Atlantic</span><span class="ch">\n</span><span class="st">Ocean&quot;</span>, <span class="dt">x =</span> <span class="fl">15.1</span>, <span class="dt">y =</span> <span class="op">-</span><span class="fl">32.0</span>, 
+           <span class="dt">size =</span> <span class="fl">5.0</span>, <span class="dt">angle =</span> <span class="dv">30</span>, <span class="dt">colour =</span> <span class="st">&quot;navy&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">label =</span> <span class="st">&quot;Indian</span><span class="ch">\n</span><span class="st">Ocean&quot;</span>, <span class="dt">x =</span> <span class="fl">33.2</span>, <span class="dt">y =</span> <span class="op">-</span><span class="fl">34.2</span>, 
+           <span class="dt">size =</span> <span class="fl">5.0</span>, <span class="dt">angle =</span> <span class="dv">330</span>, <span class="dt">colour =</span> <span class="st">&quot;springgreen&quot;</span>)
+sa_<span class="dv">2</span></code></pre></div>
+<div class="figure"><span id="fig:maps-labels"></span>
+<img src="08-mapping_style_files/figure-html/maps-labels-1.png" alt="Map of southern Africa with specific labels." width="672" />
+<p class="caption">
+Figure 8.4: Map of southern Africa with specific labels.
+</p>
+</div>
+</div>
+<div id="scale-bars" class="section level2">
+<h2><span class="header-section-number">8.3</span> Scale bars</h2>
+<p>With our fancy labels added, let’s insert a scale bar next. There is no default scale bar function in the <strong><code>tidyverse</code></strong> unfortunately, rather we will need to import one that has been created by a kind Samaritan. It is a bit finicky and often requires a bit of trial and error to get it to look exactly the way one wants. On the plus side, this also means we have a lot of control over the appearance of the scale bar.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sa_<span class="dv">3</span> &lt;-<span class="st"> </span>sa_<span class="dv">2</span> <span class="op">+</span>
+<span class="st">    </span><span class="kw">scaleBar</span>(<span class="dt">lon =</span> <span class="fl">22.2</span>, <span class="dt">lat =</span> <span class="op">-</span><span class="fl">33.1</span>, <span class="dt">distanceLon =</span> <span class="dv">200</span>, <span class="dt">distanceLat =</span> <span class="dv">50</span>, 
+             <span class="dt">distanceLegend =</span> <span class="dv">75</span>, <span class="dt">dist.unit =</span> <span class="st">&quot;km&quot;</span>, <span class="dt">arrow.length =</span> <span class="dv">150</span>, 
+             <span class="dt">arrow.distance =</span> <span class="dv">95</span>, <span class="dt">arrow.North.size =</span> <span class="dv">5</span>)
+sa_<span class="dv">3</span></code></pre></div>
+<div class="figure"><span id="fig:maps-scale"></span>
+<img src="08-mapping_style_files/figure-html/maps-scale-1.png" alt="Map of southern Africa with labels and a scale bar." width="672" />
+<p class="caption">
+Figure 8.5: Map of southern Africa with labels and a scale bar.
+</p>
+</div>
+</div>
+<div id="insetting" class="section level2">
+<h2><span class="header-section-number">8.4</span> Insetting</h2>
+<p>In order to inset a smaller map inside of a larger map we must first create the smaller map. Let’s make a map of Africa as a demonstration. The built in shape files that come with the <strong><code>tidyverse</code></strong> are not terribly useful for creating the outline of a given continent, so we will use the shape file of Africa that we already have saved on our computer. See if you can determine what each line of code is doing.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">africa_map &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> africa_coast, <span class="kw">aes</span>(<span class="dt">x =</span> lon, <span class="dt">y =</span> lat)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_polygon</span>(<span class="kw">aes</span>(<span class="dt">group =</span> group), <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;grey70&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">borders</span>(<span class="dt">regions =</span> <span class="st">&quot;South Africa&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>,
+          <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">34</span>, <span class="op">-</span><span class="dv">28</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">x =</span> <span class="dv">15</span>, <span class="dt">y =</span> <span class="dv">15</span>, <span class="dt">label =</span> <span class="st">&quot;AFRICA&quot;</span>, <span class="dt">size =</span> <span class="fl">4.5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_rect</span>(<span class="kw">aes</span>(<span class="dt">xmin =</span> <span class="dv">12</span>, <span class="dt">xmax =</span>  <span class="dv">36</span>, <span class="dt">ymin =</span> <span class="op">-</span><span class="dv">38</span>, <span class="dt">ymax =</span> <span class="op">-</span><span class="dv">22</span>),
+            <span class="dt">fill =</span> <span class="ot">NA</span>, <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_equal</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_void</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.background =</span> <span class="kw">element_rect</span>(<span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>))
+africa_map</code></pre></div>
+<div class="figure"><span id="fig:maps-mini"></span>
+<img src="08-mapping_style_files/figure-html/maps-mini-1.png" alt="A quick map of Africa to be insetted in our southern Africa map." width="672" />
+<p class="caption">
+Figure 8.6: A quick map of Africa to be insetted in our southern Africa map.
+</p>
+</div>
+<p>And now to inset this map of Africa into our map of southern Africa we will need to learn how to create a ‘grob’. This is very simple and does not require any extra work on our part. Remember that <strong><code>ggplot2</code></strong> objects are different from normal objects (i.e. dataframes), and that they have their own way of storing and accessing data. In order to convert any sort of thing into a format that ggplot understands we convert it into a grob, as shown below. Once converted, we may then plop it onto our figure/map wherever we please. Both of these steps are accomplished with the single function <code>annotation_custom()</code>. This is also a good way to add logos or any other sort of image to a map/figure. You can really go completely bananas. It’s even possible to add GIFs. Such happy. Much excite. Very wonderment.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sa_<span class="dv">4</span> &lt;-<span class="st"> </span>sa_<span class="dv">3</span> <span class="op">+</span>
+<span class="st">  </span><span class="kw">annotation_custom</span>(<span class="dt">grob =</span> <span class="kw">ggplotGrob</span>(africa_map),
+                    <span class="dt">xmin =</span> <span class="fl">21.3</span>, <span class="dt">xmax =</span> <span class="fl">27.3</span>,
+                    <span class="dt">ymin =</span> <span class="op">-</span><span class="dv">30</span>, <span class="dt">ymax =</span> <span class="op">-</span><span class="dv">24</span>)
+sa_<span class="dv">4</span></code></pre></div>
+<div class="figure"><span id="fig:maps-inset"></span>
+<img src="08-mapping_style_files/figure-html/maps-inset-1.png" alt="Map of southern Africa, with labels, scale bar, and an inset map of Africa." width="672" />
+<p class="caption">
+Figure 8.7: Map of southern Africa, with labels, scale bar, and an inset map of Africa.
+</p>
+</div>
+</div>
+<div id="rounding-it-out" class="section level2">
+<h2><span class="header-section-number">8.5</span> Rounding it out</h2>
+<p>There are a lot of exciting things going on in our figure now. To round out our adventures in mapping let’s tweak the lon/alt labels to a more prestigious convention. There are two ways to do this. One of which requires us to install the <strong><code>scales</code></strong> package. Don’t worry, its’s a small one!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sa_final &lt;-<span class="st"> </span>sa_<span class="dv">4</span> <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">16</span>, <span class="dv">32</span>, <span class="dv">4</span>),
+                     <span class="dt">labels =</span> scales<span class="op">::</span><span class="kw">unit_format</span>(<span class="st">&quot;°E&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>),
+                     <span class="dt">position =</span> <span class="st">&quot;bottom&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="op">-</span><span class="dv">36</span>, <span class="op">-</span><span class="dv">24</span>, <span class="dv">4</span>),
+                     <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;36.0°S&quot;</span>, <span class="st">&quot;32.0°S&quot;</span>, <span class="st">&quot;28.0°S&quot;</span>, <span class="st">&quot;24.0°S&quot;</span>),
+                     <span class="dt">position =</span> <span class="st">&quot;right&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;&quot;</span>)
+sa_final</code></pre></div>
+<div class="figure"><span id="fig:maps-final"></span>
+<img src="08-mapping_style_files/figure-html/maps-final-1.png" alt="The final map with all of the bells and whistles." width="672" />
+<p class="caption">
+Figure 8.8: The final map with all of the bells and whistles.
+</p>
+</div>
+<p>And lastly we save the fruits of our labours.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="dt">plot =</span> sa_final, <span class="dt">filename =</span> <span class="st">&quot;figures/southern_africa_final.pdf&quot;</span>, 
+       <span class="dt">height =</span> <span class="dv">6</span>, <span class="dt">width =</span> <span class="dv">8</span>)</code></pre></div>
+
 </div>
 </div>
             </section>
@@ -448,8 +418,8 @@ Figure 2.3: The same plot as above, but assembled with <strong>ggplot2</strong>.
           </div>
         </div>
       </div>
-<a href="prelim.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="workflow.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="mapping.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="mapping-google.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -489,17 +459,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

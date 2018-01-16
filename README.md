@@ -35,3 +35,6 @@ Introductory R course
 
 ### January 15th, 2018
 * Minor corrections
+
+### January 16th, 2018
+* Changes to chapter structure for Days 2 and 3

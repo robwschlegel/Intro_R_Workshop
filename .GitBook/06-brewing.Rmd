@@ -126,14 +126,18 @@ ggplot(data = urine, aes(x = osmo, y = ph)) +
                                     "#59A9BE", "#9699C4", "#CA86AD"))
 ```
 
-If we want to use our custom colour palettes with a discrete colour scale we use a different function as seen in the code below. While we are at it, let's also see how to correct the title of the legend and its text labels. Sometimes the default output is not what we want for our final figure. Especially if we are going to be publishing it.
+If we want to use our custom colour palettes with a discrete colour scale we use a different function as seen in the code below. While we are at it, let's also see how to correct the title of the legend and its text labels. Sometimes the default output is not what we want for our final figure. Especially if we are going to be publishing it. Also note in the following code chunk that rather than using hexadecimal character strings to represent colours in our custom palette, we are simply writing in the human name for the colours we want. This will work for the continuous colour palettes above, too.
 
 ```{r brew-8, warning=FALSE}
 ggplot(data = urine, aes(x = osmo, y = ph)) +
   geom_point(aes(colour = as.factor(r))) +
-  scale_colour_manual(values = c("#ffc995", "#005a64"), # How to use custom palette
+  scale_colour_manual(values = c("pink", "maroon"), # How to use custom palette
                      labels = c("no", "yes")) + # How to change the legend text
   labs(colour = "crystals") # How to change the legend title
 ```
 
 So now we have seen how to control the colours palettes in our figures. I know it is a but much. Four new functions just to change some colours! That's a bummer. Don't forget that one of the main benefits of R is that all of your code is written down, annotated and saved. You don't need to remember which button to click to change the colours, you just need to remember where you saved the code that you will need. And that's pretty great in my opinion.
+
+## DIY figures
+
+Today we learned the basics of **`ggplot2`**, how to facet, how to brew colours, and how to plot stats. Sjog, that's a lot of stuff to remember! Which is why we will now spend the rest of Day 2 putting our new found skills to use. Please group up as you see fit to produce your very own **`ggplot2`** figures. We've not yet learned how to manipulate/tidy up our data so it may be challenging to grab any ol' dataset and make a plan with it. To that end we recommend using the `laminaria` or `ecklonia` datasets we saw on Day 1. You are of course free to use whatever dataset you would like, including your own. The goal by the end of today is to have created at least two figures (first prize for four figures) and join them together via faceting. We will be walking the room to help with any issues that may arise.

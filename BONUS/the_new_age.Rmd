@@ -31,10 +31,16 @@ With those packages loaded, R now knows the functions we will need to use to cal
 
 Using excel may allow one to make small changes quickly, but rapidly becomes laborious when any sophistication is required. The few lines of code below make all of the calculations we need in order to produce the results we are after.
 
-```{r}
+```{r tna-load, eval=FALSE}
+# Load data
+SACTN_data <- read_csv("data/SACTN_data.csv")
+```
+```{r tna-load-ghost, echo=FALSE}
 # Load data
 SACTN_data <- read_csv("../data/SACTN_data.csv")
+```
 
+```{r tna-dplyr}
 # Create monthly climatologies
 SACTN_monthly <- SACTN_data %>% 
   mutate(month = month(date, label = T)) %>% 
@@ -44,7 +50,7 @@ SACTN_monthly <- SACTN_data %>%
 
 And that is all there is to it. Load the data and use four short lines of code. But let's quickly make those bonus line plots while we're at it:
 
-```{r}
+```{r tna-fig-1}
 ggplot(data = SACTN_monthly, aes(x = month, y = temp)) +
   geom_point(aes(colour = site)) +
   geom_line(aes(colour = site, group = site)) +
@@ -53,7 +59,7 @@ ggplot(data = SACTN_monthly, aes(x = month, y = temp)) +
 
 And if we want three different panels we just add one line of code:
 
-```{r}
+```{r tna-fig-2}
 ggplot(data = SACTN_monthly, aes(x = month, y = temp)) +
   geom_point(aes(colour = site)) +
   geom_line(aes(colour = site, group = site)) +
