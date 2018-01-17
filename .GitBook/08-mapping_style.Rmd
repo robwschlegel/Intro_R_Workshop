@@ -24,12 +24,13 @@ If we have not yet loaded the **`tidyverse`** let's do so.
 # Load libraries
 library(tidyverse)
 library(scales)
+library(ggsn)
 
 # Load the function for creating scale bars
-source("functions/scale.bar.func.R")
+# source("functions/scale.bar.func.R")
 
-# Load Africa shape
-load("data/africa_coast.RData")
+# Load Africa map
+load("data/africa_map.RData")
 ```
 
 ## Default maps
@@ -42,18 +43,9 @@ ggplot() +
   coord_equal() # Equal sizing for lon/lat 
 ```
 
-Jikes! It's as simple as that to load a map of the whole planet. Usually we are not going to want to make a map of the entire planet, so let's see how to focus on just South Africa. 
+Jikes! It's as simple as that to load a map of the whole planet. Usually we are not going to want to make a map of the entire planet, so let's see how to focus on just the area around South Africa. 
 
-```{r maps-SA-1, fig.cap="Built in map of South Africa."}
-ggplot() +
-  borders(regions = "South Africa", 
-          colour = "black", fill = "grey70") + # Set colour and fill
-  coord_equal()
-```
-
-We see in the above map that the exclusion of the southern African countries bordering on South Africa give it the appearance of an island. Marion Island is also giving us issues. This isn't great, so let's consider a different option for selecting the area around South Africa.
-
-```{r maps-SA-2, fig.cap="A better way to get the map of South Africa."}
+```{r maps-SA-1, fig.cap="A better way to get the map of South Africa."}
 sa_1 <- ggplot() +
   borders(fill = "grey70", colour = "black") +
   coord_equal(xlim = c(12, 36), ylim = c(-38, -22), expand = 0) # Force lon/lat extent
@@ -68,40 +60,38 @@ A map is almost always going to need some labels and other visual cues. We saw i
 
 ```{r maps-labels, fig.cap="Map of southern Africa with specific labels."}
 sa_2 <- sa_1 +
-  annotate("text", label = "Atlantic\nOcean", x = 15.1, y = -32.0, 
-           size = 5.0, angle = 30, colour = "navy") +
-  annotate("text", label = "Indian\nOcean", x = 33.2, y = -34.2, 
-           size = 5.0, angle = 330, colour = "springgreen")
+  annotate("text", label = "Atlantic\nOcean", 
+           x = 15.1, y = -32.0, 
+           size = 5.0, 
+           angle = 30, 
+           colour = "navy") +
+  annotate("text", label = "Indian\nOcean", 
+           x = 33.2, y = -34.2, 
+           size = 5.0, 
+           angle = 330, 
+           colour = "springgreen")
 sa_2
 ```
 
 ## Scale bars
 
-With our fancy labels added, let's insert a scale bar next. There is no default scale bar function in the **`tidyverse`** unfortunately, rather we will need to import one that has been created by a kind Samaritan. It is a bit finicky and often requires a bit of trial and error to get it to look exactly the way one wants. On the plus side, this also means we have a lot of control over the appearance of the scale bar.
+With our fancy labels added, let's insert a scale bar next. There is no default scale bar function in the **`tidyverse`**, which is why we have loaded the **`ggsn`** package. This package is devoted to adding scale bars and North arrows to **`ggplot2`** figures. There are heaps of options so we'll just focus on one of them for now. It is a bit finicky so to get it looking exactly how we want it requires some guessing and checking. Please feel free to play around with the coordinates below. We may see the list of available North arrow shapes by running `northSymbols()`.
 
 ```{r maps-scale, fig.cap="Map of southern Africa with labels and a scale bar."}
 sa_3 <- sa_2 +
-    scaleBar(lon = 22.2, lat = -33.1, distanceLon = 200, distanceLat = 50, 
-             distanceLegend = 75, dist.unit = "km", arrow.length = 150, 
-             arrow.distance = 95, arrow.North.size = 5)
+  scalebar(x.min = 22, x.max = 26, y.min = -36, y.max = -35, # set location of bar
+           dist = 200, height = 1, st.dist = 0.8, st.size = 4, # Set particulars
+           dd2km = TRUE, model = "WGS84") + # Set appearance
+  north(x.min = 22.5, x.max = 25.5, y.min = -33, y.max = -31, # Set location of symbol
+        scale = 1.2, symbol = 16)
 sa_3
 ```
 
 ## Insetting
 
-In order to inset a smaller map inside of a larger map we must first create the smaller map. Let's make a map of Africa as a demonstration. The built in shape files that come with the **`tidyverse`** are not terribly useful for creating the outline of a given continent, so we will use the shape file of Africa that we already have saved on our computer. See if you can determine what each line of code is doing.
+In order to inset a smaller map inside of a larger map we must first create the smaller map. We have already loaded just such a map of Africa so we will use that for this example.
 
-```{r maps-mini, fig.cap="A quick map of Africa to be insetted in our southern Africa map."}
-africa_map <- ggplot(data = africa_coast, aes(x = lon, y = lat)) +
-  geom_polygon(aes(group = group), colour = "black", fill = "grey70") +
-  borders(regions = "South Africa", colour = "black", fill = "black",
-          ylim = c(-34, -28)) +
-  annotate("text", x = 15, y = 15, label = "AFRICA", size = 4.5) +
-  geom_rect(aes(xmin = 12, xmax =  36, ymin = -38, ymax = -22),
-            fill = NA, colour = "red") +
-  coord_equal() +
-  theme_void() +
-  theme(panel.background = element_rect(fill = "white", colour = "black"))
+```{r maps-mini}
 africa_map
 ```
 
@@ -110,7 +100,7 @@ And now to inset this map of Africa into our map of southern Africa we will need
 ```{r maps-inset, fig.cap="Map of southern Africa, with labels, scale bar, and an inset map of Africa."}
 sa_4 <- sa_3 +
   annotation_custom(grob = ggplotGrob(africa_map),
-                    xmin = 21.3, xmax = 27.3,
+                    xmin = 20.9, xmax = 26.9,
                     ymin = -30, ymax = -24)
 sa_4
 ```

@@ -38,3 +38,7 @@ Introductory R course
 
 ### January 16th, 2018
 * Changes to chapter structure for Days 2 and 3
+
+### January 17th, 2018
+* Improvements to mapping techniques
+* Added GIF and morphing tutorials to BONUS folder

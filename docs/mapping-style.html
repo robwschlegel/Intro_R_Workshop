@@ -190,7 +190,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="7" data-path="mapping.html"><a href="mapping.html"><i class="fa fa-check"></i><b>7</b> Mapping with <strong><code>ggplot2</code></strong></a><ul>
 <li class="chapter" data-level="7.1" data-path="mapping.html"><a href="mapping.html#a-new-concept"><i class="fa fa-check"></i><b>7.1</b> A new concept?</a></li>
-<li class="chapter" data-level="7.2" data-path="mapping.html"><a href="mapping.html#creating-a-map"><i class="fa fa-check"></i><b>7.2</b> Creating a map</a></li>
+<li class="chapter" data-level="7.2" data-path="mapping.html"><a href="mapping.html#land-mask"><i class="fa fa-check"></i><b>7.2</b> Land mask</a></li>
+<li class="chapter" data-level="7.3" data-path="mapping.html"><a href="mapping.html#borders"><i class="fa fa-check"></i><b>7.3</b> Borders</a></li>
+<li class="chapter" data-level="7.4" data-path="mapping.html"><a href="mapping.html#force-lonlat-extent"><i class="fa fa-check"></i><b>7.4</b> Force lon/lat extent</a></li>
+<li class="chapter" data-level="7.5" data-path="mapping.html"><a href="mapping.html#ocean-temperature"><i class="fa fa-check"></i><b>7.5</b> Ocean temperature</a></li>
+<li class="chapter" data-level="7.6" data-path="mapping.html"><a href="mapping.html#final-touches"><i class="fa fa-check"></i><b>7.6</b> Final touches</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="mapping-style.html"><a href="mapping-style.html"><i class="fa fa-check"></i><b>8</b> Mapping with style</a><ul>
 <li class="chapter" data-level="8.1" data-path="mapping-style.html"><a href="mapping-style.html#default-maps"><i class="fa fa-check"></i><b>8.1</b> Default maps</a></li>
@@ -283,12 +287,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load libraries</span>
 <span class="kw">library</span>(tidyverse)
 <span class="kw">library</span>(scales)
+<span class="co"># library(maps)</span>
+<span class="co"># library(maptools)</span>
+<span class="co"># library(sp)</span>
+<span class="kw">library</span>(ggsn)
 
 <span class="co"># Load the function for creating scale bars</span>
-<span class="kw">source</span>(<span class="st">&quot;functions/scale.bar.func.R&quot;</span>)
+<span class="co"># source(&quot;functions/scale.bar.func.R&quot;)</span>
 
-<span class="co"># Load Africa shape</span>
-<span class="kw">load</span>(<span class="st">&quot;data/africa_coast.RData&quot;</span>)</code></pre></div>
+<span class="co"># Load Africa map</span>
+<span class="kw">load</span>(<span class="st">&quot;data/africa_map.RData&quot;</span>)</code></pre></div>
 <div id="default-maps" class="section level2">
 <h2><span class="header-section-number">8.1</span> Default maps</h2>
 <p>In order to access the default maps included with the <strong><code>tidyverse</code></strong> we will use the function <code>borders()</code>.</p>
@@ -301,97 +309,79 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 Figure 8.1: The built in global shape file.
 </p>
 </div>
-<p>Jikes! It’s as simple as that to load a map of the whole planet. Usually we are not going to want to make a map of the entire planet, so let’s see how to focus on just South Africa.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">borders</span>(<span class="dt">regions =</span> <span class="st">&quot;South Africa&quot;</span>, 
-          <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;grey70&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Set colour and fill</span>
-<span class="st">  </span><span class="kw">coord_equal</span>()</code></pre></div>
-<div class="figure"><span id="fig:maps-SA-1"></span>
-<img src="08-mapping_style_files/figure-html/maps-SA-1-1.png" alt="Built in map of South Africa." width="672" />
-<p class="caption">
-Figure 8.2: Built in map of South Africa.
-</p>
-</div>
-<p>We see in the above map that the exclusion of the southern African countries bordering on South Africa give it the appearance of an island. Marion Island is also giving us issues. This isn’t great, so let’s consider a different option for selecting the area around South Africa.</p>
+<p>Jikes! It’s as simple as that to load a map of the whole planet. Usually we are not going to want to make a map of the entire planet, so let’s see how to focus on just the area around Ssouth Africa.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sa_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span>
 <span class="st">  </span><span class="kw">borders</span>(<span class="dt">fill =</span> <span class="st">&quot;grey70&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">coord_equal</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">12</span>, <span class="dv">36</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">38</span>, <span class="op">-</span><span class="dv">22</span>), <span class="dt">expand =</span> <span class="dv">0</span>) <span class="co"># Force lon/lat extent</span>
 sa_<span class="dv">1</span></code></pre></div>
-<div class="figure"><span id="fig:maps-SA-2"></span>
-<img src="08-mapping_style_files/figure-html/maps-SA-2-1.png" alt="A better way to get the map of South Africa." width="672" />
+<div class="figure"><span id="fig:maps-SA-1"></span>
+<img src="08-mapping_style_files/figure-html/maps-SA-1-1.png" alt="A better way to get the map of South Africa." width="672" />
 <p class="caption">
-Figure 8.3: A better way to get the map of South Africa.
+Figure 8.2: A better way to get the map of South Africa.
 </p>
 </div>
 <p>That is a very tidy looking map of South(ern) Africa without needing to load any files.</p>
 </div>
 <div id="specific-labels" class="section level2">
 <h2><span class="header-section-number">8.2</span> Specific labels</h2>
-<p>A map is almost always going to need some labels and other visual cues. We saw in the previous section how to add site labels. The following code chunk shows how this differs if we want to add just one label at a time. This can be useful if ecah label needs to be different from all other labels for whatever reason. We may also see that the text labels we are creating have <code>\n</code> in them. When R sees these two characters together like this it reads this as an instruction to returndown a line. Let’s run the code to make sure we see what this means.</p>
+<p>A map is almost always going to need some labels and other visual cues. We saw in the previous section how to add site labels. The following code chunk shows how this differs if we want to add just one label at a time. This can be useful if each label needs to be different from all other labels for whatever reason. We may also see that the text labels we are creating have <code>\n</code> in them. When R sees these two characters together like this it reads this as an instruction to return down a line. Let’s run the code to make sure we see what this means.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sa_<span class="dv">2</span> &lt;-<span class="st"> </span>sa_<span class="dv">1</span> <span class="op">+</span>
-<span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">label =</span> <span class="st">&quot;Atlantic</span><span class="ch">\n</span><span class="st">Ocean&quot;</span>, <span class="dt">x =</span> <span class="fl">15.1</span>, <span class="dt">y =</span> <span class="op">-</span><span class="fl">32.0</span>, 
-           <span class="dt">size =</span> <span class="fl">5.0</span>, <span class="dt">angle =</span> <span class="dv">30</span>, <span class="dt">colour =</span> <span class="st">&quot;navy&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">label =</span> <span class="st">&quot;Indian</span><span class="ch">\n</span><span class="st">Ocean&quot;</span>, <span class="dt">x =</span> <span class="fl">33.2</span>, <span class="dt">y =</span> <span class="op">-</span><span class="fl">34.2</span>, 
-           <span class="dt">size =</span> <span class="fl">5.0</span>, <span class="dt">angle =</span> <span class="dv">330</span>, <span class="dt">colour =</span> <span class="st">&quot;springgreen&quot;</span>)
+<span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">label =</span> <span class="st">&quot;Atlantic</span><span class="ch">\n</span><span class="st">Ocean&quot;</span>, 
+           <span class="dt">x =</span> <span class="fl">15.1</span>, <span class="dt">y =</span> <span class="op">-</span><span class="fl">32.0</span>, 
+           <span class="dt">size =</span> <span class="fl">5.0</span>, 
+           <span class="dt">angle =</span> <span class="dv">30</span>, 
+           <span class="dt">colour =</span> <span class="st">&quot;navy&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">label =</span> <span class="st">&quot;Indian</span><span class="ch">\n</span><span class="st">Ocean&quot;</span>, 
+           <span class="dt">x =</span> <span class="fl">33.2</span>, <span class="dt">y =</span> <span class="op">-</span><span class="fl">34.2</span>, 
+           <span class="dt">size =</span> <span class="fl">5.0</span>, 
+           <span class="dt">angle =</span> <span class="dv">330</span>, 
+           <span class="dt">colour =</span> <span class="st">&quot;springgreen&quot;</span>)
 sa_<span class="dv">2</span></code></pre></div>
 <div class="figure"><span id="fig:maps-labels"></span>
 <img src="08-mapping_style_files/figure-html/maps-labels-1.png" alt="Map of southern Africa with specific labels." width="672" />
 <p class="caption">
-Figure 8.4: Map of southern Africa with specific labels.
+Figure 8.3: Map of southern Africa with specific labels.
 </p>
 </div>
 </div>
 <div id="scale-bars" class="section level2">
 <h2><span class="header-section-number">8.3</span> Scale bars</h2>
-<p>With our fancy labels added, let’s insert a scale bar next. There is no default scale bar function in the <strong><code>tidyverse</code></strong> unfortunately, rather we will need to import one that has been created by a kind Samaritan. It is a bit finicky and often requires a bit of trial and error to get it to look exactly the way one wants. On the plus side, this also means we have a lot of control over the appearance of the scale bar.</p>
+<p>With our fancy labels added, let’s insert a scale bar next. There is no default scale bar function in the <strong><code>tidyverse</code></strong>, which is why we have loaded the <strong><code>ggsn</code></strong> pacakge. This package is devoted to adding scale bars and North arrows to <strong><code>ggplot2</code></strong> figures. There are heaps of options so we’ll just focus on one of them for now. It is a bit finnicky so to get it looking exactly how we want it requires some guessing and checking. Please feel free to play around with the coordinates below. We may see the list of available North arrow shapes by running <code>northSymbols()</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sa_<span class="dv">3</span> &lt;-<span class="st"> </span>sa_<span class="dv">2</span> <span class="op">+</span>
-<span class="st">    </span><span class="kw">scaleBar</span>(<span class="dt">lon =</span> <span class="fl">22.2</span>, <span class="dt">lat =</span> <span class="op">-</span><span class="fl">33.1</span>, <span class="dt">distanceLon =</span> <span class="dv">200</span>, <span class="dt">distanceLat =</span> <span class="dv">50</span>, 
-             <span class="dt">distanceLegend =</span> <span class="dv">75</span>, <span class="dt">dist.unit =</span> <span class="st">&quot;km&quot;</span>, <span class="dt">arrow.length =</span> <span class="dv">150</span>, 
-             <span class="dt">arrow.distance =</span> <span class="dv">95</span>, <span class="dt">arrow.North.size =</span> <span class="dv">5</span>)
+<span class="st">  </span><span class="kw">scalebar</span>(<span class="dt">x.min =</span> <span class="dv">22</span>, <span class="dt">x.max =</span> <span class="dv">26</span>, <span class="dt">y.min =</span> <span class="op">-</span><span class="dv">36</span>, <span class="dt">y.max =</span> <span class="op">-</span><span class="dv">35</span>, <span class="co"># set location of bar</span>
+           <span class="dt">dist =</span> <span class="dv">200</span>, <span class="dt">height =</span> <span class="dv">1</span>, <span class="dt">st.dist =</span> <span class="fl">0.8</span>, <span class="dt">st.size =</span> <span class="dv">4</span>, <span class="co"># Set particulars</span>
+           <span class="dt">dd2km =</span> <span class="ot">TRUE</span>, <span class="dt">model =</span> <span class="st">&quot;WGS84&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="co"># Set appearance</span>
+<span class="st">  </span><span class="kw">north</span>(<span class="dt">x.min =</span> <span class="fl">22.5</span>, <span class="dt">x.max =</span> <span class="fl">25.5</span>, <span class="dt">y.min =</span> <span class="op">-</span><span class="dv">33</span>, <span class="dt">y.max =</span> <span class="op">-</span><span class="dv">31</span>, <span class="co"># Set location of symbol</span>
+        <span class="dt">scale =</span> <span class="fl">1.2</span>, <span class="dt">symbol =</span> <span class="dv">16</span>)
 sa_<span class="dv">3</span></code></pre></div>
 <div class="figure"><span id="fig:maps-scale"></span>
 <img src="08-mapping_style_files/figure-html/maps-scale-1.png" alt="Map of southern Africa with labels and a scale bar." width="672" />
 <p class="caption">
-Figure 8.5: Map of southern Africa with labels and a scale bar.
+Figure 8.4: Map of southern Africa with labels and a scale bar.
 </p>
 </div>
 </div>
 <div id="insetting" class="section level2">
 <h2><span class="header-section-number">8.4</span> Insetting</h2>
-<p>In order to inset a smaller map inside of a larger map we must first create the smaller map. Let’s make a map of Africa as a demonstration. The built in shape files that come with the <strong><code>tidyverse</code></strong> are not terribly useful for creating the outline of a given continent, so we will use the shape file of Africa that we already have saved on our computer. See if you can determine what each line of code is doing.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">africa_map &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> africa_coast, <span class="kw">aes</span>(<span class="dt">x =</span> lon, <span class="dt">y =</span> lat)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_polygon</span>(<span class="kw">aes</span>(<span class="dt">group =</span> group), <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;grey70&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">borders</span>(<span class="dt">regions =</span> <span class="st">&quot;South Africa&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>,
-          <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">34</span>, <span class="op">-</span><span class="dv">28</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">x =</span> <span class="dv">15</span>, <span class="dt">y =</span> <span class="dv">15</span>, <span class="dt">label =</span> <span class="st">&quot;AFRICA&quot;</span>, <span class="dt">size =</span> <span class="fl">4.5</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_rect</span>(<span class="kw">aes</span>(<span class="dt">xmin =</span> <span class="dv">12</span>, <span class="dt">xmax =</span>  <span class="dv">36</span>, <span class="dt">ymin =</span> <span class="op">-</span><span class="dv">38</span>, <span class="dt">ymax =</span> <span class="op">-</span><span class="dv">22</span>),
-            <span class="dt">fill =</span> <span class="ot">NA</span>, <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_equal</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_void</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.background =</span> <span class="kw">element_rect</span>(<span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>))
-africa_map</code></pre></div>
-<div class="figure"><span id="fig:maps-mini"></span>
-<img src="08-mapping_style_files/figure-html/maps-mini-1.png" alt="A quick map of Africa to be insetted in our southern Africa map." width="672" />
-<p class="caption">
-Figure 8.6: A quick map of Africa to be insetted in our southern Africa map.
-</p>
-</div>
+<p>In order to inset a smaller map inside of a larger map we must first create the smaller map. We have already loaded just such a map of Africa so we will use that for this example.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">africa_map</code></pre></div>
+<p><img src="08-mapping_style_files/figure-html/maps-mini-1.png" width="672" /></p>
 <p>And now to inset this map of Africa into our map of southern Africa we will need to learn how to create a ‘grob’. This is very simple and does not require any extra work on our part. Remember that <strong><code>ggplot2</code></strong> objects are different from normal objects (i.e. dataframes), and that they have their own way of storing and accessing data. In order to convert any sort of thing into a format that ggplot understands we convert it into a grob, as shown below. Once converted, we may then plop it onto our figure/map wherever we please. Both of these steps are accomplished with the single function <code>annotation_custom()</code>. This is also a good way to add logos or any other sort of image to a map/figure. You can really go completely bananas. It’s even possible to add GIFs. Such happy. Much excite. Very wonderment.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sa_<span class="dv">4</span> &lt;-<span class="st"> </span>sa_<span class="dv">3</span> <span class="op">+</span>
 <span class="st">  </span><span class="kw">annotation_custom</span>(<span class="dt">grob =</span> <span class="kw">ggplotGrob</span>(africa_map),
-                    <span class="dt">xmin =</span> <span class="fl">21.3</span>, <span class="dt">xmax =</span> <span class="fl">27.3</span>,
+                    <span class="dt">xmin =</span> <span class="fl">20.9</span>, <span class="dt">xmax =</span> <span class="fl">26.9</span>,
                     <span class="dt">ymin =</span> <span class="op">-</span><span class="dv">30</span>, <span class="dt">ymax =</span> <span class="op">-</span><span class="dv">24</span>)
 sa_<span class="dv">4</span></code></pre></div>
 <div class="figure"><span id="fig:maps-inset"></span>
 <img src="08-mapping_style_files/figure-html/maps-inset-1.png" alt="Map of southern Africa, with labels, scale bar, and an inset map of Africa." width="672" />
 <p class="caption">
-Figure 8.7: Map of southern Africa, with labels, scale bar, and an inset map of Africa.
+Figure 8.5: Map of southern Africa, with labels, scale bar, and an inset map of Africa.
 </p>
 </div>
 </div>
 <div id="rounding-it-out" class="section level2">
 <h2><span class="header-section-number">8.5</span> Rounding it out</h2>
-<p>There are a lot of exciting things going on in our figure now. To round out our adventures in mapping let’s tweak the lon/alt labels to a more prestigious convention. There are two ways to do this. One of which requires us to install the <strong><code>scales</code></strong> package. Don’t worry, its’s a small one!</p>
+<p>There are a lot of exciting things going on in our figure now. To round out our adventures in mapping let’s tweak the lon/lat labels to a more prestigious convention. There are two ways to do this. One of which requires us to install the <strong><code>scales</code></strong> package. Don’t worry, it’s a small one!</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sa_final &lt;-<span class="st"> </span>sa_<span class="dv">4</span> <span class="op">+</span>
 <span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">16</span>, <span class="dv">32</span>, <span class="dv">4</span>),
                      <span class="dt">labels =</span> scales<span class="op">::</span><span class="kw">unit_format</span>(<span class="st">&quot;°E&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>),
@@ -404,7 +394,7 @@ sa_final</code></pre></div>
 <div class="figure"><span id="fig:maps-final"></span>
 <img src="08-mapping_style_files/figure-html/maps-final-1.png" alt="The final map with all of the bells and whistles." width="672" />
 <p class="caption">
-Figure 8.8: The final map with all of the bells and whistles.
+Figure 8.6: The final map with all of the bells and whistles.
 </p>
 </div>
 <p>And lastly we save the fruits of our labours.</p>

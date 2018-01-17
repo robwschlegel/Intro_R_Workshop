@@ -39,11 +39,14 @@ Take a moment to look at the data we loaded. What does it show?
 
 We will be creating our Google map in two steps. The first step is to use the `get_map()` function to tell Google what area of the world we want a map of, as well as what sort of map we want. Remember how Google maps can be switched from satellite view to map view? We may do that in R as well. For now we are only going to use the satellite view so that we may insert out own labels. But if we look in the help file we may see a description of all the different map types available. There are a bunch!
 
-The `get_map()` function relies on a healthy Internet connection to run. The downloading of Google maps can be a tenuous process without a stable connection. For that reason the following code chunk has the lines of code that require an Internet connection commented out in favour of loading the Google map from a pre-saved file. Please rather run the `get_map()` function first, and if it won't connect only then load the saved file as shown below.
+The `get_map()` function relies on a healthy Internet connection to run. The downloading of Google maps can be a tenuous process without a stable connection. For that reason, if your Internet connection is not great you may run the commented out line of code in favour of loading the Google map. This is a pre-saved file of the output of the code chunk below. Please rather run the `get_map()` function first, and if it won't connect only then load the saved file as shown below.
 
-```{r ggmap-cp, message=FALSE}
-# cape_point <- get_map(location = c(lon = 18.36519, lat = -34.2352581),
-#                         zoom = 10, maptype = 'satellite')
+```{r ggmap-cp, eval=FALSE}
+cape_point <- get_map(location = c(lon = 18.36519, lat = -34.2352581),
+                        zoom = 10, maptype = 'satellite')
+# load("data/cape_point.RData")
+```
+```{r ggmap-cp-ghost, echo=FALSE}
 load("data/cape_point.RData")
 ```
 
@@ -65,16 +68,12 @@ Pretty cool huh?! You may do this for anywhere in the world just as easy as this
 
 The previous figure shows our sites along Cape Point, which is great, but which site is which?! We need site labels. This is a relatively straightforward process, so we've given a complicated example of how to do so here.
 
-```{r ggmap-2, fig.cap="Google map of Cape Point with site labels"}
+```{r ggmap-2, fig.cap="Google map of Cape Point with site point labeled"}
 cp_2 <- cp_1 +
-  # Label only the third site
-  geom_text(data = cape_point_sites[3,], 
-            aes(lon+0.002, lat-0.007, label = site),
-            hjust = -0.1, vjust = 0.5, size = 3) +
-  # Label all of the other sites
-  geom_text(data = cape_point_sites[-3,], 
-            aes(lon+0.002, lat-0.007, label = site),
-            hjust = 1.1, vjust = 0.5, size = 3)
+  geom_text(data = cape_point_sites, # Choose dataframe
+            aes(lon+0.002, lat-0.007, label = site), # Set aesthetics
+            hjust = 1.15, vjust = 0.5, # Adjust vertical and horizontal
+            size = 3, colour = "white") # Adjust appearance
 cp_2
 ```
 

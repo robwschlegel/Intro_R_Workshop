@@ -190,7 +190,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="7" data-path="mapping.html"><a href="mapping.html"><i class="fa fa-check"></i><b>7</b> Mapping with <strong><code>ggplot2</code></strong></a><ul>
 <li class="chapter" data-level="7.1" data-path="mapping.html"><a href="mapping.html#a-new-concept"><i class="fa fa-check"></i><b>7.1</b> A new concept?</a></li>
-<li class="chapter" data-level="7.2" data-path="mapping.html"><a href="mapping.html#creating-a-map"><i class="fa fa-check"></i><b>7.2</b> Creating a map</a></li>
+<li class="chapter" data-level="7.2" data-path="mapping.html"><a href="mapping.html#land-mask"><i class="fa fa-check"></i><b>7.2</b> Land mask</a></li>
+<li class="chapter" data-level="7.3" data-path="mapping.html"><a href="mapping.html#borders"><i class="fa fa-check"></i><b>7.3</b> Borders</a></li>
+<li class="chapter" data-level="7.4" data-path="mapping.html"><a href="mapping.html#force-lonlat-extent"><i class="fa fa-check"></i><b>7.4</b> Force lon/lat extent</a></li>
+<li class="chapter" data-level="7.5" data-path="mapping.html"><a href="mapping.html#ocean-temperature"><i class="fa fa-check"></i><b>7.5</b> Ocean temperature</a></li>
+<li class="chapter" data-level="7.6" data-path="mapping.html"><a href="mapping.html#final-touches"><i class="fa fa-check"></i><b>7.6</b> Final touches</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="mapping-style.html"><a href="mapping-style.html"><i class="fa fa-check"></i><b>8</b> Mapping with style</a><ul>
 <li class="chapter" data-level="8.1" data-path="mapping-style.html"><a href="mapping-style.html#default-maps"><i class="fa fa-check"></i><b>8.1</b> Default maps</a></li>
@@ -279,7 +283,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>— Andy Warhol</p>
 </blockquote>
 <p>Now that we’ve seen how to produce complex maps with <strong><code>ggplot2</code></strong> we are going to learn how to bring Google maps into the mix. Some kind hearted person has made a package for R that allows us to do this relatively easily. But that means we will need to install another new package.</p>
-<p>After we learn how to use Google maps we will tak some time to learn additional mapping techniques that we may want for creating publication quality figures.</p>
+<p>After we learn how to use Google maps we will take some time to learn additional mapping techniques that we may want for creating publication quality figures.</p>
 <div id="ggmap" class="section level2">
 <h2><span class="header-section-number">9.1</span> <strong><code>ggmap</code></strong></h2>
 <p>The package we will need for this tut is <strong><code>ggmap</code></strong>. It is a bit beefy so let’s get started on installing it now. Once it’s done we will activated the packages we need and load some site points for mapping.</p>
@@ -294,10 +298,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="mapping-cape-point" class="section level2">
 <h2><span class="header-section-number">9.2</span> Mapping Cape Point</h2>
 <p>We will be creating our Google map in two steps. The first step is to use the <code>get_map()</code> function to tell Google what area of the world we want a map of, as well as what sort of map we want. Remember how Google maps can be switched from satellite view to map view? We may do that in R as well. For now we are only going to use the satellite view so that we may insert out own labels. But if we look in the help file we may see a description of all the different map types available. There are a bunch!</p>
-<p>The <code>get_map()</code> function relies on a healthy Internet connection to run. The downloading of Google maps can be a tenuous process without a stable connection. For that reason the following code chunk has the lines of code that require an Internet connection commented out in favour of loading the Google map from a pre-saved file. Please rather run the <code>get_map()</code> function first, and if it won’t connect only then load the saved file as shown below.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># cape_point &lt;- get_map(location = c(lon = 18.36519, lat = -34.2352581),</span>
-<span class="co">#                         zoom = 10, maptype = &#39;satellite&#39;)</span>
-<span class="kw">load</span>(<span class="st">&quot;data/cape_point.RData&quot;</span>)</code></pre></div>
+<p>The <code>get_map()</code> function relies on a healthy Internet connection to run. The downloading of Google maps can be a tenuous process without a stable connection. For that reason, if your Internet connection is not great you may run the commented out line of code in favour of loading the Google map. This is a pre-saved file of the output of the code chunk below. Please rather run the <code>get_map()</code> function first, and if it won’t connect only then load the saved file as shown below.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cape_point &lt;-<span class="st"> </span><span class="kw">get_map</span>(<span class="dt">location =</span> <span class="kw">c</span>(<span class="dt">lon =</span> <span class="fl">18.36519</span>, <span class="dt">lat =</span> <span class="op">-</span><span class="fl">34.2352581</span>),
+                        <span class="dt">zoom =</span> <span class="dv">10</span>, <span class="dt">maptype =</span> <span class="st">&#39;satellite&#39;</span>)
+<span class="co"># load(&quot;data/cape_point.RData&quot;)</span></code></pre></div>
 <p>If we look in the environment panel in the top right corner, what do we see? What do we think the code above is doing?</p>
 <p>The second step in the process is to treat the Google data we downloaded as though it is just any ordinary <strong><code>ggplot2</code></strong> object. The same as the ones we created yesterday and today. For this reason we may use <code>+</code> to add new lines of <strong><code>ggplot2</code></strong> code to the Google object we downloaded in order to show site locations etc. Let’s first just see how the map looks when we add some points. Note that we do not use the function <code>ggplot()</code> at the beginning of our code, but rather <code>ggmap()</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cp_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">ggmap</span>(cape_point) <span class="op">+</span>
@@ -315,27 +319,23 @@ Figure 9.1: Google map of Cape Point with some site locations highlighted with r
 </div>
 <div id="site-labels" class="section level2">
 <h2><span class="header-section-number">9.3</span> Site labels</h2>
-<p>The previous figure shows our sites along Cape Point, which is great, but which site is which?! We need site labels. This is a relatively straightforward processs, so we’ve given a complicated example of how to do so here.</p>
+<p>The previous figure shows our sites along Cape Point, which is great, but which site is which?! We need site labels. This is a relatively straightforward process, so we’ve given a complicated example of how to do so here.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cp_<span class="dv">2</span> &lt;-<span class="st"> </span>cp_<span class="dv">1</span> <span class="op">+</span>
-<span class="st">  </span><span class="co"># Label only the third site</span>
-<span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">data =</span> cape_point_sites[<span class="dv">3</span>,], 
-            <span class="kw">aes</span>(lon<span class="op">+</span><span class="fl">0.002</span>, lat<span class="op">-</span><span class="fl">0.007</span>, <span class="dt">label =</span> site),
-            <span class="dt">hjust =</span> <span class="op">-</span><span class="fl">0.1</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>, <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span>
-<span class="st">  </span><span class="co"># Label all of the other sites</span>
-<span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">data =</span> cape_point_sites[<span class="op">-</span><span class="dv">3</span>,], 
-            <span class="kw">aes</span>(lon<span class="op">+</span><span class="fl">0.002</span>, lat<span class="op">-</span><span class="fl">0.007</span>, <span class="dt">label =</span> site),
-            <span class="dt">hjust =</span> <span class="fl">1.1</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>, <span class="dt">size =</span> <span class="dv">3</span>)
+<span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">data =</span> cape_point_sites, <span class="co"># Choose dataframe</span>
+            <span class="kw">aes</span>(lon<span class="op">+</span><span class="fl">0.002</span>, lat<span class="op">-</span><span class="fl">0.007</span>, <span class="dt">label =</span> site), <span class="co"># Set aesthetics</span>
+            <span class="dt">hjust =</span> <span class="fl">1.15</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>, <span class="co"># Adjust vertical and horizontal</span>
+            <span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">colour =</span> <span class="st">&quot;white&quot;</span>) <span class="co"># Adjust appearance</span>
 cp_<span class="dv">2</span></code></pre></div>
 <div class="figure"><span id="fig:ggmap-2"></span>
-<img src="09-mapping_google_files/figure-html/ggmap-2-1.png" alt="Google map of Cape Point with site labels" width="672" />
+<img src="09-mapping_google_files/figure-html/ggmap-2-1.png" alt="Google map of Cape Point with site point labeled" width="672" />
 <p class="caption">
-Figure 9.2: Google map of Cape Point with site labels
+Figure 9.2: Google map of Cape Point with site point labeled
 </p>
 </div>
 </div>
 <div id="diy-maps" class="section level2">
 <h2><span class="header-section-number">9.4</span> DIY maps</h2>
-<p>Now that we have learned how to make conventional maps, as well as fancy Google maps, it is time for us to branch out once again at let our creative juices flow. Please group up as you see fit and create your own beautiful map of whever you like. Bonus points for faceting in additional figures showing supplementary information. Feel free to use either conventional maps or the Google alternative. Same as yesterday, we will be walking the room to help with any issues that may arise.</p>
+<p>Now that we have learned how to make conventional maps, as well as fancy Google maps, it is time for us to branch out once again at let our creative juices flow. Please group up as you see fit and create your own beautiful map of wherever you like. Bonus points for faceting in additional figures showing supplementary information. Feel free to use either conventional maps or the Google alternative. Same as yesterday, we will be walking the room to help with any issues that may arise.</p>
 
 </div>
 </div>
