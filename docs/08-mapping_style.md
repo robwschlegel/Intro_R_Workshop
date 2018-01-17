@@ -19,13 +19,7 @@ If we have not yet loaded the **`tidyverse`** let's do so.
 # Load libraries
 library(tidyverse)
 library(scales)
-# library(maps)
-# library(maptools)
-# library(sp)
 library(ggsn)
-
-# Load the function for creating scale bars
-# source("functions/scale.bar.func.R")
 
 # Load Africa map
 load("data/africa_map.RData")
@@ -47,7 +41,7 @@ ggplot() +
 <p class="caption">(\#fig:maps-world)The built in global shape file.</p>
 </div>
 
-Jikes! It's as simple as that to load a map of the whole planet. Usually we are not going to want to make a map of the entire planet, so let's see how to focus on just the area around Ssouth Africa. 
+Jikes! It's as simple as that to load a map of the whole planet. Usually we are not going to want to make a map of the entire planet, so let's see how to focus on just the area around South Africa. 
 
 
 ```r
@@ -91,12 +85,12 @@ sa_2
 
 ## Scale bars
 
-With our fancy labels added, let's insert a scale bar next. There is no default scale bar function in the **`tidyverse`**, which is why we have loaded the **`ggsn`** pacakge. This package is devoted to adding scale bars and North arrows to **`ggplot2`** figures. There are heaps of options so we'll just focus on one of them for now. It is a bit finnicky so to get it looking exactly how we want it requires some guessing and checking. Please feel free to play around with the coordinates below. We may see the list of available North arrow shapes by running `northSymbols()`.
+With our fancy labels added, let's insert a scale bar next. There is no default scale bar function in the **`tidyverse`**, which is why we have loaded the **`ggsn`** package. This package is devoted to adding scale bars and North arrows to **`ggplot2`** figures. There are heaps of options so we'll just focus on one of them for now. It is a bit finicky so to get it looking exactly how we want it requires some guessing and checking. Please feel free to play around with the coordinates below. We may see the list of available North arrow shapes by running `northSymbols()`.
 
 
 ```r
 sa_3 <- sa_2 +
-  scalebar(x.min = 22, x.max = 26, y.min = -36, y.max = -35, # set location of bar
+  scalebar(x.min = 22, x.max = 26, y.min = -36, y.max = -35, # Set location of bar
            dist = 200, height = 1, st.dist = 0.8, st.size = 4, # Set particulars
            dd2km = TRUE, model = "WGS84") + # Set appearance
   north(x.min = 22.5, x.max = 25.5, y.min = -33, y.max = -31, # Set location of symbol
