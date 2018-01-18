@@ -190,7 +190,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="7" data-path="mapping.html"><a href="mapping.html"><i class="fa fa-check"></i><b>7</b> Mapping with <strong><code>ggplot2</code></strong></a><ul>
 <li class="chapter" data-level="7.1" data-path="mapping.html"><a href="mapping.html#a-new-concept"><i class="fa fa-check"></i><b>7.1</b> A new concept?</a></li>
-<li class="chapter" data-level="7.2" data-path="mapping.html"><a href="mapping.html#creating-a-map"><i class="fa fa-check"></i><b>7.2</b> Creating a map</a></li>
+<li class="chapter" data-level="7.2" data-path="mapping.html"><a href="mapping.html#land-mask"><i class="fa fa-check"></i><b>7.2</b> Land mask</a></li>
+<li class="chapter" data-level="7.3" data-path="mapping.html"><a href="mapping.html#borders"><i class="fa fa-check"></i><b>7.3</b> Borders</a></li>
+<li class="chapter" data-level="7.4" data-path="mapping.html"><a href="mapping.html#force-lonlat-extent"><i class="fa fa-check"></i><b>7.4</b> Force lon/lat extent</a></li>
+<li class="chapter" data-level="7.5" data-path="mapping.html"><a href="mapping.html#ocean-temperature"><i class="fa fa-check"></i><b>7.5</b> Ocean temperature</a></li>
+<li class="chapter" data-level="7.6" data-path="mapping.html"><a href="mapping.html#final-touches"><i class="fa fa-check"></i><b>7.6</b> Final touches</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="mapping-style.html"><a href="mapping-style.html"><i class="fa fa-check"></i><b>8</b> Mapping with style</a><ul>
 <li class="chapter" data-level="8.1" data-path="mapping-style.html"><a href="mapping-style.html#default-maps"><i class="fa fa-check"></i><b>8.1</b> Default maps</a></li>
@@ -338,7 +342,7 @@ Remember that this funny series of symbols is the pipe operator. It combines con
 <h3><span class="header-section-number">10.1.1</span> Gathering</h3>
 <p>In <code>SACTN2</code> we can see that the <code>src</code> column has been removed and that the temperatures are placed in columns that denote the collecting source. This may at first seem like a reasonable way to organise these data, but it is not tidy because the collecting source is one variable, and so should not take up more than one column. We need to <code>gather()</code> these source columns back together. We do this by telling <code>gather()</code> what the names of the columns are we want to squish together. We then tell it the name of the ‘key’ column. This is the column that will contain all of the old column names we are gathering. In this case we will call it ‘date’. The last piece of this puzzle is the ‘value’ column. This is where we decide what the name of the column will be for values we are gathering up. In this case we will name it ‘temp’, because we are gathering up the temperature values that were incorrectly spread out by month.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SACTN2_tidy &lt;-<span class="st"> </span>SACTN2 <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">gather</span>(DEA, KZNSB, SAWS, <span class="dt">key =</span> <span class="st">&quot;date&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;temp&quot;</span>)</code></pre></div>
+<span class="st">  </span><span class="kw">gather</span>(DEA, KZNSB, SAWS, <span class="dt">key =</span> <span class="st">&quot;src&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;temp&quot;</span>)</code></pre></div>
 </div>
 <div id="spreading" class="section level3">
 <h3><span class="header-section-number">10.1.2</span> Spreading</h3>
@@ -360,7 +364,7 @@ Remember that this funny series of symbols is the pipe operator. It combines con
 <h3><span class="header-section-number">10.2.2</span> Unite</h3>
 <p>It is not uncommon that field/lab instruments split values across multiple columns while they are making recordings. I see this most often with date values. Often the year, month, and day values are given in different columns. There are uses for the data in this way, though it is not terribly tidy. We usually want the date of any observation to be shown in just one column. If we look at <code>SACTN4b</code> we will see that there is a <code>year</code>, <code>month</code>, and <code>day</code> column. To <code>unite()</code> them we must first tell R what we want the united column to be labelled, in this case we will use ‘date’. We then list the columns to be united, her this is <code>year</code>, <code>month</code>, and <code>day</code>. Lastly we must specify if we want the united values to have a separator between them. The standard separator for date values is ‘-’.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SACTN4b_tidy &lt;-<span class="st"> </span>SACTN4b <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">unite</span>(<span class="dt">col =</span> <span class="st">&quot;date&quot;</span>, year, month, day, <span class="dt">sep =</span> <span class="st">&quot;-&quot;</span>)</code></pre></div>
+<span class="st">  </span><span class="kw">unite</span>(year, month, day, <span class="dt">col =</span> <span class="st">&quot;date&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;-&quot;</span>)</code></pre></div>
 </div>
 </div>
 <div id="joining" class="section level2">
@@ -423,17 +427,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

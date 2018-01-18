@@ -90,7 +90,7 @@ In `SACTN2` we can see that the `src` column has been removed and that the tempe
 
 ```r
 SACTN2_tidy <- SACTN2 %>%
-  gather(DEA, KZNSB, SAWS, key = "date", value = "temp")
+  gather(DEA, KZNSB, SAWS, key = "src", value = "temp")
 ```
 
 ### Spreading
@@ -124,7 +124,7 @@ It is not uncommon that field/lab instruments split values across multiple colum
 
 ```r
 SACTN4b_tidy <- SACTN4b %>% 
-  unite(col = "date", year, month, day, sep = "-")
+  unite(year, month, day, col = "date", sep = "-")
 ```
 
 ## Joining
