@@ -12,7 +12,8 @@
 
 On Day 1 already we walked ourselves through a tidy workflow. We saw how to import data, how to manipulate it, run a quick analysis or two, and create figures. In the previous session we filled in the missing piece of the workflow by also learning how to tidy up our data within R. For the remainder of today we will be revisiting the 'transform' portion of the tidy workflow. In this session we are going to go into more depth on what we learned in Day 1, and in the last session we will learn some new tricks. Over these two sessions we will also become more comfortable with the *pipe* command `%>%`, while practising writing tidy code.
 
-There are five primary data transformation functions that we will focus on here:
+There are five primary data transformation functions that we will focus on here:  
+
 * Arrange observations (rows)  with `arrange()`  
 * Filter observations (rows) with `filter()`  
 * Select variables (columns) with`select()`  
@@ -41,7 +42,8 @@ rm(SACTNmonthly_v4.0)
 
 ## Comparison operators
 
-The assignment operator (`<-`) is a symbol that we use to assign some bit of code to an object in our environment. Likewise, comparison operators are symbols we use to compare different objects. This is how we tell R how to decide to do many different things. We will see these symbols often out in the 'real world' so let's spend a moment now getting to know them better. Most of these should be very familiar to us:
+The assignment operator (`<-`) is a symbol that we use to assign some bit of code to an object in our environment. Likewise, comparison operators are symbols we use to compare different objects. This is how we tell R how to decide to do many different things. We will see these symbols often out in the 'real world' so let's spend a moment now getting to know them better. Most of these should be very familiar to us:  
+
 * Greater than: `>`  
 * Greater than or equal to: `>=`  
 * Less than: `<`  
@@ -63,7 +65,8 @@ R> Error: `site` (`site = "Amanzimtoti"`) must not be named, do you need `==`?
 
 ## Logical operators
 
-Comparison operators are used to make direct comparisons between specific things, but logical operators are used more broadly when making logical arguments. Logic is central to most computing so it is worth taking the time to cover these symbols explicitly here. R makes use of the same *Boolean logic* symbols as many other platforms, including Google, so some (or all) of these will likely be familiar. We will generally only use three:
+Comparison operators are used to make direct comparisons between specific things, but logical operators are used more broadly when making logical arguments. Logic is central to most computing so it is worth taking the time to cover these symbols explicitly here. R makes use of the same *Boolean logic* symbols as many other platforms, including Google, so some (or all) of these will likely be familiar. We will generally only use three:  
+
 * and: `&`  
 * or: `|`  
 * not: `!`  
@@ -179,7 +182,7 @@ It must be mentioned that `filter()` also automatically removes any rows in the 
 SACTN %>% 
   filter(site == "Port Nolloth", # First give the site to filter
          src == "DEA", # Then specify the source
-         temp <= 11 | # Temperatures at or below 9°C OR
+         temp <= 11 | # Temperatures at or below 11°C OR
            is.na(temp) # Include missing values
          )
 ```

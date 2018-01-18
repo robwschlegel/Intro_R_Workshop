@@ -42,3 +42,6 @@ Introductory R course
 ### January 17th, 2018
 * Improvements to mapping techniques
 * Added GIF and morphing tutorials to BONUS folder
+
+### January 18th, 2018
+* Minor edits
