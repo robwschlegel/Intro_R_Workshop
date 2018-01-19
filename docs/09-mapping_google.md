@@ -12,7 +12,7 @@
 
 Now that we've seen how to produce complex maps with **`ggplot2`** we are going to learn how to bring Google maps into the mix. Some kind hearted person has made a package for R that allows us to do this relatively easily. But that means we will need to install another new package.
 
-After we learn how to use Google maps we will tak some time to learn additional mapping techniques that we may want for creating publication quality figures.
+After we learn how to use Google maps we will take some time to learn additional mapping techniques that we may want for creating publication quality figures.
 
 ## **`ggmap`**
 
@@ -34,14 +34,15 @@ Take a moment to look at the data we loaded. What does it show?
 
 We will be creating our Google map in two steps. The first step is to use the `get_map()` function to tell Google what area of the world we want a map of, as well as what sort of map we want. Remember how Google maps can be switched from satellite view to map view? We may do that in R as well. For now we are only going to use the satellite view so that we may insert out own labels. But if we look in the help file we may see a description of all the different map types available. There are a bunch!
 
-The `get_map()` function relies on a healthy Internet connection to run. The downloading of Google maps can be a tenuous process without a stable connection. For that reason the following code chunk has the lines of code that require an Internet connection commented out in favour of loading the Google map from a pre-saved file. Please rather run the `get_map()` function first, and if it won't connect only then load the saved file as shown below.
+The `get_map()` function relies on a healthy Internet connection to run. The downloading of Google maps can be a tenuous process without a stable connection. For that reason, if your Internet connection is not great you may run the commented out line of code in favour of loading the Google map. This is a pre-saved file of the output of the code chunk below. Please rather run the `get_map()` function first, and if it won't connect only then load the saved file as shown below.
 
 
 ```r
-# cape_point <- get_map(location = c(lon = 18.36519, lat = -34.2352581),
-#                         zoom = 10, maptype = 'satellite')
-load("data/cape_point.RData")
+cape_point <- get_map(location = c(lon = 18.36519, lat = -34.2352581),
+                        zoom = 10, maptype = 'satellite')
+# load("data/cape_point.RData")
 ```
+
 
 If we look in the environment panel in the top right corner, what do we see? What do we think the code above is doing?
 
@@ -65,27 +66,23 @@ Pretty cool huh?! You may do this for anywhere in the world just as easy as this
 
 ## Site labels
 
-The previous figure shows our sites along Cape Point, which is great, but which site is which?! We need site labels. This is a relatively straightforward processs, so we've given a complicated example of how to do so here.
+The previous figure shows our sites along Cape Point, which is great, but which site is which?! We need site labels. This is a relatively straightforward process, so we've given a complicated example of how to do so here.
 
 
 ```r
 cp_2 <- cp_1 +
-  # Label only the third site
-  geom_text(data = cape_point_sites[3,], 
-            aes(lon+0.002, lat-0.007, label = site),
-            hjust = -0.1, vjust = 0.5, size = 3) +
-  # Label all of the other sites
-  geom_text(data = cape_point_sites[-3,], 
-            aes(lon+0.002, lat-0.007, label = site),
-            hjust = 1.1, vjust = 0.5, size = 3)
+  geom_text(data = cape_point_sites, # Choose dataframe
+            aes(lon+0.002, lat-0.007, label = site), # Set aesthetics
+            hjust = 1.15, vjust = 0.5, # Adjust vertical and horizontal
+            size = 3, colour = "white") # Adjust appearance
 cp_2
 ```
 
 <div class="figure">
-<img src="09-mapping_google_files/figure-html/ggmap-2-1.png" alt="Google map of Cape Point with site labels" width="672" />
-<p class="caption">(\#fig:ggmap-2)Google map of Cape Point with site labels</p>
+<img src="09-mapping_google_files/figure-html/ggmap-2-1.png" alt="Google map of Cape Point with site point labeled" width="672" />
+<p class="caption">(\#fig:ggmap-2)Google map of Cape Point with site point labeled</p>
 </div>
 
 ## DIY maps
 
-Now that we have learned how to make conventional maps, as well as fancy Google maps, it is time for us to branch out once again at let our creative juices flow. Please group up as you see fit and create your own beautiful map of whever you like. Bonus points for faceting in additional figures showing supplementary information. Feel free to use either conventional maps or the Google alternative. Same as yesterday, we will be walking the room to help with any issues that may arise.
+Now that we have learned how to make conventional maps, as well as fancy Google maps, it is time for us to branch out once again at let our creative juices flow. Please group up as you see fit and create your own beautiful map of wherever you like. Bonus points for faceting in additional figures showing supplementary information. Feel free to use either conventional maps or the Google alternative. Same as yesterday, we will be walking the room to help with any issues that may arise.

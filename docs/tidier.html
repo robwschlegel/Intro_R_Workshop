@@ -190,7 +190,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="7" data-path="mapping.html"><a href="mapping.html"><i class="fa fa-check"></i><b>7</b> Mapping with <strong><code>ggplot2</code></strong></a><ul>
 <li class="chapter" data-level="7.1" data-path="mapping.html"><a href="mapping.html#a-new-concept"><i class="fa fa-check"></i><b>7.1</b> A new concept?</a></li>
-<li class="chapter" data-level="7.2" data-path="mapping.html"><a href="mapping.html#creating-a-map"><i class="fa fa-check"></i><b>7.2</b> Creating a map</a></li>
+<li class="chapter" data-level="7.2" data-path="mapping.html"><a href="mapping.html#land-mask"><i class="fa fa-check"></i><b>7.2</b> Land mask</a></li>
+<li class="chapter" data-level="7.3" data-path="mapping.html"><a href="mapping.html#borders"><i class="fa fa-check"></i><b>7.3</b> Borders</a></li>
+<li class="chapter" data-level="7.4" data-path="mapping.html"><a href="mapping.html#force-lonlat-extent"><i class="fa fa-check"></i><b>7.4</b> Force lon/lat extent</a></li>
+<li class="chapter" data-level="7.5" data-path="mapping.html"><a href="mapping.html#ocean-temperature"><i class="fa fa-check"></i><b>7.5</b> Ocean temperature</a></li>
+<li class="chapter" data-level="7.6" data-path="mapping.html"><a href="mapping.html#final-touches"><i class="fa fa-check"></i><b>7.6</b> Final touches</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="mapping-style.html"><a href="mapping-style.html"><i class="fa fa-check"></i><b>8</b> Mapping with style</a><ul>
 <li class="chapter" data-level="8.1" data-path="mapping-style.html"><a href="mapping-style.html#default-maps"><i class="fa fa-check"></i><b>8.1</b> Default maps</a></li>
@@ -279,11 +283,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>— Frank Herbert, Dune</p>
 </blockquote>
 <p>On Day 1 already we walked ourselves through a tidy workflow. We saw how to import data, how to manipulate it, run a quick analysis or two, and create figures. In the previous session we filled in the missing piece of the workflow by also learning how to tidy up our data within R. For the remainder of today we will be revisiting the ‘transform’ portion of the tidy workflow. In this session we are going to go into more depth on what we learned in Day 1, and in the last session we will learn some new tricks. Over these two sessions we will also become more comfortable with the <em>pipe</em> command <code>%&gt;%</code>, while practising writing tidy code.</p>
-<p>There are five primary data transformation functions that we will focus on here: * Arrange observations (rows) with <code>arrange()</code><br />
-* Filter observations (rows) with <code>filter()</code><br />
-* Select variables (columns) with<code>select()</code><br />
-* Create new variables (columns) with <code>mutate()</code><br />
-* Summarise variables (columns) with <code>summarise()</code></p>
+<p>There are five primary data transformation functions that we will focus on here:</p>
+<ul>
+<li>Arrange observations (rows) with <code>arrange()</code><br />
+</li>
+<li>Filter observations (rows) with <code>filter()</code><br />
+</li>
+<li>Select variables (columns) with<code>select()</code><br />
+</li>
+<li>Create new variables (columns) with <code>mutate()</code><br />
+</li>
+<li>Summarise variables (columns) with <code>summarise()</code></li>
+</ul>
 <p>We will use the full South African Coastal Temperature Network dataset for these exercises. Before we begin however we will need to cover two new concepts.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load libraries</span>
 <span class="kw">library</span>(tidyverse)
@@ -301,12 +312,20 @@ SACTN &lt;-<span class="st"> </span>SACTNmonthly_v4.<span class="dv">0</span> <s
 <span class="kw">rm</span>(SACTNmonthly_v4.<span class="dv">0</span>)</code></pre></div>
 <div id="comparison-operators" class="section level2">
 <h2><span class="header-section-number">11.1</span> Comparison operators</h2>
-<p>The assignment operator (<code>&lt;-</code>) is a symbol that we use to assign some bit of code to an object in our environment. Likewise, comparison operators are symbols we use to compare different objects. This is how we tell R how to decide to do many different things. We will see these symbols often out in the ‘real world’ so let’s spend a moment now getting to know them better. Most of these should be very familiar to us: * Greater than: <code>&gt;</code><br />
-* Greater than or equal to: <code>&gt;=</code><br />
-* Less than: <code>&lt;</code><br />
-* Less than or equal to: <code>&lt;=</code><br />
-* Equal to: <code>==</code><br />
-* Not equal to: <code>!=</code></p>
+<p>The assignment operator (<code>&lt;-</code>) is a symbol that we use to assign some bit of code to an object in our environment. Likewise, comparison operators are symbols we use to compare different objects. This is how we tell R how to decide to do many different things. We will see these symbols often out in the ‘real world’ so let’s spend a moment now getting to know them better. Most of these should be very familiar to us:</p>
+<ul>
+<li>Greater than: <code>&gt;</code><br />
+</li>
+<li>Greater than or equal to: <code>&gt;=</code><br />
+</li>
+<li>Less than: <code>&lt;</code><br />
+</li>
+<li>Less than or equal to: <code>&lt;=</code><br />
+</li>
+<li>Equal to: <code>==</code><br />
+</li>
+<li>Not equal to: <code>!=</code></li>
+</ul>
 <p>It is important here to note that <code>==</code> is for comparisons and <code>=</code> is for maths. They are <strong>not</strong> interchangeable, as we may see in the following code chunk. This is one of the more common mistakes one makes when writing code. Luckily the error message this creates should provide us with the clues we need to figure out that we have made this specific mistake.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SACTN <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">filter</span>(<span class="dt">site =</span> <span class="st">&quot;Amanzimtoti&quot;</span>)</code></pre></div>
@@ -314,9 +333,14 @@ SACTN &lt;-<span class="st"> </span>SACTNmonthly_v4.<span class="dv">0</span> <s
 </div>
 <div id="logical-operators" class="section level2">
 <h2><span class="header-section-number">11.2</span> Logical operators</h2>
-<p>Comparison operators are used to make direct comparisons between specific things, but logical operators are used more broadly when making logical arguments. Logic is central to most computing so it is worth taking the time to cover these symbols explicitly here. R makes use of the same <em>Boolean logic</em> symbols as many other platforms, including Google, so some (or all) of these will likely be familiar. We will generally only use three: * and: <code>&amp;</code><br />
-* or: <code>|</code><br />
-* not: <code>!</code></p>
+<p>Comparison operators are used to make direct comparisons between specific things, but logical operators are used more broadly when making logical arguments. Logic is central to most computing so it is worth taking the time to cover these symbols explicitly here. R makes use of the same <em>Boolean logic</em> symbols as many other platforms, including Google, so some (or all) of these will likely be familiar. We will generally only use three:</p>
+<ul>
+<li>and: <code>&amp;</code><br />
+</li>
+<li>or: <code>|</code><br />
+</li>
+<li>not: <code>!</code></li>
+</ul>
 <p>When writing a line of tidy code we tend to use these logical operator to combine two or more arguments that use comparison operators. For example, the following code chunk uses the <code>filter()</code> function to find all temperatures recorded at Pollock Beach during December <strong>OR</strong> January. Don’t worry if the following line of code is difficult to piece out, but make sure you can locate which symbols are comparison operators and which are logical operators. Please note that for purposes of brevity all of the outputs in this section are limited to ten lines, but when one runs these code chunks on ones own computer they will be much longer.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SACTN <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">filter</span>(site <span class="op">==</span><span class="st"> &quot;Pollock Beach&quot;</span>, <span class="kw">month</span>(date) <span class="op">==</span><span class="st"> </span><span class="dv">12</span> <span class="op">|</span><span class="st"> </span><span class="kw">month</span>(date) <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</code></pre></div>
@@ -388,7 +412,7 @@ R&gt; 10 Humewood SAWS 1990-10-01 17.14194     0 thermo</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SACTN <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">filter</span>(site <span class="op">==</span><span class="st"> &quot;Port Nolloth&quot;</span>, <span class="co"># First give the site to filter</span>
          src <span class="op">==</span><span class="st"> &quot;DEA&quot;</span>, <span class="co"># Then specify the source</span>
-         temp <span class="op">&lt;=</span><span class="st"> </span><span class="dv">11</span> <span class="op">|</span><span class="st"> </span><span class="co"># Temperatures at or below 9°C OR</span>
+         temp <span class="op">&lt;=</span><span class="st"> </span><span class="dv">11</span> <span class="op">|</span><span class="st"> </span><span class="co"># Temperatures at or below 11°C OR</span>
 <span class="st">           </span><span class="kw">is.na</span>(temp) <span class="co"># Include missing values</span>
          )</code></pre></div>
 </div>
@@ -512,17 +536,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

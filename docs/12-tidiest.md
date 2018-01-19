@@ -374,13 +374,11 @@ This looks like a pretty linear distribution of temperatures within the SACTN da
 ```r
  SACTN_n <- SACTN %>% 
   group_by(site, src) %>% 
-  summarise(mean_temp = round(mean(temp, na.rm = T))
-            ) %>% 
+  summarise(mean_temp = round(mean(temp, na.rm = T))) %>% 
   ungroup() %>% 
   select(mean_temp) %>% 
   group_by(mean_temp) %>% 
-  summarise(count = n()
-            )
+  summarise(count = n())
 
 ggplot(data = SACTN_n, aes(x = 1:nrow(SACTN_n), y = mean_temp)) +
   geom_point(aes(size = count)) +
@@ -447,7 +445,7 @@ SACTN %>%
   group_by(site, src) %>% 
   summarise(sd_temp = sd(temp, na.rm = T)) %>% 
   ungroup() %>% 
-  dplyr::arrange(desc(sd_temp)) %>% 
+  arrange(desc(sd_temp)) %>% 
   slice(1:5)
 ```
 
@@ -474,7 +472,7 @@ SACTN %>%
   summarise(count = n(), 
             count_15 = sum(temp > 15)) %>% 
   mutate(prop_15 = count_15/count) %>% 
-  dplyr::arrange(prop_15)
+  arrange(prop_15)
 ```
 
 ```

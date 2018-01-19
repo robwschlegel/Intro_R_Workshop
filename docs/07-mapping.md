@@ -78,12 +78,12 @@ Does that look familiar? Notice how the x and y axis tick labels look the same a
 
 ## Land mask
 
-Now that we have seen that a map is nothing more than a bunch of dots and shapes on specific points along the x and y axes we are going to look at the steps we would take to build a more complex map. Don't worry if this seems daunting at first. We are going to take this step by step and ensure that each step is made clear along the way. The first step is to create a polygon.
+Now that we have seen that a map is nothing more than a bunch of dots and shapes on specific points along the x and y axes we are going to look at the steps we would take to build a more complex map. Don't worry if this seems daunting at first. We are going to take this step by step and ensure that each step is made clear along the way. The first step is to create a polygon. Note that we create an aesthetic argument inside of `geom_polygon()` and not `ggplot()` because some of the steps we will take later on will not accept the `group` aesthetic. Remember, whatever aesthetic arguments we put inside of `ggplot()` will be inserted for us into all of our other `geom_...()` lines of code.
 
 
 ```r
-ggplot(data = south_africa_coast, aes(x = lon, y = lat, group = group)) +
-  geom_polygon(colour = "black", fill = "grey70") # The land mask
+ggplot(data = south_africa_coast, aes(x = lon, y = lat)) +
+  geom_polygon(colour = "black", fill = "grey70", aes(group = group)) # The land mask
 ```
 
 <div class="figure">
@@ -97,9 +97,9 @@ The first thing we will add is the province borders as seen in Figure \@ref(fig:
 
 
 ```r
-ggplot(data = south_africa_coast, aes(x = lon, y = lat, group = group)) +
-  geom_polygon(colour = "black", fill = "grey70") +
-  geom_path(data = sa_provinces) # The province borders
+ggplot(data = south_africa_coast, aes(x = lon, y = lat)) +
+  geom_polygon(colour = "black", fill = "grey70", aes(group = group)) +
+  geom_path(data = sa_provinces, aes(group = group)) # The province borders
 ```
 
 <div class="figure">
@@ -115,7 +115,7 @@ Unfortunately when we added our borders it increased the plotting area of our ma
 ```r
 ggplot(data = south_africa_coast, aes(x = lon, y = lat)) +
   geom_polygon(colour = "black", fill = "grey70", aes(group = group)) +
-  geom_path(data = sa_provinces, aes( group = group)) + 
+  geom_path(data = sa_provinces, aes(group = group)) + 
   coord_equal(xlim = c(15, 34), ylim = c(-36, -26), expand = 0) # Force lon/lat extent
 ```
 
