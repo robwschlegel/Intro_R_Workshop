@@ -36,7 +36,10 @@ ggplot(data = ChickWeight, aes(x = Time, y = weight, colour = Diet)) +
   labs(x = "Days", y = "Mass (g)")
 ```
 
-![(\#fig:facet-1)Simple faceted figure showing a linear model applied to each diet.](05-faceting_files/figure-latex/facet-1-1.pdf) 
+<div class="figure">
+<img src="05-faceting_files/figure-html/facet-1-1.png" alt="Simple faceted figure showing a linear model applied to each diet." width="672" />
+<p class="caption">(\#fig:facet-1)Simple faceted figure showing a linear model applied to each diet.</p>
+</div>
 
 ## New figure types
 
@@ -59,7 +62,10 @@ line_1 <- ggplot(data = ChickWeight, aes(x = Time, y = weight, colour = Diet)) +
 line_1
 ```
 
-![(\#fig:facet-line)Line graph for the progression of chicken weights (g) over time (days) based on four different diets.](05-faceting_files/figure-latex/facet-line-1.pdf) 
+<div class="figure">
+<img src="05-faceting_files/figure-html/facet-line-1.png" alt="Line graph for the progression of chicken weights (g) over time (days) based on four different diets." width="672" />
+<p class="caption">(\#fig:facet-line)Line graph for the progression of chicken weights (g) over time (days) based on four different diets.</p>
+</div>
 
 ### Linear model
 
@@ -72,7 +78,10 @@ lm_1 <- ggplot(data = ChickWeight, aes(x = Time, y = weight, colour = Diet)) +
 lm_1
 ```
 
-![(\#fig:facet-lm)Linear models for the progression of chicken weights (g) over time (days) based on four different diets.](05-faceting_files/figure-latex/facet-lm-1.pdf) 
+<div class="figure">
+<img src="05-faceting_files/figure-html/facet-lm-1.png" alt="Linear models for the progression of chicken weights (g) over time (days) based on four different diets." width="672" />
+<p class="caption">(\#fig:facet-lm)Linear models for the progression of chicken weights (g) over time (days) based on four different diets.</p>
+</div>
 
 ### Histogram
 
@@ -85,7 +94,10 @@ histogram_1 <- ggplot(data = ChickLast, aes(x = weight)) +
 histogram_1
 ```
 
-![(\#fig:facet-hist)Histogram showing final chicken weights (g) by diet.](05-faceting_files/figure-latex/facet-hist-1.pdf) 
+<div class="figure">
+<img src="05-faceting_files/figure-html/facet-hist-1.png" alt="Histogram showing final chicken weights (g) by diet." width="672" />
+<p class="caption">(\#fig:facet-hist)Histogram showing final chicken weights (g) by diet.</p>
+</div>
 
 ### Boxplot
 
@@ -98,7 +110,10 @@ box_1 <- ggplot(data = ChickLast, aes(x = Diet, y = weight)) +
 box_1
 ```
 
-![(\#fig:facet-box)Violin plot showing the distribution of final chicken weights (g) by diet.](05-faceting_files/figure-latex/facet-box-1.pdf) 
+<div class="figure">
+<img src="05-faceting_files/figure-html/facet-box-1.png" alt="Violin plot showing the distribution of final chicken weights (g) by diet." width="672" />
+<p class="caption">(\#fig:facet-box)Violin plot showing the distribution of final chicken weights (g) by diet.</p>
+</div>
 
 ## Gridding figures
 
@@ -112,7 +127,10 @@ ggarrange(line_1, lm_1, histogram_1, box_1,
           common.legend = TRUE) # Create common legend
 ```
 
-![(\#fig:facet-grid)All four of our figures gridded together with an automagically created common legend.](05-faceting_files/figure-latex/facet-grid-1.pdf) 
+<div class="figure">
+<img src="05-faceting_files/figure-html/facet-grid-1.png" alt="All four of our figures gridded together with an automagically created common legend." width="672" />
+<p class="caption">(\#fig:facet-grid)All four of our figures gridded together with an automagically created common legend.</p>
+</div>
 
 The above figure looks great, so let's save a copy of it as a PDF to our computer. In order to do so we will need to assign our figure to an object and then use the `ggsave()` function on that object.
 

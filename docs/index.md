@@ -1,5 +1,5 @@
 --- 
-title: "Intro R Workshop: Data Manipulation, Analysis and Visualisation"
+title: "Intro R Workshop: Data Manipulation, Analysis, and Visualisation"
 # subtitle: 'Unizul 2018'
 author: "Robert W Schlegel & AJ Smit"
 date: "2018-01-22"
@@ -15,7 +15,6 @@ description: "The basics for a safe voyage through the tidyverse."
 
 # Preface {-}
 
-
-\includegraphics[width=9.17in]{figures/769_life_finds_a_way} 
+<img src="figures/769_life_finds_a_way.png" width="330" />
 
 This online book contains all of the content to be covered in this Intro R Workshop. Please use the table of contents (TOC) on the left to scroll through as desired.

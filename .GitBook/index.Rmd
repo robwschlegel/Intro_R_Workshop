@@ -1,5 +1,5 @@
 --- 
-title: "Intro R Workshop: Data Manipulation, Analysis and Visualisation"
+title: "Intro R Workshop: Data Manipulation, Analysis, and Visualisation"
 # subtitle: 'Unizul 2018'
 author: "Robert W Schlegel & AJ Smit"
 date: "`r Sys.Date()`"
