@@ -16,10 +16,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Venue, date and time
-
-This workshop will take place in the week of **22 January -- 26 January 2018**, from **9:00--16:00** each day. We will meet in the Zoology 3rd year lab on Unizul Campus.
-
 ## Course outline
 
 ### Day 1 -- In the Beginning {-}
@@ -42,22 +38,18 @@ This workshop will take place in the week of **22 January -- 26 January 2018**, 
 * Interactive Session: Faceting figures in **`ggplot2`**
 * Interactive Session: Brewing colours in **`ggplot2`**
 * -- lunch --
-* Interactive Session: Plotting statistics
-* -- break --
 * Assignment: DIY figures
 *	-- end --
 
 ### Day 3 -- Going deeper {-}
 
-* Interactive Session: Mapping in **`ggplot2`**
+* Interactive Session: Mapping with **`ggplot2`**
 * -- break --
-* Interactive Session: Mapping in **`ggplot2`**
+* Interactive Session: Mapping with style
+* Interactive Session: Mapping with Google
 * -- lunch --
-* Interactive Session: Mapping in Google
-* -- break --
 * Assignment: DIY maps
 *	-- end --
-
 
 ### Day 4 -- The Enlightened Researcher {-}
 
@@ -87,7 +79,7 @@ Don't worry if you feel overwhelmed and do not follow everything at any time dur
 
 Finally, bear in mind that we are self-taught when it comes to R. Our methods will work, but you will learn as you gain more experience with programming that there are many ways to get the right answer or to accomplish the same task.
 
-## Why can haz R?
+## Why use R?
 
 As scientists, we are increasingly driven to analyse and manipulate datasets. As these datasets grow in size our analyses are becoming more sophisticated. There are many statistical packages on the market that one can use, but R is becoming the global standard. There are several reasons for this trend:
 
@@ -186,7 +178,6 @@ See you on Monday, 28 August 2017.
 Below you can find the source code to some books and other links to websites about R. With some of the technical skills you'll learn in this course you'll be able to download the source code, compile the book on your own computer and arrive at the fully formatted (typeset) copy of the books that you can purchase for lots of money:
 
 * [ggplot2. Elegant Graphics for Data Analysis](https://github.com/hadley/ggplot2-book) --- the R graphics bible
-* [A Compendium of Clean Graphs in R. Version 2.0](http://shinyapps.org/apps/RGraphCompendium/index.php) --- using R's base graphics
 * [R for Data Science](http://r4ds.had.co.nz/workflow-basics.html) --- data analysis using tidy principles
 * [R Markdown](http://rmarkdown.rstudio.com) --- reproducible reports in R
 * [bookdown: Authoring Books and Technical Documents with R Markdown](https://bookdown.org/yihui/bookdown) --- writing books in R
@@ -218,7 +209,7 @@ We can also insert maths expressions, like this $f(k) = {n \choose k} p^{k} (1-p
 
 This document was written in **`bookdown`** and transformed into the 'GitBook' you see here by **`knitr`**, **pandoc** and \LaTeX\ (Figure \@ref(fig:rmarkdown)). All the source code and associated data are available at AJ Smit's [GitHub page](https://github.com/ajsmit/Intro_R_Workshop). You can download the source code and compile this document on your own computer. If you can compile the document yourself you are officially a geek -- welcome to the club! Note that you will need to complete the exercises in the chapter, An R workflow, before this will be possible.
 
-```{r rmarkdown, echo = FALSE, fig.cap = "The Rmarkdown workflow."}
+```{r rmarkdown, echo = FALSE, fig.cap = "The Rmarkdown workflow.", out.width = "100%", fig.align = "center"}
 knitr::include_graphics("figures/RMarkdownFlow.png")
 ```
 

@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 
 Before we start using RStudio (which is a code editor and environment that runs R) let's first set it up properly. Find the 'Tools' ('Preferences') menu item, navigate to 'Global Options' ('Code Editing') and select the tick boxes as shown in Figure \@ref(fig:RStudio-prefs).
 
-```{r RStudio-prefs, echo = FALSE, fig.cap = "The RStudio Preferences menu."}
+```{r RStudio-prefs, echo = FALSE, fig.cap = "The RStudio Preferences menu.", out.width = "100%", fig.align = "center"}
 knitr::include_graphics("figures/RStudio_preferences.png")
 ```
 
@@ -34,8 +34,8 @@ RStudio is highly customisable. Under the **Appearance** tab under 'Tools'/'Glob
 
 You cannot rearrange panes (see below) in RStudio by dragging them, but you can alter their position via the **Pane Layout** tab in the 'Tools'/'Global Options' ('RStudio'/'Preferences' – for Mac). You may arrange the panes as you would prefer however we recommend that during the duration of this workshop you leave them in the default layout.
 
-## The RProject
-A very nifty way of managing workflow in RStudio is through the built-in functionality of the RProject. We do not need to install any packages or change any settings to use these. Creating a new project is a very simple task, as well. For this course we will be using the `Intro_R_Workshop.RProj` file you downloaded with the course material so that we are all running identical projects. This will prevent a lot of issues by ensuring we are doing things by the same standard. Better yet, an RProject integrates seamlessly into version control software (e.g. GitHub) and allows for instant world class collaboration on any research project. To initialise the 'Intro_R_Workshop' project on your machine please find where you saved `Intro_R_Workshop.RProj` file and click on it. We will cover the concepts and benefits of an RProject more as we move through the course.
+## The Rproject
+A very nifty way of managing workflow in RStudio is through the built-in functionality of the Rproject. We do not need to install any packages or change any settings to use these. Creating a new project is a very simple task, as well. For this course we will be using the `Intro_R_Workshop.Rproj` file you downloaded with the course material so that we are all running identical projects. This will prevent a lot of issues by ensuring we are doing things by the same standard. Better yet, an Rproject integrates seamlessly into version control software (e.g. GitHub) and allows for instant world class collaboration on any research project. To initialise the 'Intro_R_Workshop' project on your machine please find where you saved `Intro_R_Workshop.Rproj` file and click on it. We will cover the concepts and benefits of an Rproject more as we move through the course.
 
 ## Installing packages
 
@@ -90,7 +90,7 @@ Note `.R` files are simply standard text files and can be created in any text ed
 * Execute multiple lines (Highlight lines with the cursor, then Run icon or **Ctrl+Enter**) --- do this for line 3 to 6
 * Execute the whole script (Source icon or **Ctrl+Shift+Enter**)
 
-Now, try changing the x an/or y axis labels on line 18 and re-run the script.
+Now, try changing the x and/or y axis labels on line 18 and re-run the script.
 
 Now let us save the program in the **Source Editor** by clicking on the file symbol (note that the file symbol is greyed out when the file has not been changed since it was last saved).
 
@@ -200,7 +200,7 @@ ls()
 
 What do we have loaded into our environment? Did all of these objects come from one script, or more than one? How can we tell where an object was generated?
 
-### Files, Plots, Packages, Help and Viewer panes
+### Files, Plots, Packages, Help, and Viewer panes
 
 The last pane has a number of different tabs. The Files tab has a navigable file manager, just like the file system on your operating system. The **Plot** tab is where graphics you create will appear. The **Packages** tab shows you the packages that are installed and those that can be installed (more on this just now). The **Help** tab allows you to search the R documentation for help and is where the help appears when you ask for it from the **Console**.
 
@@ -218,16 +218,12 @@ help(mean)
 
 We will go into this in more detail in the next session.
 
-To see the plots reproduced in Figures \@ref(fig:base-graphic-1) and \@ref(fig:ggplot2-1), simply type the following into the **Console**:
-
-```{r base-graphic-1, fig.cap = "An example R plot done in base graphics."}
-x <- seq(0, 2, by = 0.01)
-y <- 2 * sin(2 * pi * (x - 1/4))
-plot(x, y, col = "salmon", cex = 0.4)
-```
+To reproduced Figure \@ref(fig:ggplot2-1) in the **Plot** tab, simply copy and paste the following code into the **Console**:
 
 ```{r ggplot2-1, fig.cap = "The same plot as above, but assembled with __ggplot2__."}
-# library(ggplot2)
+library(tidyverse)
+x <- seq(0, 2, by = 0.01)
+y <- 2 * sin(2 * pi * (x - 1/4))
 ggplot() +
   geom_point(aes(x = x, y = y), shape = 21, col = "salmon", fill = "white")
 ```

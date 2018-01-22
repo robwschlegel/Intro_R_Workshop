@@ -10,10 +10,6 @@
 
 
 
-## Venue, date and time
-
-This workshop will take place in the week of **22 January -- 26 January 2018**, from **9:00--16:00** each day. We will meet in the Zoology 3rd year lab on Unizul Campus.
-
 ## Course outline
 
 ### Day 1 -- In the Beginning {-}
@@ -36,22 +32,18 @@ This workshop will take place in the week of **22 January -- 26 January 2018**, 
 * Interactive Session: Faceting figures in **`ggplot2`**
 * Interactive Session: Brewing colours in **`ggplot2`**
 * -- lunch --
-* Interactive Session: Plotting statistics
-* -- break --
 * Assignment: DIY figures
 *	-- end --
 
 ### Day 3 -- Going deeper {-}
 
-* Interactive Session: Mapping in **`ggplot2`**
+* Interactive Session: Mapping with **`ggplot2`**
 * -- break --
-* Interactive Session: Mapping in **`ggplot2`**
+* Interactive Session: Mapping with style
+* Interactive Session: Mapping with Google
 * -- lunch --
-* Interactive Session: Mapping in Google
-* -- break --
 * Assignment: DIY maps
 *	-- end --
-
 
 ### Day 4 -- The Enlightened Researcher {-}
 
@@ -81,7 +73,7 @@ Don't worry if you feel overwhelmed and do not follow everything at any time dur
 
 Finally, bear in mind that we are self-taught when it comes to R. Our methods will work, but you will learn as you gain more experience with programming that there are many ways to get the right answer or to accomplish the same task.
 
-## Why can haz R?
+## Why use R?
 
 As scientists, we are increasingly driven to analyse and manipulate datasets. As these datasets grow in size our analyses are becoming more sophisticated. There are many statistical packages on the market that one can use, but R is becoming the global standard. There are several reasons for this trend:
 
@@ -180,7 +172,6 @@ See you on Monday, 28 August 2017.
 Below you can find the source code to some books and other links to websites about R. With some of the technical skills you'll learn in this course you'll be able to download the source code, compile the book on your own computer and arrive at the fully formatted (typeset) copy of the books that you can purchase for lots of money:
 
 * [ggplot2. Elegant Graphics for Data Analysis](https://github.com/hadley/ggplot2-book) --- the R graphics bible
-* [A Compendium of Clean Graphs in R. Version 2.0](http://shinyapps.org/apps/RGraphCompendium/index.php) --- using R's base graphics
 * [R for Data Science](http://r4ds.had.co.nz/workflow-basics.html) --- data analysis using tidy principles
 * [R Markdown](http://rmarkdown.rstudio.com) --- reproducible reports in R
 * [bookdown: Authoring Books and Technical Documents with R Markdown](https://bookdown.org/yihui/bookdown) --- writing books in R
@@ -202,8 +193,8 @@ rnorm(n = 10, mean = 0, sd = 13)
 ```
 
 ```
-R>  [1]   2.49731949 -17.54958559  -7.20672643  -0.04795724 -17.47545911
-R>  [6] -13.35115957  -1.07524970   1.96989717  19.34830100  -5.83886549
+R>  [1]  -6.8521582  -9.4276282   0.5087513   1.4696003   4.7814757
+R>  [6]  19.3885532  22.3228640 -15.5364569  15.7860070  -9.8581365
 ```
 
 Consult these resources for more about R code style :
@@ -218,10 +209,14 @@ We can also insert maths expressions, like this $f(k) = {n \choose k} p^{k} (1-p
 
 This document was written in **`bookdown`** and transformed into the 'GitBook' you see here by **`knitr`**, **pandoc** and \LaTeX\ (Figure \@ref(fig:rmarkdown)). All the source code and associated data are available at AJ Smit's [GitHub page](https://github.com/ajsmit/Intro_R_Workshop). You can download the source code and compile this document on your own computer. If you can compile the document yourself you are officially a geek -- welcome to the club! Note that you will need to complete the exercises in the chapter, An R workflow, before this will be possible.
 
-<div class="figure">
-<img src="figures/RMarkdownFlow.png" alt="The Rmarkdown workflow." width="354" />
-<p class="caption">(\#fig:rmarkdown)The Rmarkdown workflow.</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figures/RMarkdownFlow} 
+
+}
+
+\caption{The Rmarkdown workflow.}(\#fig:rmarkdown)
+\end{figure}
 
 You will notice that this repository uses [GitHub](https://github.com), and you are advised to set up your own repository for R scripts and all your data. We will touch on GitHub and the principles of reproducible research later, and GitHub forms a core ingredient of such a workflow.
 
@@ -254,9 +249,8 @@ R>
 R> loaded via a namespace (and not attached):
 R>  [1] compiler_3.4.3  backports_1.1.0 bookdown_0.5    magrittr_1.5   
 R>  [5] rprojroot_1.2   tools_3.4.3     htmltools_0.3.6 yaml_2.1.14    
-R>  [9] Rcpp_0.12.14    stringi_1.1.5   rmarkdown_1.6   highr_0.6      
-R> [13] knitr_1.17      methods_3.4.3   stringr_1.2.0   digest_0.6.13  
-R> [17] png_0.1-7       evaluate_0.10.1
+R>  [9] Rcpp_0.12.14    stringi_1.1.5   rmarkdown_1.6   knitr_1.17     
+R> [13] methods_3.4.3   stringr_1.2.0   digest_0.6.13   evaluate_0.10.1
 ```
 
 ## Exercise: It which shall not be named

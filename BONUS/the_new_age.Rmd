@@ -33,11 +33,11 @@ Using excel may allow one to make small changes quickly, but rapidly becomes lab
 
 ```{r tna-load, eval=FALSE}
 # Load data
-SACTN_data <- read_csv("data/SACTN_data.csv")
+SACTN_data <- read_csv("data/SACTN_day_1.csv")
 ```
 ```{r tna-load-ghost, echo=FALSE}
 # Load data
-SACTN_data <- read_csv("../data/SACTN_data.csv")
+SACTN_data <- read_csv("../data/SACTN_day_1.csv")
 ```
 
 ```{r tna-dplyr}

@@ -16,55 +16,95 @@ Though it may have started as statistical software, R has moved far beyond it's 
 
 Just to whet the appetite, below is provided a small selection of the figures that R and **`ggplot2`** are capable of producing. These are things that AJ and/or myself have produced for publication or in some cases just for personal interest. Remember, just because we are learning this for work, doesn't mean we can't use it for fun, too. The idea of using R for fun may seem bizarre, but perhaps by the end of Day 5 we will have been able to convince you otherwise!
 
-<div class="figure">
-<img src="figures/all_plt0_no_interp_natural.png" alt="The effect of variance (SD) within a temperature time series on the accurate modelling of decadal trends." width="700" />
-<p class="caption">(\#fig:example1)The effect of variance (SD) within a temperature time series on the accurate modelling of decadal trends.</p>
-</div>
+\begin{figure}
 
-<div class="figure">
-<img src="figures/deeper-infamous-event-plots-1.png" alt="The (currently) three most infamous marine heatwaves (MHWs) around the world." width="642" />
-<p class="caption">(\#fig:example2)The (currently) three most infamous marine heatwaves (MHWs) around the world.</p>
-</div>
+{\centering \includegraphics[width=1\linewidth]{figures/all_plt0_no_interp_natural} 
 
-<div class="figure">
-<img src="figures/Ecography_figure5a-d.jpg" alt="Changes in seaweed biodiversity along the South African coastline." width="1050" />
-<p class="caption">(\#fig:example4)Changes in seaweed biodiversity along the South African coastline.</p>
-</div>
+}
 
-<div class="figure">
-<img src="figures/insitu_polarPlots_month_v3.2.jpg" alt="Polar plots of monthly temperatures." width="1250" />
-<p class="caption">(\#fig:example16)Polar plots of monthly temperatures.</p>
-</div>
+\caption{The effect of variance (SD) within a temperature time series on the accurate modelling of decadal trends.}(\#fig:example1)
+\end{figure}
 
-<div class="figure">
-<img src="figures/mo_coef.jpg" alt="Most appropriate autoregressive correlation coefficients for areas around western boundary current." width="729" />
-<p class="caption">(\#fig:example9)Most appropriate autoregressive correlation coefficients for areas around western boundary current.</p>
-</div>
+\begin{figure}
 
-<div class="figure">
-<img src="figures/MUR_bathy_plot_discrete_20090228.jpg" alt="The bathymetry of South Africa with SSTs from the MUR product." width="682" />
-<p class="caption">(\#fig:example10)The bathymetry of South Africa with SSTs from the MUR product.</p>
-</div>
+{\centering \includegraphics[width=1\linewidth]{figures/deeper-infamous-event-plots-1} 
 
-<div class="figure">
-<img src="figures/sw-fig-7-1.jpg" alt="The power of the detected decadal trend at each coastal temperature collection site given a hypothetical number of months." width="800" />
-<p class="caption">(\#fig:example13)The power of the detected decadal trend at each coastal temperature collection site given a hypothetical number of months.</p>
-</div>
+}
 
-<div class="figure">
-<img src="figures/false_bay_inset_map_labels2.jpg" alt="An inset map of False Bay." width="562" />
-<p class="caption">(\#fig:example5)An inset map of False Bay.</p>
-</div>
+\caption{The (currently) three most infamous marine heatwaves (MHWs) around the world.}(\#fig:example2)
+\end{figure}
 
-<div class="figure">
-<img src="figures/PLOS_ONE_Fig4.jpg" alt="The strength of the relationship between each site based on their biodiversity." width="1050" />
-<p class="caption">(\#fig:example19)The strength of the relationship between each site based on their biodiversity.</p>
-</div>
+\begin{figure}
 
-<div class="figure">
-<img src="figures/hierarchical_clustsig.jpg" alt="A hierarchical cluster analysis." width="876" />
-<p class="caption">(\#fig:example15)A hierarchical cluster analysis.</p>
-</div>
+{\centering \includegraphics[width=1\linewidth]{figures/Ecography_figure5a-d} 
+
+}
+
+\caption{Changes in seaweed biodiversity along the South African coastline.}(\#fig:example4)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figures/insitu_polarPlots_month_v3.2} 
+
+}
+
+\caption{Polar plots of monthly temperatures.}(\#fig:example16)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figures/mo_coef} 
+
+}
+
+\caption{Most appropriate autoregressive correlation coefficients for areas around western boundary current.}(\#fig:example9)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figures/MUR_bathy_plot_discrete_20090228} 
+
+}
+
+\caption{The bathymetry of South Africa with SSTs from the MUR product.}(\#fig:example10)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figures/sw-fig-7-1} 
+
+}
+
+\caption{The power of the detected decadal trend at each coastal temperature collection site given a hypothetical number of months.}(\#fig:example13)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figures/false_bay_inset_map_labels2} 
+
+}
+
+\caption{An inset map of False Bay.}(\#fig:example5)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figures/PLOS_ONE_Fig4} 
+
+}
+
+\caption{The strength of the relationship between each site based on their biodiversity.}(\#fig:example19)
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{figures/hierarchical_clustsig} 
+
+}
+
+\caption{A hierarchical cluster analysis.}(\#fig:example15)
+\end{figure}
 
 ## Basics of **`ggplot2`**
 
@@ -87,7 +127,7 @@ ggplot(data = ChickWeight, aes(x = Time, y = weight)) +
   geom_line(aes(group = Chick))
 ```
 
-<img src="04-graphics_files/figure-html/basic-1-1.png" width="672" />
+![](04-graphics_files/figure-latex/basic-1-1.pdf)<!-- --> 
 
 So what is that code doing? We may see from the figure that it is creating a little black dot for every data point, with the `Time` of sampling on the x axis, and the `weight` of the chicken during that time on the y axis. It then connects the dots for each chicken in the dataset. Let's break this code down line for line to get a better idea of what it is doing. The first line of code is telling R that we want to create a ggplot figure. We know this because we are using the `ggplot()` function. Inside of that function we are telling R which dataframe we want to create a figure from. Lastly, with the `aes()` argument, which is short for 'aesthetic', we tell R what the necessary parts of the figure will be. This is also known as 'mapping'. The second line of code then takes all of that information and makes points (dots) out of it. The third line takes the same information and creates lines from it. Notice in the third line that we have provided another mapping argument by telling R to group the data by `Chick`. This is how R knows to draw an individual line for each chicken, and not just one big messy jagged line. Try running this code without the group argument for `geom_line()` and see what happens.
 
@@ -100,7 +140,7 @@ ggplot(data = ChickWeight, aes(x = Time, y = weight, colour = Diet)) +
   geom_line(aes(group = Chick))
 ```
 
-<img src="04-graphics_files/figure-html/basic-3-1.png" width="672" />
+![](04-graphics_files/figure-latex/basic-3-1.pdf)<!-- --> 
 
 Do any patterns appear to emerge from the data? Perhaps there is a better way to visualise them? With linear models for example.
 
@@ -111,7 +151,7 @@ ggplot(data = ChickWeight, aes(x = Time, y = weight, colour = Diet)) +
   geom_smooth(method = "lm")
 ```
 
-<img src="04-graphics_files/figure-html/first-lm-1.png" width="672" />
+![](04-graphics_files/figure-latex/first-lm-1.pdf)<!-- --> 
 
 How is a linear model calculated? What patterns do we see in the data now? If you were a chicken, which feed would you want?
 
@@ -126,7 +166,7 @@ ggplot(data = ChickWeight, aes(x = Time, y = weight)) +
   geom_line(aes(group = Chick, colour = "blue"))
 ```
 
-<img src="04-graphics_files/figure-html/basic-6-1.png" width="672" />
+![](04-graphics_files/figure-latex/basic-6-1.pdf)<!-- --> 
 
 Why are the points blue, but the lines are salmon with a legend that says they are 'blue'? We may see that in the line responsible for the points (`geom_point()`) we did not put the colour argument inside of the `aes()` function, but for the lines (`geom_line()`) we did. If we know that we want some aspect of our figure to be a static value we set this value outside of the `aes()` function. If we want some aspect of our figure to reflect some part of the data in our dataframe, we must set that inside of `aes()`. Let's see an example where we set the size of the dots to equal the weight of the chicken and the thickness of the linear model lines to one static value.
 
@@ -137,7 +177,7 @@ ggplot(data = ChickWeight, aes(x = Time, y = weight, colour = Diet)) +
   geom_smooth(method = "lm", size = 1.2)
 ```
 
-<img src="04-graphics_files/figure-html/basic-8-1.png" width="672" />
+![](04-graphics_files/figure-latex/basic-8-1.pdf)<!-- --> 
 
 Notice that we have set the size of the points and the lines, but one is within `aes()` and the other not. Because the size of our points equals the weight of the chickens, the points become larger the heavier (juicier) the chickens become. But because we set the size of the lines to one static value, all of the lines are the same size and don't change because of any other variables.
 
@@ -154,6 +194,6 @@ ggplot(data = ChickWeight, aes(x = Time, y = weight, colour = Diet)) +
   theme(legend.position = "bottom") # Change the legend position
 ```
 
-<img src="04-graphics_files/figure-html/basic-4-1.png" width="672" />
+![](04-graphics_files/figure-latex/basic-4-1.pdf)<!-- --> 
 
 Notice that when we place the legend at the bottom of the figure ggplot automatically makes it horizontal for us. Why do we use 'colour' inside of `labs()` to change the legend title?

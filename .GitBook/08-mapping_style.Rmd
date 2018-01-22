@@ -88,7 +88,7 @@ sa_3
 
 In order to inset a smaller map inside of a larger map we must first create the smaller map. We have already loaded just such a map of Africa so we will use that for this example.
 
-```{r maps-mini}
+```{r maps-mini, fig.align = "center"}
 africa_map
 ```
 

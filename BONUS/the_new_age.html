@@ -11,7 +11,7 @@
 
 <meta name="author" content="AJ Smit &amp; Robert W Schlegel" />
 
-<meta name="date" content="2018-01-16" />
+<meta name="date" content="2018-01-22" />
 
 <title>The New Age</title>
 
@@ -119,7 +119,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">The New Age</h1>
 <h4 class="author"><em>AJ Smit &amp; Robert W Schlegel</em></h4>
-<h4 class="date"><em>2018-01-16</em></h4>
+<h4 class="date"><em>2018-01-22</em></h4>
 
 </div>
 
@@ -132,7 +132,7 @@ library(lubridate)</code></pre>
 <p>With those packages loaded, R now knows the functions we will need to use to calculate the monthly climatologies for our three time series. We will also be able to make some pretty figures.</p>
 <p>Using excel may allow one to make small changes quickly, but rapidly becomes laborious when any sophistication is required. The few lines of code below make all of the calculations we need in order to produce the results we are after.</p>
 <pre class="r"><code># Load data
-SACTN_data &lt;- read_csv(&quot;data/SACTN_data.csv&quot;)</code></pre>
+SACTN_data &lt;- read_csv(&quot;data/SACTN_day_1.csv&quot;)</code></pre>
 <pre class="r"><code># Create monthly climatologies
 SACTN_monthly &lt;- SACTN_data %&gt;% 
   mutate(month = month(date, label = T)) %&gt;% 

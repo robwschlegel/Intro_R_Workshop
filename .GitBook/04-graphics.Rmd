@@ -22,43 +22,43 @@ Though it may have started as statistical software, R has moved far beyond it's 
 
 Just to whet the appetite, below is provided a small selection of the figures that R and **`ggplot2`** are capable of producing. These are things that AJ and/or myself have produced for publication or in some cases just for personal interest. Remember, just because we are learning this for work, doesn't mean we can't use it for fun, too. The idea of using R for fun may seem bizarre, but perhaps by the end of Day 5 we will have been able to convince you otherwise!
 
-```{r example1, echo = FALSE, fig.cap = "The effect of variance (SD) within a temperature time series on the accurate modelling of decadal trends.", width = 10}
+```{r example1, echo = FALSE, fig.cap = "The effect of variance (SD) within a temperature time series on the accurate modelling of decadal trends.", out.width = "100%", fig.align = "center"}
 knitr::include_graphics("figures/all_plt0_no_interp_natural.png")
 ```
 
-```{r example2, echo = FALSE, fig.cap = "The (currently) three most infamous marine heatwaves (MHWs) around the world."}
+```{r example2, echo = FALSE, fig.cap = "The (currently) three most infamous marine heatwaves (MHWs) around the world.", out.width = "100%", fig.align = "center"}
 knitr::include_graphics("figures/deeper-infamous-event-plots-1.png")
 ```
 
-```{r example4, echo = FALSE, fig.cap = "Changes in seaweed biodiversity along the South African coastline."}
+```{r example4, echo = FALSE, fig.cap = "Changes in seaweed biodiversity along the South African coastline.", out.width = "100%", fig.align = "center"}
 knitr::include_graphics("figures/Ecography_figure5a-d.jpg")
 ```
 
-```{r example16, echo = FALSE, fig.cap = "Polar plots of monthly temperatures."}
+```{r example16, echo = FALSE, fig.cap = "Polar plots of monthly temperatures.", out.width = "100%", fig.align = "center"}
 knitr::include_graphics("figures/insitu_polarPlots_month_v3.2.jpg")
 ```
 
-```{r example9, echo = FALSE, fig.cap = "Most appropriate autoregressive correlation coefficients for areas around western boundary current."}
+```{r example9, echo = FALSE, fig.cap = "Most appropriate autoregressive correlation coefficients for areas around western boundary current.", out.width = "100%", fig.align = "center"}
 knitr::include_graphics("figures/mo_coef.jpg")
 ```
 
-```{r example10, echo = FALSE, fig.cap = "The bathymetry of South Africa with SSTs from the MUR product."}
+```{r example10, echo = FALSE, fig.cap = "The bathymetry of South Africa with SSTs from the MUR product.", out.width = "100%", fig.align = "center"}
 knitr::include_graphics("figures/MUR_bathy_plot_discrete_20090228.jpg")
 ```
 
-```{r example13, echo = FALSE, fig.cap = "The power of the detected decadal trend at each coastal temperature collection site given a hypothetical number of months."}
+```{r example13, echo = FALSE, fig.cap = "The power of the detected decadal trend at each coastal temperature collection site given a hypothetical number of months.", out.width = "100%", fig.align = "center"}
 knitr::include_graphics("figures/sw-fig-7-1.jpg")
 ```
 
-```{r example5, echo = FALSE, fig.cap = "An inset map of False Bay."}
+```{r example5, echo = FALSE, fig.cap = "An inset map of False Bay.", out.width = "100%", fig.align = "center"}
 knitr::include_graphics("figures/false_bay_inset_map_labels2.jpg")
 ```
 
-```{r example19, echo = FALSE, fig.cap = "The strength of the relationship between each site based on their biodiversity."}
+```{r example19, echo = FALSE, fig.cap = "The strength of the relationship between each site based on their biodiversity.", out.width = "100%", fig.align = "center"}
 knitr::include_graphics("figures/PLOS_ONE_Fig4.jpg")
 ```
 
-```{r example15, echo = FALSE, fig.cap = "A hierarchical cluster analysis."}
+```{r example15, echo = FALSE, fig.cap = "A hierarchical cluster analysis.", out.width = "100%", fig.align = "center"}
 knitr::include_graphics("figures/hierarchical_clustsig.jpg")
 ```
 

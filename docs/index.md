@@ -15,6 +15,9 @@ description: "The basics for a safe voyage through the tidyverse."
 
 # Preface {-}
 
-<img src="figures/769_life_finds_a_way.png" width="330" />
 
-This online book contains all of the content to be covered in this Intro R Workshop. Please use the table of contents (TOC) on the left to scroll through as desired.
+\begin{center}\includegraphics[width=1\linewidth]{figures/769_life_finds_a_way} \end{center}
+
+This online book contains all of the content to be covered in this Intro R Workshop.  
+The associated files may be downloaded at: https://github.com/robwschlegel/Intro_R_Workshop  
+Please use the table of contents (TOC) on the left to navigate the course content as desired.
