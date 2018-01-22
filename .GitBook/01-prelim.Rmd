@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 
 ## Venue, date and time
 
-This workshop will take place in the week of **15 January -- 19 January 2018**, from **9:00--16:00** each day. We will meet in the SAIAB computer lab on Rhodes Campus.
+This workshop will take place in the week of **22 January -- 26 January 2018**, from **9:00--16:00** each day. We will meet in the Zoology 3rd year lab on Unizul Campus.
 
 ## Course outline
 

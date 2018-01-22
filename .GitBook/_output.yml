@@ -14,4 +14,4 @@ bookdown::pdf_book:
   latex_engine: xelatex
   citation_package: natbib
 bookdown::epub_book:
-  stylesheet: style.css
+stylesheet: style.css

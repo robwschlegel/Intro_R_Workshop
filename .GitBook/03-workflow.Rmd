@@ -86,7 +86,7 @@ Depending on the version of Excel you are using, or perhaps the settings within 
 # Run this if 'laminaria.csv` has columns separated by ','
 laminaria <- read_csv("data/laminaria.csv")
 # Run this if 'laminaria.csv` has columns separated by ';'
-laminaria <- read_csv("data/laminaria.csv")
+laminaria <- read_csv2("data/laminaria.csv")
 ```
 ```{r workflow-load-lam-ghost, echo=FALSE}
 # Run this if 'laminaria.csv` has columns separated by ','

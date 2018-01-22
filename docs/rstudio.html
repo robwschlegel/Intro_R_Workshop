@@ -5,27 +5,27 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Intro R Workshop: Data Manipulation, Analysis and Graphing</title>
+  <title>Intro R Workshop: Data Manipulation, Analysis and Visualisation</title>
   <meta name="description" content="The basics for a safe voyage through the tidyverse.">
   <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
-  <meta property="og:title" content="Intro R Workshop: Data Manipulation, Analysis and Graphing" />
+  <meta property="og:title" content="Intro R Workshop: Data Manipulation, Analysis and Visualisation" />
   <meta property="og:type" content="book" />
   
-  
+  <meta property="og:image" content="figures/769_life_finds_a_way.png" />
   <meta property="og:description" content="The basics for a safe voyage through the tidyverse." />
-  
+  <meta name="github-repo" content="robwschlegel/Intro_R_Workshop" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Intro R Workshop: Data Manipulation, Analysis and Graphing" />
+  <meta name="twitter:title" content="Intro R Workshop: Data Manipulation, Analysis and Visualisation" />
   
   <meta name="twitter:description" content="The basics for a safe voyage through the tidyverse." />
-  
+  <meta name="twitter:image" content="figures/769_life_finds_a_way.png" />
 
 <meta name="author" content="Robert W Schlegel &amp; AJ Smit">
 
 
-<meta name="date" content="2018-01-16">
+<meta name="date" content="2018-01-22">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -190,7 +190,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="7" data-path="mapping.html"><a href="mapping.html"><i class="fa fa-check"></i><b>7</b> Mapping with <strong><code>ggplot2</code></strong></a><ul>
 <li class="chapter" data-level="7.1" data-path="mapping.html"><a href="mapping.html#a-new-concept"><i class="fa fa-check"></i><b>7.1</b> A new concept?</a></li>
-<li class="chapter" data-level="7.2" data-path="mapping.html"><a href="mapping.html#creating-a-map"><i class="fa fa-check"></i><b>7.2</b> Creating a map</a></li>
+<li class="chapter" data-level="7.2" data-path="mapping.html"><a href="mapping.html#land-mask"><i class="fa fa-check"></i><b>7.2</b> Land mask</a></li>
+<li class="chapter" data-level="7.3" data-path="mapping.html"><a href="mapping.html#borders"><i class="fa fa-check"></i><b>7.3</b> Borders</a></li>
+<li class="chapter" data-level="7.4" data-path="mapping.html"><a href="mapping.html#force-lonlat-extent"><i class="fa fa-check"></i><b>7.4</b> Force lon/lat extent</a></li>
+<li class="chapter" data-level="7.5" data-path="mapping.html"><a href="mapping.html#ocean-temperature"><i class="fa fa-check"></i><b>7.5</b> Ocean temperature</a></li>
+<li class="chapter" data-level="7.6" data-path="mapping.html"><a href="mapping.html#final-touches"><i class="fa fa-check"></i><b>7.6</b> Final touches</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="mapping-style.html"><a href="mapping-style.html"><i class="fa fa-check"></i><b>8</b> Mapping with style</a><ul>
 <li class="chapter" data-level="8.1" data-path="mapping-style.html"><a href="mapping-style.html#default-maps"><i class="fa fa-check"></i><b>8.1</b> Default maps</a></li>
@@ -260,7 +264,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Intro R Workshop: Data Manipulation, Analysis and Graphing</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Intro R Workshop: Data Manipulation, Analysis and Visualisation</a>
           </h1>
         </div>
 
@@ -305,7 +309,7 @@ Figure 2.1: The RStudio Preferences menu.
 </div>
 <div id="installing-packages" class="section level2">
 <h2><span class="header-section-number">2.3</span> Installing packages</h2>
-<p>The most common functions used in R are contained within the <strong><code>base</code></strong> package; this makes R useful ‘out of the box.’ However, there is extensive additional functionality that is being expanded all the time through the use of packages. Packages are simply collections of code called functions that automate complex mathematical or statistical tasks. One of the most useful features of R is that users are continuously developing new packages and making them available for free. You can find a comprehensive list of available packages on the <a href="https://cran.r-project.org/web/packages/">CRAN website</a>. There are currently (<code>2018-01-16</code>) <code>12094</code> packages available for R!</p>
+<p>The most common functions used in R are contained within the <strong><code>base</code></strong> package; this makes R useful ‘out of the box.’ However, there is extensive additional functionality that is being expanded all the time through the use of packages. Packages are simply collections of code called functions that automate complex mathematical or statistical tasks. One of the most useful features of R is that users are continuously developing new packages and making them available for free. You can find a comprehensive list of available packages on the <a href="https://cran.r-project.org/web/packages/">CRAN website</a>. There are currently (<code>2018-01-22</code>) <code>12126</code> packages available for R!</p>
 <p>If the thought of searching for and finding R packages is daunting, a good place to start is the <a href="http://cran.r-project.org/web/views/">R Task View</a> page. This page curates collections of packages for general tasks you might encounter, such as Experimental Design, Meta-Analysis, or Multivariate Analysis. Go and have a look for yourself, you might be surprised to find a good explanation of what you need.</p>
 <p>After clicking ‘Tools’/‘Install Packages’, type in the package name <strong><code>tidyverse</code></strong> in the ‘Packages’ text box (note that it is case sensitive) and select the Install button. The <strong>Console</strong> will run the code needed to install the package, and then provide some commentary on the installation of the package and any of its dependencies (<em>i.e.</em>, other R packages needed to run the required package).</p>
 <p>The installation process makes sure that the functions within the packages contained within the <strong><code>tidyverse</code></strong> are now available on your computer, but to avoid potential conflicts in the names of functions, it will not load these automatically. To make R ‘know’ about these functions in a particular session, you need either to load the package via ticking the checkbox for that package in the <strong>Packages</strong> tab, or execute:</p>

@@ -62,10 +62,6 @@ knitr::include_graphics("figures/PLOS_ONE_Fig4.jpg")
 knitr::include_graphics("figures/hierarchical_clustsig.jpg")
 ```
 
-```{r example20, echo = FALSE, fig.cap = "CAP analysis showing relationship between abiotic variables and beta diversity with the different sections of South Africa's coastline shown in colour."}
-knitr::include_graphics("figures/PLOS_ONE_Fig2.jpg")
-```
-
 ## Basics of **`ggplot2`**
 
 R comes with basic graphing capability, known colloquially (by nerds) as 'Base R'. The syntax used for this method of creating graphics is often difficult to interpret as there are few human words in the code. In addition to this issue, Base R also does not allow the user enough control over the look of the final product to satisfy the demands of many publishers. Meaning the figures tend not to look professional enough (but still much better than Excel). To solve both of these problems, and others, the **`ggplot2`** package was born. 

@@ -3,7 +3,7 @@ library(tidyverse)
 library(lubridate)
 
 # Load data
-SACTN_data <- read_csv("data/SACTN_data.csv")
+SACTN_data <- read_csv("data/SACTN_day_1.csv")
 
 # Create monthly climatologies
 SACTN_monthly <- SACTN_data %>% # Tell R to use "SACTN_data" for further calculations
