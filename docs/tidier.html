@@ -25,7 +25,7 @@
 <meta name="author" content="Robert W Schlegel &amp; AJ Smit">
 
 
-<meta name="date" content="2018-01-22">
+<meta name="date" content="2018-01-29">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -299,13 +299,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">library</span>(tidyverse)
 <span class="kw">library</span>(lubridate)
 
-<span class="co"># Load the data from a .Rdata file</span>
+<span class="co"># Load the data from a .RData file</span>
 <span class="kw">load</span>(<span class="st">&quot;data/SACTNmonthly_v4.0.RData&quot;</span>)
 
 <span class="co"># Copy the data as a dataframe with a shorter name</span>
-SACTN &lt;-<span class="st"> </span>SACTNmonthly_v4.<span class="dv">0</span> <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="co"># Convert the date column to &#39;Date&#39; format</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">date =</span> <span class="kw">as.Date</span>(<span class="kw">as.character</span>(date)))
+SACTN &lt;-<span class="st"> </span>SACTNmonthly_v4.<span class="dv">0</span>
 
 <span class="co"># Remove the original</span>
 <span class="kw">rm</span>(SACTNmonthly_v4.<span class="dv">0</span>)</code></pre></div>

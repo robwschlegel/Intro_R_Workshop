@@ -18,13 +18,11 @@ In the previous session we covered the five main transformation functions one wo
 library(tidyverse)
 library(lubridate)
 
-# load the data from a .Rdata file
+# load the data from a .RData file
 load("data/SACTNmonthly_v4.0.RData")
 
 # Copy the data as a dataframe with a shorter name
-SACTN <- SACTNmonthly_v4.0 %>% 
-  # Convert the date column to 'Date' format
-  mutate(date = as.Date(as.character(date)))
+SACTN <- SACTNmonthly_v4.0
 
 # Remove the original
 rm(SACTNmonthly_v4.0)
@@ -79,7 +77,7 @@ ggplot(data = SACTN_depth_mean, mapping = aes(x = depth, y = mean_temp)) +
   geom_smooth(se = FALSE)
 ```
 
-![(\#fig:tidiest-group-2)Relationship bewteen depth and mean temperature.](12-tidiest_files/figure-latex/tidiest-group-2-1.pdf) 
+![(\#fig:tidiest-group-2)Relationship between depth and mean temperature.](12-tidiest_files/figure-latex/tidiest-group-2-1.pdf) 
 
 ### Grouping by multiple variables
 
@@ -175,7 +173,7 @@ SACTN %>%
 R> # A tibble: 3 x 4
 R> # Groups:   site [?]
 R>   site        src   mean_temp sd_temp
-R>   <fctr>      <chr>     <dbl>   <dbl>
+R>   <fct>       <chr>     <dbl>   <dbl>
 R> 1 Paternoster DEA        12.8   0.879
 R> 2 Paternoster SAWS       13.6   1.40 
 R> 3 Oudekraal   DAFF       12.3   1.36
@@ -217,7 +215,7 @@ SACTN %>%
 R> # A tibble: 5 x 4
 R> # Groups:   site [?]
 R>   site        src   mean_temp sd_temp
-R>   <fctr>      <chr>     <dbl>   <dbl>
+R>   <fct>       <chr>     <dbl>   <dbl>
 R> 1 Paternoster DEA        12.8   0.879
 R> 2 Paternoster SAWS       13.6   1.40 
 R> 3 Oudekraal   DAFF       12.3   1.36 
@@ -323,7 +321,7 @@ SACTN %>%
 R> # A tibble: 10 x 3
 R> # Groups:   site, src [1]
 R>    site         src   kelvin
-R>    <fctr>       <chr>  <dbl>
+R>    <fct>        <chr>  <dbl>
 R>  1 Port Nolloth DEA      285
 R>  2 Port Nolloth DEA      285
 R>  3 Port Nolloth DEA      285
@@ -437,7 +435,7 @@ SACTN %>%
 ```
 R> # A tibble: 5 x 3
 R>   site       src   sd_temp
-R>   <fctr>     <chr>   <dbl>
+R>   <fct>      <chr>   <dbl>
 R> 1 Muizenberg SAWS     2.76
 R> 2 Stilbaai   SAWS     2.72
 R> 3 Mossel Bay SAWS     2.65

@@ -1,8 +1,7 @@
 --- 
 title: "Intro R Workshop: Data Manipulation, Analysis, and Visualisation"
-# subtitle: 'Unizul 2018'
 author: "Robert W Schlegel & AJ Smit"
-date: "2018-01-22"
+date: "2018-01-29"
 site: bookdown::bookdown_site
 github-repo: "robwschlegel/Intro_R_Workshop"
 cover-image: "figures/769_life_finds_a_way.png"

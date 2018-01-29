@@ -30,7 +30,7 @@ As we may see in the following figure (Figure \@ref(fig:tidy)), the tidying of o
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\linewidth]{figures/data-science-wrangle} 
+{\centering \includegraphics[width=1\linewidth]{figures/data-science-wrangle} 
 
 }
 
@@ -47,7 +47,7 @@ This is represented graphically in figure \@ref(fig:tidy-structure). One will ge
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\linewidth]{figures/tidy-1} 
+{\centering \includegraphics[width=1\linewidth]{figures/tidy-1} 
 
 }
 

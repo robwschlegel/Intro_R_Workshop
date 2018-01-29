@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2018-01-22}
+  \date{2018-01-29}
 
 \usepackage{booktabs}
 
@@ -218,9 +218,11 @@ interrupted occasionally by panic.''
 \item
   Interactive Session: Faceting figures in \textbf{\texttt{ggplot2}}
 \item
+  -- lunch --
+\item
   Interactive Session: Brewing colours in \textbf{\texttt{ggplot2}}
 \item
-  -- lunch --
+  -- break --
 \item
   Assignment: DIY figures
 \item
@@ -239,9 +241,11 @@ interrupted occasionally by panic.''
 \item
   Interactive Session: Mapping with style
 \item
+  -- lunch --
+\item
   Interactive Session: Mapping with Google
 \item
-  -- lunch --
+  -- break --
 \item
   Assignment: DIY maps
 \item
@@ -553,8 +557,8 @@ typed commands and package names.
 \end{Shaded}
 
 \begin{verbatim}
-R>  [1]  -6.8521582  -9.4276282   0.5087513   1.4696003   4.7814757
-R>  [6]  19.3885532  22.3228640 -15.5364569  15.7860070  -9.8581365
+R>  [1]   7.251992  12.155790 -11.727610   6.030646  -8.989878  -8.331947
+R>  [7]  27.182047 -25.548516   7.485387  21.269391
 \end{verbatim}
 
 Consult these resources for more about R code style :
@@ -634,7 +638,7 @@ R> loaded via a namespace (and not attached):
 R>  [1] compiler_3.4.3  backports_1.1.0 bookdown_0.5    magrittr_1.5   
 R>  [5] rprojroot_1.2   tools_3.4.3     htmltools_0.3.6 yaml_2.1.14    
 R>  [9] Rcpp_0.12.14    stringi_1.1.5   rmarkdown_1.6   knitr_1.17     
-R> [13] methods_3.4.3   stringr_1.2.0   digest_0.6.13   evaluate_0.10.1
+R> [13] methods_3.4.3   stringr_1.2.0   digest_0.6.15   evaluate_0.10.1
 \end{verbatim}
 
 \section{Exercise: It which shall not be
@@ -745,7 +749,7 @@ or statistical tasks. One of the most useful features of R is that users
 are continuously developing new packages and making them available for
 free. You can find a comprehensive list of available packages on the
 \href{https://cran.r-project.org/web/packages/}{CRAN website}. There are
-currently (\texttt{2018-01-22}) \texttt{12126} packages available for R!
+currently (\texttt{2018-01-29}) \texttt{12081} packages available for R!
 
 If the thought of searching for and finding R packages is daunting, a
 good place to start is the \href{http://cran.r-project.org/web/views/}{R
@@ -3559,7 +3563,7 @@ the loading of the data.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\linewidth]{figures/data-science-wrangle} 
+{\centering \includegraphics[width=1\linewidth]{figures/data-science-wrangle} 
 
 }
 
@@ -3593,7 +3597,7 @@ clear.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\linewidth]{figures/tidy-1} 
+{\centering \includegraphics[width=1\linewidth]{figures/tidy-1} 
 
 }
 
@@ -3899,13 +3903,11 @@ new concepts.
 \KeywordTok{library}\NormalTok{(tidyverse)}
 \KeywordTok{library}\NormalTok{(lubridate)}
 
-\CommentTok{# Load the data from a .Rdata file}
+\CommentTok{# Load the data from a .RData file}
 \KeywordTok{load}\NormalTok{(}\StringTok{"data/SACTNmonthly_v4.0.RData"}\NormalTok{)}
 
 \CommentTok{# Copy the data as a dataframe with a shorter name}
-\NormalTok{SACTN <-}\StringTok{ }\NormalTok{SACTNmonthly_v4.}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\CommentTok{# Convert the date column to 'Date' format}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{date =} \KeywordTok{as.Date}\NormalTok{(}\KeywordTok{as.character}\NormalTok{(date)))}
+\NormalTok{SACTN <-}\StringTok{ }\NormalTok{SACTNmonthly_v4.}\DecValTok{0}
 
 \CommentTok{# Remove the original}
 \KeywordTok{rm}\NormalTok{(SACTNmonthly_v4.}\DecValTok{0}\NormalTok{)}
@@ -4323,13 +4325,11 @@ and the SACTN data if we haven't already.
 \KeywordTok{library}\NormalTok{(tidyverse)}
 \KeywordTok{library}\NormalTok{(lubridate)}
 
-\CommentTok{# load the data from a .Rdata file}
+\CommentTok{# load the data from a .RData file}
 \KeywordTok{load}\NormalTok{(}\StringTok{"data/SACTNmonthly_v4.0.RData"}\NormalTok{)}
 
 \CommentTok{# Copy the data as a dataframe with a shorter name}
-\NormalTok{SACTN <-}\StringTok{ }\NormalTok{SACTNmonthly_v4.}\DecValTok{0} \OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\CommentTok{# Convert the date column to 'Date' format}
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{date =} \KeywordTok{as.Date}\NormalTok{(}\KeywordTok{as.character}\NormalTok{(date)))}
+\NormalTok{SACTN <-}\StringTok{ }\NormalTok{SACTNmonthly_v4.}\DecValTok{0}
 
 \CommentTok{# Remove the original}
 \KeywordTok{rm}\NormalTok{(SACTNmonthly_v4.}\DecValTok{0}\NormalTok{)}
@@ -4402,7 +4402,7 @@ Let's visualise our newly created summary dataframe and see what we get.
 \begin{figure}
 \centering
 \includegraphics{12-tidiest_files/figure-latex/tidiest-group-2-1.pdf}
-\caption{\label{fig:tidiest-group-2}Relationship bewteen depth and mean
+\caption{\label{fig:tidiest-group-2}Relationship between depth and mean
 temperature.}
 \end{figure}
 
@@ -4553,7 +4553,7 @@ will be carried over into the new dataframe created by
 R> # A tibble: 3 x 4
 R> # Groups:   site [?]
 R>   site        src   mean_temp sd_temp
-R>   <fctr>      <chr>     <dbl>   <dbl>
+R>   <fct>       <chr>     <dbl>   <dbl>
 R> 1 Paternoster DEA        12.8   0.879
 R> 2 Paternoster SAWS       13.6   1.40 
 R> 3 Oudekraal   DAFF       12.3   1.36
@@ -4611,7 +4611,7 @@ symbol (\texttt{\%in\%}).
 R> # A tibble: 5 x 4
 R> # Groups:   site [?]
 R>   site        src   mean_temp sd_temp
-R>   <fctr>      <chr>     <dbl>   <dbl>
+R>   <fct>       <chr>     <dbl>   <dbl>
 R> 1 Paternoster DEA        12.8   0.879
 R> 2 Paternoster SAWS       13.6   1.40 
 R> 3 Oudekraal   DAFF       12.3   1.36 
@@ -4769,7 +4769,7 @@ console.
 R> # A tibble: 10 x 3
 R> # Groups:   site, src [1]
 R>    site         src   kelvin
-R>    <fctr>       <chr>  <dbl>
+R>    <fct>        <chr>  <dbl>
 R>  1 Port Nolloth DEA      285
 R>  2 Port Nolloth DEA      285
 R>  3 Port Nolloth DEA      285
@@ -4929,7 +4929,7 @@ however still be quite useful when combined with arrange.
 \begin{verbatim}
 R> # A tibble: 5 x 3
 R>   site       src   sd_temp
-R>   <fctr>     <chr>   <dbl>
+R>   <fct>      <chr>   <dbl>
 R> 1 Muizenberg SAWS     2.76
 R> 2 Stilbaai   SAWS     2.72
 R> 3 Mossel Bay SAWS     2.65

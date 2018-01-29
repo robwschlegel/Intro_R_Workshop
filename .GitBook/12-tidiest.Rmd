@@ -23,13 +23,11 @@ In the previous session we covered the five main transformation functions one wo
 library(tidyverse)
 library(lubridate)
 
-# load the data from a .Rdata file
+# load the data from a .RData file
 load("data/SACTNmonthly_v4.0.RData")
 
 # Copy the data as a dataframe with a shorter name
-SACTN <- SACTNmonthly_v4.0 %>% 
-  # Convert the date column to 'Date' format
-  mutate(date = as.Date(as.character(date)))
+SACTN <- SACTNmonthly_v4.0
 
 # Remove the original
 rm(SACTNmonthly_v4.0)
@@ -56,7 +54,7 @@ SACTN_depth_mean
 
 Let's visualise our newly created summary dataframe and see what we get.
 
-```{r tidiest-group-2, fig.cap="Relationship bewteen depth and mean temperature."}
+```{r tidiest-group-2, fig.cap="Relationship between depth and mean temperature."}
 # Why does the relationship between depth and temperature look so odd?
 ggplot(data = SACTN_depth_mean, mapping = aes(x = depth, y = mean_temp)) +
   geom_point(aes(size = count), alpha = 1/3) +

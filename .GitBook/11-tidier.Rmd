@@ -33,13 +33,11 @@ We will use the full South African Coastal Temperature Network dataset for these
 library(tidyverse)
 library(lubridate)
 
-# Load the data from a .Rdata file
+# Load the data from a .RData file
 load("data/SACTNmonthly_v4.0.RData")
 
 # Copy the data as a dataframe with a shorter name
-SACTN <- SACTNmonthly_v4.0 %>% 
-  # Convert the date column to 'Date' format
-  mutate(date = as.Date(as.character(date)))
+SACTN <- SACTNmonthly_v4.0
 
 # Remove the original
 rm(SACTNmonthly_v4.0)

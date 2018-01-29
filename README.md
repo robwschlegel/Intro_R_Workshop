@@ -45,3 +45,11 @@ Introductory R course
 
 ### January 18th, 2018
 * Minor edits
+
+### January 25th, 2018
+* Minor edits throughout
+* Draft of function list and base R primer created for appendix
+
+### January 29th, 2018
+* Fixed up 'Mapping Yourself' tut
+* Created 'Basic Stats' tut

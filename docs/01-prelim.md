@@ -30,8 +30,9 @@
 * Interactive Session: The basics of **`ggplot2`**
 * -- break --
 * Interactive Session: Faceting figures in **`ggplot2`**
-* Interactive Session: Brewing colours in **`ggplot2`**
 * -- lunch --
+* Interactive Session: Brewing colours in **`ggplot2`**
+* -- break --
 * Assignment: DIY figures
 *	-- end --
 
@@ -40,8 +41,9 @@
 * Interactive Session: Mapping with **`ggplot2`**
 * -- break --
 * Interactive Session: Mapping with style
-* Interactive Session: Mapping with Google
 * -- lunch --
+* Interactive Session: Mapping with Google
+* -- break --
 * Assignment: DIY maps
 *	-- end --
 
@@ -193,8 +195,8 @@ rnorm(n = 10, mean = 0, sd = 13)
 ```
 
 ```
-R>  [1]  -6.8521582  -9.4276282   0.5087513   1.4696003   4.7814757
-R>  [6]  19.3885532  22.3228640 -15.5364569  15.7860070  -9.8581365
+R>  [1]   7.251992  12.155790 -11.727610   6.030646  -8.989878  -8.331947
+R>  [7]  27.182047 -25.548516   7.485387  21.269391
 ```
 
 Consult these resources for more about R code style :
@@ -250,7 +252,7 @@ R> loaded via a namespace (and not attached):
 R>  [1] compiler_3.4.3  backports_1.1.0 bookdown_0.5    magrittr_1.5   
 R>  [5] rprojroot_1.2   tools_3.4.3     htmltools_0.3.6 yaml_2.1.14    
 R>  [9] Rcpp_0.12.14    stringi_1.1.5   rmarkdown_1.6   knitr_1.17     
-R> [13] methods_3.4.3   stringr_1.2.0   digest_0.6.13   evaluate_0.10.1
+R> [13] methods_3.4.3   stringr_1.2.0   digest_0.6.15   evaluate_0.10.1
 ```
 
 ## Exercise: It which shall not be named

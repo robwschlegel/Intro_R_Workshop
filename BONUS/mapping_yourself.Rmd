@@ -27,6 +27,8 @@ Yes friends, it is true. Through the magic of the evil empire that is Google, we
 With new R capabilities comes the requirement for at least one new package. So let's go ahead and install that.
 
 ```{r, message=FALSE}
+library(tidyverse)
+
 # Package for reading JSON data
 # install.packages("jsonlite")
 library(jsonlite)
@@ -42,11 +44,10 @@ library(lubridate)
 library(zoo)
 
 # Packages for plotting
-library(ggplot2)
 library(ggmap)
 
 # A script containing several custom functions
-source("../functions/common.R")
+source("markdown/mapping_yourself_func.R")
 ```
 
 To download your Google location history please sign in to your Google account (if you aren't already) and then click the following link: <https://takeout.google.com/settings/takeout>. Once you are at the download page please make sure you select _only_ “location history” for download, otherwise you will be waiting a long time for the download to finish.
@@ -59,7 +60,7 @@ The format of the data you will download is .json. Don't worry about this as we 
 # I may provide you with my history if you have none
 # location_history <- fromJSON("data/LocationHistory.json")
 # save(location_history, file = "data/location_history.Rdata")
-load("../data/location_history.Rdata")
+load("../data/location_history.RData")
 ```
 
 ## Check the data
@@ -140,7 +141,7 @@ Up next we will look at the map of all of these points.
 ```{r googlemap-self-1, warning=FALSE, message=FALSE}
 # First we must download the  map of South Africa
 # south_africa <- get_map(location = 'GSouth Africa', zoom = 5)
-load("../data/south_africa.Rdata")
+load("../data/south_africa.RData")
 
 # Then we may plot our points on it
 ggmap(south_africa) + 
@@ -154,7 +155,7 @@ Now let's focus on the Cape Town area specifically.
 ```{r googlemap-self-2, warning=FALSE, message=FALSE}
 # Download Cape Town map
 # cape_town <- get_map(location = 'Cape Town', zoom = 12)
-load("../data/cape_town.Rdata")
+load("../data/cape_town.RData")
 
 # Create the map
 ggmap(cape_town) + 

@@ -36,8 +36,9 @@ knitr::opts_chunk$set(
 * Interactive Session: The basics of **`ggplot2`**
 * -- break --
 * Interactive Session: Faceting figures in **`ggplot2`**
-* Interactive Session: Brewing colours in **`ggplot2`**
 * -- lunch --
+* Interactive Session: Brewing colours in **`ggplot2`**
+* -- break --
 * Assignment: DIY figures
 *	-- end --
 
@@ -46,8 +47,9 @@ knitr::opts_chunk$set(
 * Interactive Session: Mapping with **`ggplot2`**
 * -- break --
 * Interactive Session: Mapping with style
-* Interactive Session: Mapping with Google
 * -- lunch --
+* Interactive Session: Mapping with Google
+* -- break --
 * Assignment: DIY maps
 *	-- end --
 

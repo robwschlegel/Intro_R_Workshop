@@ -28,7 +28,7 @@ library(tidyverse)
 
 As we may see in the following figure (Figure \@ref(fig:tidy)), the tidying of ones data should be the second step in any workflow, after the loading of the data.
 
-```{r tidy, echo = FALSE, out.width = "80%", fig.align = "center", fig.cap = "Data tidying in the data processing pipeline. Reproduced from [R for Data Science](http://r4ds.had.co.nz/workflow-basics.html)"}
+```{r tidy, echo = FALSE, out.width = "100%", fig.align = "center", fig.cap = "Data tidying in the data processing pipeline. Reproduced from [R for Data Science](http://r4ds.had.co.nz/workflow-basics.html)"}
 knitr::include_graphics("figures/data-science-wrangle.png")
 ```
 
@@ -40,7 +40,7 @@ But what exactly are **tidy data**? It is not just a a buzz word, there is a rea
 
 This is represented graphically in figure \@ref(fig:tidy-structure). One will generally satisfy these three rules effortlessly simply by never putting more than one dataset in a file, and never putting more (or less) than one variable in the same column. We will go over this several more times today so do not fret if those guidelines are not immediately clear.
 
-```{r tidy-structure, echo = FALSE, out.width = "80%", fig.align = "center", fig.cap = "Following three rules make a dataset tidy --- variables are in columns, observations are in rows, and values are in cells. Reproduced from [R for Data Science](http://r4ds.had.co.nz/workflow-basics.html)"}
+```{r tidy-structure, echo = FALSE, out.width = "100%", fig.align = "center", fig.cap = "Following three rules make a dataset tidy --- variables are in columns, observations are in rows, and values are in cells. Reproduced from [R for Data Science](http://r4ds.had.co.nz/workflow-basics.html)"}
 knitr::include_graphics("figures/tidy-1.png")
 ```
 
