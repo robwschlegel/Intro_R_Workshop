@@ -10,6 +10,10 @@
 
 
 
+## Venue, date and time
+ 
+This workshop will take place in the week of **18 February -- 23 February 2018**, from **9:00--16:00** each day. We will meet in the BCB computer lab on the 5th floor.
+
 ## Course outline
 
 ### Day 1 -- In the Beginning {-}
@@ -195,8 +199,8 @@ rnorm(n = 10, mean = 0, sd = 13)
 ```
 
 ```
-R>  [1]   7.251992  12.155790 -11.727610   6.030646  -8.989878  -8.331947
-R>  [7]  27.182047 -25.548516   7.485387  21.269391
+R>  [1]   7.5876840  -3.0560084  -7.6685907 -10.4599125 -23.5959335
+R>  [6]  -7.1127175  -0.2549454 -11.0591750 -10.9352205  -3.1023746
 ```
 
 Consult these resources for more about R code style :
@@ -211,14 +215,10 @@ We can also insert maths expressions, like this $f(k) = {n \choose k} p^{k} (1-p
 
 This document was written in **`bookdown`** and transformed into the 'GitBook' you see here by **`knitr`**, **pandoc** and \LaTeX\ (Figure \@ref(fig:rmarkdown)). All the source code and associated data are available at AJ Smit's [GitHub page](https://github.com/ajsmit/Intro_R_Workshop). You can download the source code and compile this document on your own computer. If you can compile the document yourself you are officially a geek -- welcome to the club! Note that you will need to complete the exercises in the chapter, An R workflow, before this will be possible.
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figures/RMarkdownFlow} 
-
-}
-
-\caption{The Rmarkdown workflow.}(\#fig:rmarkdown)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figures/RMarkdownFlow.png" alt="The Rmarkdown workflow." width="100%" />
+<p class="caption">(\#fig:rmarkdown)The Rmarkdown workflow.</p>
+</div>
 
 You will notice that this repository uses [GitHub](https://github.com), and you are advised to set up your own repository for R scripts and all your data. We will touch on GitHub and the principles of reproducible research later, and GitHub forms a core ingredient of such a workflow.
 
@@ -249,10 +249,11 @@ R> attached base packages:
 R> [1] stats     graphics  grDevices utils     datasets  base     
 R> 
 R> loaded via a namespace (and not attached):
-R>  [1] compiler_3.4.3  backports_1.1.0 bookdown_0.5    magrittr_1.5   
-R>  [5] rprojroot_1.2   tools_3.4.3     htmltools_0.3.6 yaml_2.1.14    
-R>  [9] Rcpp_0.12.14    stringi_1.1.5   rmarkdown_1.6   knitr_1.17     
-R> [13] methods_3.4.3   stringr_1.2.0   digest_0.6.15   evaluate_0.10.1
+R>  [1] compiler_3.4.3  backports_1.1.2 bookdown_0.6    magrittr_1.5   
+R>  [5] rprojroot_1.3-2 tools_3.4.3     htmltools_0.3.6 yaml_2.1.16    
+R>  [9] Rcpp_0.12.15    stringi_1.1.6   rmarkdown_1.8   highr_0.6      
+R> [13] knitr_1.19      methods_3.4.3   xfun_0.1        stringr_1.2.0  
+R> [17] digest_0.6.15   evaluate_0.10.1
 ```
 
 ## Exercise: It which shall not be named

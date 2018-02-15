@@ -1,5 +1,6 @@
 --- 
 title: "Intro R Workshop: Data Manipulation, Analysis, and Visualisation"
+subtitle: "UWC BCB Honours 2018"
 author: "Robert W Schlegel & AJ Smit"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site

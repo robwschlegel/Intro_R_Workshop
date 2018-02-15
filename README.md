@@ -53,3 +53,6 @@ Introductory R course
 ### January 29th, 2018
 * Fixed up 'Mapping Yourself' tut
 * Created 'Basic Stats' tut
+
+### February 15th, 2018
+* Updated landing page for UWC course

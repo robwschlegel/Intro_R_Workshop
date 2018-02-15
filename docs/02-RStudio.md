@@ -16,14 +16,10 @@
 
 Before we start using RStudio (which is a code editor and environment that runs R) let's first set it up properly. Find the 'Tools' ('Preferences') menu item, navigate to 'Global Options' ('Code Editing') and select the tick boxes as shown in Figure \@ref(fig:RStudio-prefs).
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{figures/RStudio_preferences} 
-
-}
-
-\caption{The RStudio Preferences menu.}(\#fig:RStudio-prefs)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="figures/RStudio_preferences.png" alt="The RStudio Preferences menu." width="100%" />
+<p class="caption">(\#fig:RStudio-prefs)The RStudio Preferences menu.</p>
+</div>
 
 ### Customising appearance
 
@@ -40,7 +36,7 @@ A very nifty way of managing workflow in RStudio is through the built-in functio
 
 
 
-The most common functions used in R are contained within the **`base`** package; this makes R useful 'out of the box.' However, there is extensive additional functionality that is being expanded all the time through the use of packages. Packages are simply collections of code called functions that automate complex mathematical or statistical tasks. One of the most useful features of R is that users are continuously developing new packages and making them available for free. You can find a comprehensive list of available packages on the [CRAN website](https://cran.r-project.org/web/packages/). There are currently (``2018-01-29``) ``12081`` packages available for R!
+The most common functions used in R are contained within the **`base`** package; this makes R useful 'out of the box.' However, there is extensive additional functionality that is being expanded all the time through the use of packages. Packages are simply collections of code called functions that automate complex mathematical or statistical tasks. One of the most useful features of R is that users are continuously developing new packages and making them available for free. You can find a comprehensive list of available packages on the [CRAN website](https://cran.r-project.org/web/packages/). There are currently (``2018-02-15``) ``12156`` packages available for R!
 
 If the thought of searching for and finding R packages is daunting, a good place to start is the [R Task View](http://cran.r-project.org/web/views/) page. This page curates collections of packages for general tasks you might encounter, such as Experimental Design, Meta-Analysis, or Multivariate Analysis. Go and have a look for yourself, you might be surprised to find a good explanation of what you need.
 
@@ -279,4 +275,7 @@ ggplot() +
   geom_point(aes(x = x, y = y), shape = 21, col = "salmon", fill = "white")
 ```
 
-![(\#fig:ggplot2-1)The same plot as above, but assembled with __ggplot2__.](02-RStudio_files/figure-latex/ggplot2-1-1.pdf) 
+<div class="figure">
+<img src="02-RStudio_files/figure-html/ggplot2-1-1.png" alt="The same plot as above, but assembled with __ggplot2__." width="672" />
+<p class="caption">(\#fig:ggplot2-1)The same plot as above, but assembled with __ggplot2__.</p>
+</div>

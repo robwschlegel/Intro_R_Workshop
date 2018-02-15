@@ -1,7 +1,8 @@
 --- 
 title: "Intro R Workshop: Data Manipulation, Analysis, and Visualisation"
+subtitle: "UWC BCB Honours 2018"
 author: "Robert W Schlegel & AJ Smit"
-date: "2018-01-29"
+date: "2018-02-15"
 site: bookdown::bookdown_site
 github-repo: "robwschlegel/Intro_R_Workshop"
 cover-image: "figures/769_life_finds_a_way.png"
@@ -14,8 +15,7 @@ description: "The basics for a safe voyage through the tidyverse."
 
 # Preface {-}
 
-
-\begin{center}\includegraphics[width=1\linewidth]{figures/769_life_finds_a_way} \end{center}
+<img src="figures/769_life_finds_a_way.png" width="100%" style="display: block; margin: auto;" />
 
 This online book contains all of the content to be covered in this Intro R Workshop.  
 The associated files may be downloaded at: https://github.com/robwschlegel/Intro_R_Workshop  
