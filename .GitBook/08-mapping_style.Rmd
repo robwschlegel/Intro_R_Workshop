@@ -109,7 +109,7 @@ There are a lot of exciting things going on in our figure now. To round out our 
 ```{r maps-final, fig.cap="The final map with all of the bells and whistles."}
 sa_final <- sa_4 +
   scale_x_continuous(breaks = seq(16, 32, 4),
-                     labels = scales::unit_format("°E", sep = ""),
+                     labels = c("16°E", "20°E", "24°E", "28°E", "32°E"),
                      position = "bottom") +
   scale_y_continuous(breaks = seq(-36, -24, 4),
                      labels = c("36.0°S", "32.0°S", "28.0°S", "24.0°S"),

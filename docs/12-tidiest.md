@@ -52,19 +52,19 @@ SACTN_depth_mean
 R> # A tibble: 13 x 3
 R>    depth mean_temp count
 R>    <dbl>     <dbl> <int>
-R>  1  0         19.5 26299
-R>  2  2.00      13.0   237
-R>  3  3.00      17.6   141
-R>  4  4.00      16.6   529
-R>  5  5.00      15.0   408
-R>  6  7.00      17.2   227
-R>  7  8.00      17.8   201
-R>  8  9.00      13.8   311
-R>  9 10.0       19.5   362
-R> 10 12.0       24.3   137
-R> 11 14.0       22.3   223
-R> 12 18.0       24.4   191
-R> 13 28.0       14.8   306
+R>  1     0      19.5 26299
+R>  2     2      13.0   237
+R>  3     3      17.6   141
+R>  4     4      16.6   529
+R>  5     5      15.0   408
+R>  6     7      17.2   227
+R>  7     8      17.8   201
+R>  8     9      13.8   311
+R>  9    10      19.5   362
+R> 10    12      24.3   137
+R> 11    14      22.3   223
+R> 12    18      24.4   191
+R> 13    28      14.8   306
 ```
 
 Let's visualise our newly created summary dataframe and see what we get.
@@ -328,16 +328,16 @@ R> # A tibble: 10 x 3
 R> # Groups:   site, src [1]
 R>    site         src   kelvin
 R>    <fct>        <chr>  <dbl>
-R>  1 Port Nolloth DEA      285
-R>  2 Port Nolloth DEA      285
-R>  3 Port Nolloth DEA      285
-R>  4 Port Nolloth DEA      285
-R>  5 Port Nolloth DEA      285
-R>  6 Port Nolloth DEA      286
-R>  7 Port Nolloth DEA      284
-R>  8 Port Nolloth DEA      284
-R>  9 Port Nolloth DEA      285
-R> 10 Port Nolloth DEA      284
+R>  1 Port Nolloth DEA     285.
+R>  2 Port Nolloth DEA     285.
+R>  3 Port Nolloth DEA     285.
+R>  4 Port Nolloth DEA     285.
+R>  5 Port Nolloth DEA     285.
+R>  6 Port Nolloth DEA     286.
+R>  7 Port Nolloth DEA     284.
+R>  8 Port Nolloth DEA     284.
+R>  9 Port Nolloth DEA     285.
+R> 10 Port Nolloth DEA     284.
 ```
 
 ### Count observations (rows) with `n()`
@@ -482,8 +482,8 @@ R> 2 SAWS   8636     4882   0.565
 R> 3 UWC      12        7   0.583
 R> 4 DEA    2087     1388   0.665
 R> 5 SAEON   596      573   0.961
-R> 6 EKZNW   369      369   1.00 
-R> 7 KZNSB 15313    15313   1.00
+R> 6 EKZNW   369      369   1    
+R> 7 KZNSB 15313    15313   1
 ```
 
 ## The new age *redux*
